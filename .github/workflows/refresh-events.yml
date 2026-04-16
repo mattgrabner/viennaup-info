@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name "viennaup-bot"
           git config user.email "viennaup-bot@users.noreply.github.com"
-          git add data/events.json data/geocode-cache.json data/page-cache.json
+          git add data/events.json data/geocode-cache.json data/page-cache.json data/skills/*.md
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else

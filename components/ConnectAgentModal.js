@@ -10,74 +10,6 @@ function buildClients(mcpUrl) {
 
   return [
     {
-      id: "openclaw",
-      label: "OpenClaw 🦞",
-      showFeatureCard: true,
-      tagline: "One-click skill bundle",
-      intro: (
-        <>
-          We built a ready-made OpenClaw skill for ViennaUP. Install the skill
-          bundle, point it at the hosted HTTP API, and OpenClaw can answer
-          programme questions without a separate MCP server config.
-        </>
-      ),
-      download: {
-        href: "/api/agent-skill",
-        filename: "viennaup-events.skill.zip",
-        label: "Download skill (.zip)"
-      },
-      steps: [
-        {
-          title: "1. Unzip into your OpenClaw skills folder",
-          code: `mkdir -p ~/.openclaw/skills\nunzip viennaup-events.skill.zip -d ~/.openclaw/skills/`,
-          lang: "bash"
-        },
-        {
-          title: "2. Configure the skill env",
-          desc: (
-            <>
-              Merge this block into <span className={styles.kbd}>~/.openclaw/openclaw.json</span> under
-              {" "}
-              <span className={styles.kbd}>skills.entries</span>:
-            </>
-          ),
-          code: jsonBlock({
-            skills: {
-              entries: {
-                [SERVER_NAME]: {
-                  enabled: true,
-                  env: {
-                    VIENNAUP_API_BASE_URL: `${mcpUrl.replace(/\/mcp$/, "")}/openclaw`
-                  }
-                }
-              }
-            }
-          }),
-          lang: "json"
-        },
-        {
-          title: "3. Refresh skills",
-          desc: (
-            <>
-              Start a new OpenClaw turn. If the skill does not show up immediately, check
-              {" "}
-              <span className={styles.kbd}>openclaw skills list</span> or restart the gateway.
-            </>
-          ),
-          code: "openclaw skills list",
-          lang: "bash"
-        },
-        {
-          title: "4. Try it",
-          desc: (
-            <>
-              Ask your agent: <em>"Using the viennaup-events skill, recommend sessions on 18 May for an impact investor."</em>
-            </>
-          )
-        }
-      ]
-    },
-    {
       id: "claude-code",
       label: "Claude Code",
       steps: [
@@ -95,7 +27,7 @@ function buildClients(mcpUrl) {
           title: "Option B — manual config",
           desc: (
             <>
-              Add this to your <span className={styles.kbd}>~/.claude.json</span> (project scope works too):
+              Add this to your <span className={styles.kbd}>~/.claude.json</span> (project scope works too). This is for Claude Code, not Claude Desktop:
             </>
           ),
           code: jsonBlock({
@@ -113,6 +45,47 @@ function buildClients(mcpUrl) {
           desc: (
             <>
               Restart <span className={styles.kbd}>claude</span>, then ask: <em>"Using the {SERVER_NAME} MCP, recommend ViennaUP events for an investor on the 18th."</em>
+            </>
+          )
+        }
+      ]
+    },
+    {
+      id: "claude-desktop",
+      label: "Claude Desktop",
+      steps: [
+        {
+          title: "Option A — add a remote connector",
+          desc: (
+            <>
+              In Claude Desktop, open <strong>Settings → Connectors</strong>, choose <strong>Add custom connector</strong>, and paste the MCP URL below. Do not put a remote HTTP MCP server directly into <span className={styles.kbd}>claude_desktop_config.json</span>.
+            </>
+          ),
+          code: mcpUrl,
+          lang: "text"
+        },
+        {
+          title: "Option B — stdio bridge fallback",
+          desc: (
+            <>
+              If you need to use <span className={styles.kbd}>claude_desktop_config.json</span>, bridge the remote server through <span className={styles.kbd}>mcp-remote</span>:
+            </>
+          ),
+          code: jsonBlock({
+            mcpServers: {
+              [SERVER_NAME]: {
+                command: "npx",
+                args: ["-y", "mcp-remote", mcpUrl]
+              }
+            }
+          }),
+          lang: "json"
+        },
+        {
+          title: "Why your config was skipped",
+          desc: (
+            <>
+              Claude Desktop only accepts local stdio-style MCP entries in <span className={styles.kbd}>claude_desktop_config.json</span>. A remote HTTP config such as <span className={styles.kbd}>{"{ url: ... }"}</span> or <span className={styles.kbd}>{"{ type: \"http\", url: ... }"}</span> is treated as invalid there.
             </>
           )
         }
@@ -266,7 +239,7 @@ function buildClients(mcpUrl) {
 }
 
 export default function ConnectAgentModal({ open, onClose }) {
-  const [activeTab, setActiveTab] = useState("openclaw");
+  const [activeTab, setActiveTab] = useState("claude-code");
   const [mcpUrl, setMcpUrl] = useState("/api/mcp");
   const [copiedId, setCopiedId] = useState(null);
   const dialogRef = useRef(null);
@@ -338,6 +311,35 @@ export default function ConnectAgentModal({ open, onClose }) {
           <button type="button" className={styles.copyBtn} onClick={() => copy(mcpUrl, "url")}>
             {copiedId === "url" ? "Copied" : "Copy"}
           </button>
+        </div>
+
+        <div className={styles.downloadsRow}>
+          <div>
+            <div className={styles.downloadsTitle}>Portable skill files</div>
+            <p className={styles.downloadsHint}>
+              Static markdown snapshots generated from the latest programme data.
+              Useful for Claude skills or OpenClaw context when you do not want
+              to rely on a live MCP connection.
+            </p>
+          </div>
+          <div className={styles.downloadActions}>
+            <a
+              className={styles.downloadBtn}
+              href="/api/skill-file/claude"
+              download="viennaup-events-claude.md"
+            >
+              <span aria-hidden="true" className={styles.downloadIcon}>↓</span>
+              Claude skill (.md)
+            </a>
+            <a
+              className={styles.downloadBtn}
+              href="/api/skill-file/openclaw"
+              download="viennaup-events-openclaw.md"
+            >
+              <span aria-hidden="true" className={styles.downloadIcon}>↓</span>
+              OpenClaw skill (.md)
+            </a>
+          </div>
         </div>
 
         <div className={styles.tabs} role="tablist">
