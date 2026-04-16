@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///Users/matthiasgrabner/Documents/Sideprojects/viennaup-maps/app/globals.css"],"sourcesContent":[":root {\n  color-scheme: dark;\n  /* Aligned with viennamapstyle.json (night transit / U-Bahn palette) */\n  --bg: #0c0c1e;\n  --panel: #12122a;\n  --panel-soft: #18183a;\n  --text: #f4f2ff;\n  --text-muted: #a8a0c8;\n  --accent: #e8186e;\n  --accent-2: #47b5e5;\n  --accent-gold: #e8d840;\n  --border: #2a2050;\n}\n\n* {\n  box-sizing: border-box;\n}\n\nhtml,\nbody {\n  margin: 0;\n  padding: 0;\n  font-family: Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;\n  background: radial-gradient(circle at top right, #1a1040 0%, var(--bg) 55%);\n  color: var(--text);\n  min-height: 100%;\n}\n\na {\n  color: inherit;\n}\n"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;AAcA;;;;AAIA;;;;;;;;;AAUA"}}]
-}

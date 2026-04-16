@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 58, "column": 0}, "map": {"version":3,"sources":["file:///Users/matthiasgrabner/Documents/Sideprojects/viennaup-maps/app/api/map-style/route.js"],"sourcesContent":["import { readFile } from \"node:fs/promises\";\nimport path from \"node:path\";\nimport { NextResponse } from \"next/server\";\n\nexport async function GET() {\n  const filePath = path.join(process.cwd(), \"viennamapstyle.json\");\n  const raw = await readFile(filePath, \"utf8\");\n  return new NextResponse(raw, {\n    headers: {\n      \"Content-Type\": \"application/json; charset=utf-8\",\n      \"Cache-Control\": \"public, max-age=3600\"\n    }\n  });\n}\n"],"names":["GET","filePath","join","process","cwd","raw","headers"],"mappings":";;;;AAAA;AACA;AACA;;;;AAEO,eAAeA;IACpB,MAAMC,WAAW,4HAAI,CAACC,IAAI,CAACC,QAAQC,GAAG,IAAI;IAC1C,MAAMC,MAAM,MAAM,IAAA,iJAAQ,EAACJ,UAAU;IACrC,OAAO,IAAI,gJAAY,CAACI,KAAK;QAC3BC,SAAS;YACP,gBAAgB;YAChB,iBAAiB;QACnB;IACF;AACF"}}]
-}
