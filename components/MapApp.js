@@ -259,7 +259,7 @@ export default function MapApp({ initialEvents }) {
     let cancelled = false;
 
     async function renderMarkers() {
-      const { AdvancedMarkerElement, PinElement } = await window.google.maps.importLibrary("marker");
+      const { AdvancedMarkerElement } = await window.google.maps.importLibrary("marker");
       if (cancelled) return;
 
       markersRef.current.forEach((marker) => {
@@ -268,19 +268,15 @@ export default function MapApp({ initialEvents }) {
       markersRef.current = [];
 
       const markers = groupedByLocation.map((group) => {
-        const pin = new PinElement({
-          background: "#47b5e5",
-          borderColor: "#f5e100",
-          glyphColor: "#0c0c1e",
-          glyph: String(group.events.length),
-          scale: 1.2
-        });
+        const circle = document.createElement("div");
+        circle.className = styles.mapMarker;
+        circle.textContent = String(group.events.length);
 
         const marker = new AdvancedMarkerElement({
           position: group.geo,
           map: mapState.map,
           title: `${group.location} (${group.events.length})`,
-          content: pin.element,
+          content: circle,
           gmpClickable: true
         });
 
