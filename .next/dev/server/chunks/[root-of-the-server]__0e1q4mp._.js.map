@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 46, "column": 0}, "map": {"version":3,"sources":["file:///Users/matthiasgrabner/Documents/Sideprojects/viennaup-maps/app/api/maps-key/route.js"],"sourcesContent":["import { NextResponse } from \"next/server\";\n\nexport async function GET() {\n  const key = process.env.GOOGLE_MAPS_API_KEY || process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || \"\";\n  const mapId = process.env.GOOGLE_MAPS_MAP_ID || process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID || \"\";\n  return NextResponse.json({ key, mapId: mapId.trim() || null });\n}\n"],"names":["GET","key","process","env","GOOGLE_MAPS_API_KEY","NEXT_PUBLIC_GOOGLE_MAPS_API_KEY","mapId","GOOGLE_MAPS_MAP_ID","NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID","json","trim"],"mappings":";;;;AAAA;;AAEO,eAAeA;IACpB,MAAMC,MAAMC,QAAQC,GAAG,CAACC,mBAAmB,IAAIF,QAAQC,GAAG,CAACE,+BAA+B,IAAI;IAC9F,MAAMC,QAAQJ,QAAQC,GAAG,CAACI,kBAAkB,IAAIL,QAAQC,GAAG,CAACK,8BAA8B,IAAI;IAC9F,OAAO,gJAAY,CAACC,IAAI,CAAC;QAAER;QAAKK,OAAOA,MAAMI,IAAI,MAAM;IAAK;AAC9D"}}]
+}

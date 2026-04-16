@@ -1,0 +1,9 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/events/route": "/api/events",
+  "/api/map-style/route": "/api/map-style",
+  "/api/maps-key/route": "/api/maps-key",
+  "/api/scrape/route": "/api/scrape",
+  "/page": "/"
+}

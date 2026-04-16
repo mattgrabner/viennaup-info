@@ -1,0 +1,5 @@
+{
+  "/api/map-style/route": "app/api/map-style/route.js",
+  "/api/maps-key/route": "app/api/maps-key/route.js",
+  "/page": "app/page.js"
+}
