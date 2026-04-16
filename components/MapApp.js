@@ -122,6 +122,22 @@ function geoGroupKey(event) {
   return `${event.geo.lat.toFixed(5)}::${event.geo.lng.toFixed(5)}`;
 }
 
+/** Brand gold → pink interpolation for marker density. `t` is clamped to [0, 1]. */
+const MARKER_COLOR_LOW = { r: 0xe8, g: 0xd8, b: 0x40 };
+const MARKER_COLOR_HIGH = { r: 0xe8, g: 0x18, b: 0x6e };
+
+function mixMarkerColor(t) {
+  const k = Math.max(0, Math.min(1, t));
+  const r = Math.round(MARKER_COLOR_LOW.r + (MARKER_COLOR_HIGH.r - MARKER_COLOR_LOW.r) * k);
+  const g = Math.round(MARKER_COLOR_LOW.g + (MARKER_COLOR_HIGH.g - MARKER_COLOR_LOW.g) * k);
+  const b = Math.round(MARKER_COLOR_LOW.b + (MARKER_COLOR_HIGH.b - MARKER_COLOR_LOW.b) * k);
+  return { r, g, b };
+}
+
+function rgbString({ r, g, b }, a = 1) {
+  return a >= 1 ? `rgb(${r}, ${g}, ${b})` : `rgba(${r}, ${g}, ${b}, ${a})`;
+}
+
 /** Same venue often appears with different spelling in source data; pick a stable label for the pin heading. */
 function pickRepresentativeLocation(events) {
   const counts = new NativeMap();
@@ -267,10 +283,33 @@ export default function MapApp({ initialEvents }) {
       });
       markersRef.current = [];
 
+      const maxEventsAtLocation = groupedByLocation.reduce(
+        (acc, group) => Math.max(acc, group.events.length),
+        1
+      );
+      // Log-scale the ramp so a handful of mega-venues don't flatten everything else to yellow.
+      const denom = Math.log2(maxEventsAtLocation + 1) || 1;
+
       const markers = groupedByLocation.map((group) => {
+        const count = group.events.length;
+        const t = maxEventsAtLocation > 1 ? Math.log2(count + 1) / denom : 0;
+        const color = mixMarkerColor(t);
+        const size = Math.round(44 + t * 36); // 44px (few) → 80px (many)
+        const fontSize = Math.max(0.95, 0.95 + t * 0.45); // rem
+
         const circle = document.createElement("div");
         circle.className = styles.mapMarker;
-        circle.textContent = String(group.events.length);
+        circle.textContent = String(count);
+        circle.style.width = `${size}px`;
+        circle.style.height = `${size}px`;
+        circle.style.minWidth = `${size}px`;
+        circle.style.fontSize = `${fontSize}rem`;
+        circle.style.background = rgbString(color);
+        circle.style.boxShadow = [
+          "0 0 0 2px rgba(12, 12, 30, 0.9)",
+          `0 2px 14px ${rgbString(color, 0.55)}`,
+          "0 8px 20px rgba(0, 0, 0, 0.55)"
+        ].join(", ");
 
         const marker = new AdvancedMarkerElement({
           position: group.geo,
