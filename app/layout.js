@@ -1,5 +1,6 @@
 import "./globals.css";
 import Script from "next/script";
+import ConsentBanner from "@/components/ConsentBanner";
 
 export const metadata = {
   title: "ViennaUP Event Map",
@@ -11,7 +12,10 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-ERK6DHM8F6";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        {GA_ID ? <ConsentBanner /> : null}
+      </body>
       {GA_ID ? (
         <>
           <Script id="google-consent-defaults" strategy="beforeInteractive">

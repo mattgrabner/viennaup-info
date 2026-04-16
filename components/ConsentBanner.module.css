@@ -1,0 +1,93 @@
+.banner {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 70;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background:
+    radial-gradient(120% 160% at 0% 0%, rgba(232, 24, 110, 0.14), transparent 60%),
+    radial-gradient(120% 160% at 100% 100%, rgba(71, 181, 229, 0.14), transparent 60%),
+    rgba(12, 12, 30, 0.96);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(8px);
+}
+
+.copy {
+  max-width: 58ch;
+}
+
+.copy strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.copy p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.65rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  appearance: none;
+  border-radius: 999px;
+  padding: 0.72rem 1rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.primaryButton {
+  border: 0;
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-2));
+  color: #0c0c1e;
+  box-shadow: 0 10px 24px rgba(71, 181, 229, 0.24);
+}
+
+.secondaryButton {
+  border: 1px solid var(--border);
+  background: rgba(24, 24, 58, 0.9);
+  color: var(--text);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-1px);
+}
+
+.secondaryButton:hover {
+  border-color: var(--accent-2);
+}
+
+@media (max-width: 720px) {
+  .banner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions {
+    justify-content: stretch;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+}
