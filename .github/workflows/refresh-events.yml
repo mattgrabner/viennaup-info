@@ -1,0 +1,52 @@
+name: Refresh ViennaUP events
+
+on:
+  schedule:
+    # 22:00 UTC = 00:00 Vienna time during CEST (April-October, which covers ViennaUP).
+    # In winter (CET) this runs at 23:00 Vienna time; adjust to "0 23 * * *" if you want
+    # strict midnight year-round during CET.
+    - cron: "0 22 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-events
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Scrape and geocode events
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+        run: node scripts/scrape.mjs
+
+      - name: Commit updated data
+        run: |
+          git config user.name "viennaup-bot"
+          git config user.email "viennaup-bot@users.noreply.github.com"
+          git add data/events.json data/geocode-cache.json data/page-cache.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore(data): refresh ViennaUP events [skip ci]"
+            git push
+          fi

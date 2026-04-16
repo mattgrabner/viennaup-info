@@ -2,11 +2,14 @@
   display: grid;
   grid-template-columns: minmax(320px, 430px) 1fr;
   grid-template-rows: 1fr auto;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 .sidebar {
   min-height: 0;
+  overflow: hidden;
   background: linear-gradient(165deg, rgba(18, 18, 42, 0.97), rgba(12, 12, 30, 0.99));
   border-right: 1px solid var(--border);
   padding: 1rem;
@@ -108,6 +111,27 @@
   background: rgba(24, 16, 44, 0.55);
 }
 
+.eventItem {
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.eventItem:hover {
+  border-color: var(--accent-2);
+  background: rgba(40, 24, 70, 0.7);
+}
+
+.eventItemLocationActive {
+  border-color: rgba(245, 225, 0, 0.6);
+  background: rgba(48, 32, 72, 0.7);
+}
+
+.eventItemActive {
+  border-color: var(--accent-gold, #f5e100);
+  background: rgba(64, 40, 96, 0.9);
+  box-shadow: 0 0 0 2px rgba(245, 225, 0, 0.45), 0 10px 24px rgba(232, 24, 110, 0.25);
+}
+
 .eventList h3 {
   margin: 0 0 0.4rem;
   font-size: 0.95rem;
@@ -172,9 +196,14 @@
   .page {
     grid-template-columns: 1fr;
     grid-template-rows: auto minmax(60vh, 1fr) auto;
+    height: auto;
+    max-height: none;
+    min-height: 100vh;
+    overflow: visible;
   }
 
   .sidebar {
+    overflow: visible;
     border-right: 0;
     border-bottom: 1px solid var(--border);
   }

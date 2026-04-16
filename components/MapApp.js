@@ -25,105 +25,57 @@ async function fetchMapStyleRules() {
  * legacy JSON from `/api/map-style` as `styles`. Do not pass both; that conflicts with vector Map + styling.
  */
 
-function getGoogleMapsApiScripts() {
-  return [...document.querySelectorAll('script[src*="maps.googleapis.com/maps/api/js"]')];
-}
-
-function mapsScriptSrcIsCompatible(scriptSrc) {
-  try {
-    const url = new URL(scriptSrc, "https://maps.googleapis.com");
-    if (!url.pathname.includes("/maps/api/js")) return false;
-    const libs = (url.searchParams.get("libraries") || "")
-      .split(",")
-      .map((s) => s.trim())
-      .filter(Boolean);
-    if (libs.includes("visualization")) return false;
-    if (url.searchParams.get("loading") === "async") return false;
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-function isStaleMapsRuntime() {
-  return Boolean(window.google?.maps?.visualization?.HeatmapLayer);
-}
-
-async function waitForGoogleMapsReady(timeoutMs = 20000) {
-  const start = Date.now();
-  while (!window.google?.maps) {
-    if (Date.now() - start > timeoutMs) {
-      throw new Error("Timed out waiting for Google Maps JavaScript API");
-    }
-    await new Promise((resolve) => setTimeout(resolve, 50));
-  }
-}
-
-async function waitForMapConstructor(timeoutMs = 20000) {
-  const start = Date.now();
-  while (typeof window.google?.maps?.Map !== "function") {
-    if (Date.now() - start > timeoutMs) {
-      throw new Error("Timed out waiting for google.maps.Map");
-    }
-    await new Promise((resolve) => setTimeout(resolve, 40));
-  }
-}
-
-async function loadGoogleMaps(key) {
+/**
+ * Load the modern async Google Maps bootstrap. Exposes `google.maps.importLibrary`, which callers
+ * must use to pull in specific libraries (e.g. `maps`, `marker`).
+ *
+ * With `loading=async`, the plain `script.onload` event fires BEFORE `google.maps.importLibrary`
+ * is attached, so we use the `callback` query parameter (the documented async-ready signal) and
+ * cache the promise on `window` to survive React Strict Mode's double-invoked effects in dev.
+ */
+function loadGoogleMaps(key) {
   if (!key) throw new Error("Missing Google Maps API key");
 
-  for (const s of getGoogleMapsApiScripts()) {
-    if (mapsScriptSrcIsCompatible(s.src) && !window.google?.maps) {
-      s.remove();
-    }
+  if (window.google?.maps?.importLibrary) {
+    return Promise.resolve(window.google);
   }
 
-  let scripts = getGoogleMapsApiScripts();
-  const hasCompatibleScript = scripts.some((s) => mapsScriptSrcIsCompatible(s.src));
-
-  if (window.google?.maps && hasCompatibleScript && !isStaleMapsRuntime()) {
-    try {
-      await waitForMapConstructor();
-      return window.google;
-    } catch {
-      /* fall through to reinject / repair */
-    }
+  if (window.__viennaUpGmapsPromise) {
+    return window.__viennaUpGmapsPromise;
   }
 
-  for (const s of scripts) {
-    if (!mapsScriptSrcIsCompatible(s.src)) {
-      s.remove();
-    }
-  }
+  window.__viennaUpGmapsPromise = new Promise((resolve, reject) => {
+    window.__viennaUpGmapsReady = () => {
+      resolve(window.google);
+    };
 
-  if (isStaleMapsRuntime()) {
-    try {
-      delete window.google;
-    } catch {
-      window.google = undefined;
+    const existing = document.querySelector('script[data-gmaps-loader="1"]');
+    if (existing) {
+      existing.addEventListener(
+        "error",
+        () => reject(new Error("Failed to load Google Maps script")),
+        { once: true }
+      );
+      return;
     }
-  }
 
-  if (!getGoogleMapsApiScripts().some((s) => mapsScriptSrcIsCompatible(s.src))) {
-    await new Promise((resolve, reject) => {
-      const script = document.createElement("script");
-      const params = new URLSearchParams({
-        key,
-        v: "weekly"
-      });
-      script.src = `https://maps.googleapis.com/maps/api/js?${params.toString()}`;
-      script.async = true;
-      script.defer = true;
-      script.onload = () => resolve();
-      script.onerror = () => reject(new Error("Failed to load Google Maps script"));
-      document.head.appendChild(script);
+    const script = document.createElement("script");
+    script.dataset.gmapsLoader = "1";
+    const params = new URLSearchParams({
+      key,
+      v: "weekly",
+      loading: "async",
+      libraries: "maps,marker",
+      callback: "__viennaUpGmapsReady"
     });
-  }
+    script.src = `https://maps.googleapis.com/maps/api/js?${params.toString()}`;
+    script.async = true;
+    script.defer = true;
+    script.onerror = () => reject(new Error("Failed to load Google Maps script"));
+    document.head.appendChild(script);
+  });
 
-  await waitForGoogleMapsReady();
-  await waitForMapConstructor();
-
-  return window.google;
+  return window.__viennaUpGmapsPromise;
 }
 
 function unique(values) {
@@ -189,16 +141,16 @@ function pickRepresentativeLocation(events) {
 }
 
 export default function MapApp({ initialEvents }) {
-  const [events, setEvents] = useState(initialEvents);
+  const events = initialEvents;
   const [selectedDate, setSelectedDate] = useState("all");
   const [selectedType, setSelectedType] = useState("all");
   const [selectedFormat, setSelectedFormat] = useState("all");
   const [selectedLocation, setSelectedLocation] = useState(null);
-  const [selectedEventUids, setSelectedEventUids] = useState([]);
+  const [selectedEventUid, setSelectedEventUid] = useState(null);
   const [searchText, setSearchText] = useState("");
-  const [isRefreshing, setIsRefreshing] = useState(false);
   const [mapState, setMapState] = useState({ map: null, markers: [], initialized: false });
   const markersRef = useRef([]);
+  const eventRefs = useRef(new NativeMap());
 
   const filters = useMemo(() => {
     const dates = unique(events.map((event) => event.date));
@@ -210,7 +162,7 @@ export default function MapApp({ initialEvents }) {
   const filteredEvents = useMemo(() => {
     const query = searchText.toLowerCase().trim();
 
-    return events.filter((event) => {
+    const matches = events.filter((event) => {
       if (!event.geo) return false;
       if (selectedDate !== "all" && event.date !== selectedDate) return false;
       if (selectedType !== "all" && !(event.type || []).includes(selectedType)) return false;
@@ -220,6 +172,11 @@ export default function MapApp({ initialEvents }) {
       const haystack = getSearchableText(event).toLowerCase();
 
       return haystack.includes(query);
+    });
+
+    return matches.slice().sort((a, b) => {
+      if (a.date !== b.date) return a.date.localeCompare(b.date);
+      return (a.starttime || "").localeCompare(b.starttime || "");
     });
   }, [events, selectedDate, selectedType, selectedFormat, searchText]);
 
@@ -242,18 +199,10 @@ export default function MapApp({ initialEvents }) {
     }));
   }, [filteredEvents]);
 
-  const selectedLocationData = useMemo(() => {
-    if (!selectedLocation || selectedEventUids.length === 0) return null;
-
-    const locationEvents = filteredEvents.filter((event) => selectedEventUids.includes(event.uid));
-    if (locationEvents.length === 0) return null;
-
-    return {
-      key: selectedLocation,
-      location: pickRepresentativeLocation(locationEvents),
-      events: locationEvents
-    };
-  }, [filteredEvents, selectedEventUids, selectedLocation]);
+  const selectedEvent = useMemo(() => {
+    if (!selectedEventUid) return null;
+    return filteredEvents.find((event) => event.uid === selectedEventUid) || null;
+  }, [filteredEvents, selectedEventUid]);
 
   useEffect(() => {
     let mounted = true;
@@ -270,21 +219,9 @@ export default function MapApp({ initialEvents }) {
       const el = document.getElementById("viennaup-map");
       if (!el) return;
 
-      const mapsNs = window.google.maps;
-      let GoogleMapCtor = mapsNs.Map;
-      if (typeof mapsNs.importLibrary === "function") {
-        const lib = await mapsNs.importLibrary("maps");
-        if (typeof lib.Map === "function") {
-          GoogleMapCtor = lib.Map;
-        }
-        for (const [k, v] of Object.entries(lib)) {
-          if (k === "importLibrary" || v == null) continue;
-          mapsNs[k] = v;
-        }
-      }
-      if (typeof GoogleMapCtor !== "function") {
-        throw new Error("Google Maps Map constructor not available");
-      }
+      const { Map: MapCtor } = await window.google.maps.importLibrary("maps");
+      // Preload the marker library too so the later effect can instantiate AdvancedMarkerElement without a race.
+      await window.google.maps.importLibrary("marker");
 
       const mapOptions = {
         center: VIENNA_CENTER,
@@ -298,10 +235,12 @@ export default function MapApp({ initialEvents }) {
       if (useCloudStyle) {
         mapOptions.mapId = String(mapId).trim();
       } else {
+        // AdvancedMarkerElement requires a mapId; DEMO_MAP_ID keeps local dev working without a real one.
+        mapOptions.mapId = "DEMO_MAP_ID";
         mapOptions.styles = styleRules;
       }
 
-      const map = new GoogleMapCtor(el, mapOptions);
+      const map = new MapCtor(el, mapOptions);
 
       if (mounted) {
         setMapState({ map, markers: [], initialized: true });
@@ -316,71 +255,89 @@ export default function MapApp({ initialEvents }) {
   }, [mapState.initialized]);
 
   useEffect(() => {
-    if (!mapState.map || !window.google?.maps) return;
+    if (!mapState.map || !window.google?.maps?.importLibrary) return;
+    let cancelled = false;
 
-    markersRef.current.forEach((marker) => marker.setMap(null));
-    markersRef.current = [];
+    async function renderMarkers() {
+      const { AdvancedMarkerElement, PinElement } = await window.google.maps.importLibrary("marker");
+      if (cancelled) return;
 
-    const markers = groupedByLocation.map((group) => {
-      const marker = new window.google.maps.Marker({
-        position: group.geo,
-        map: mapState.map,
-        title: `${group.location} (${group.events.length})`,
-        label: {
-          text: String(group.events.length),
-          color: "#0c0c1e",
-          fontWeight: "700"
-        },
-        icon: {
-          path: window.google.maps.SymbolPath.CIRCLE,
-          fillColor: "#47b5e5",
-          fillOpacity: 1,
-          strokeColor: "#f5e100",
-          strokeWeight: 4,
-          scale: 18
+      markersRef.current.forEach((marker) => {
+        marker.map = null;
+      });
+      markersRef.current = [];
+
+      const markers = groupedByLocation.map((group) => {
+        const pin = new PinElement({
+          background: "#47b5e5",
+          borderColor: "#f5e100",
+          glyphColor: "#0c0c1e",
+          glyph: String(group.events.length),
+          scale: 1.2
+        });
+
+        const marker = new AdvancedMarkerElement({
+          position: group.geo,
+          map: mapState.map,
+          title: `${group.location} (${group.events.length})`,
+          content: pin.element,
+          gmpClickable: true
+        });
+
+        marker.addListener("click", () => {
+          setSelectedLocation(group.key);
+          setSelectedEventUid(group.events[0]?.uid ?? null);
+        });
+
+        return marker;
+      });
+
+      markersRef.current = markers;
+
+      if (markers.length > 0) {
+        const bounds = new window.google.maps.LatLngBounds();
+        groupedByLocation.forEach((group) => bounds.extend(group.geo));
+
+        const mapDiv = mapState.map.getDiv();
+        const runFit = () => {
+          mapState.map.fitBounds(bounds, 70);
+        };
+
+        if (mapDiv && mapDiv.offsetWidth > 0 && mapDiv.offsetHeight > 0) {
+          runFit();
+        } else {
+          window.google.maps.event.addListenerOnce(mapState.map, "idle", runFit);
         }
-      });
+      }
 
-      marker.addListener("click", () => {
-        setSelectedLocation(group.key);
-        setSelectedEventUids(group.events.map((event) => event.uid));
-      });
+      setMapState((prev) => ({ ...prev, markers }));
 
-      return marker;
-    });
-
-    markersRef.current = markers;
-
-    if (markers.length > 0) {
-      const bounds = new window.google.maps.LatLngBounds();
-      groupedByLocation.forEach((group) => bounds.extend(group.geo));
-      mapState.map.fitBounds(bounds, 70);
+      if (selectedLocation && !groupedByLocation.find((group) => group.key === selectedLocation)) {
+        setSelectedLocation(null);
+      }
+      if (selectedEventUid && !filteredEvents.find((event) => event.uid === selectedEventUid)) {
+        setSelectedEventUid(null);
+      }
     }
 
-    setMapState((prev) => ({ ...prev, markers }));
-
-    if (selectedLocation && !groupedByLocation.find((group) => group.key === selectedLocation)) {
-      setSelectedLocation(null);
-      setSelectedEventUids([]);
-    }
+    renderMarkers().catch(console.error);
 
     return () => {
-      markersRef.current.forEach((marker) => marker.setMap(null));
+      cancelled = true;
+      markersRef.current.forEach((marker) => {
+        marker.map = null;
+      });
       markersRef.current = [];
     };
   }, [groupedByLocation, mapState.map, filteredEvents]);
 
-  async function refreshData() {
-    setIsRefreshing(true);
-    try {
-      await fetch("/api/scrape", { method: "POST" });
-      const res = await fetch("/api/events");
-      const payload = await res.json();
-      setEvents(payload.events || []);
-    } finally {
-      setIsRefreshing(false);
+  useEffect(() => {
+    if (!selectedEvent) return;
+    const node = eventRefs.current.get(selectedEvent.uid);
+    if (node && typeof node.scrollIntoView === "function") {
+      node.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
-  }
+  }, [selectedEvent]);
 
   return (
     <main className={styles.page}>
@@ -439,10 +396,6 @@ export default function MapApp({ initialEvents }) {
               onChange={(e) => setSearchText(e.target.value)}
             />
           </label>
-
-          <button type="button" onClick={refreshData} disabled={isRefreshing}>
-            {isRefreshing ? "Refreshing data..." : "Re-scrape events"}
-          </button>
         </div>
 
         <div className={styles.resultMeta}>
@@ -450,44 +403,62 @@ export default function MapApp({ initialEvents }) {
         </div>
 
         <div className={styles.listSection}>
-          {!selectedLocationData ? (
-            <p className={styles.hint}>Click a map marker to list events at that location (with active filters).</p>
+          {filteredEvents.length === 0 ? (
+            <p className={styles.hint}>No events match the current filters.</p>
           ) : (
-            <>
-              <h2>{selectedLocationData.location}</h2>
-              <p>{selectedLocationData.events.length} event(s)</p>
-              <ul className={styles.eventList}>
-                {selectedLocationData.events.map((event) => {
-                  const googleMapsUrl = getGoogleMapsUrl(event);
-                  return (
-                    <li key={event.uid}>
-                      <h3>{event.title}</h3>
-                      <p>
-                        {toDateLabel(event.date)} | {toTimeRange(event.starttime, event.endtime)}
-                      </p>
-                      <p>{event.companyName}</p>
-                      <div className={styles.links}>
-                        {event.website ? (
-                          <a href={event.website} target="_blank" rel="noreferrer">
-                            Event page
-                          </a>
-                        ) : null}
-                        {event.ticketUrl ? (
-                          <a href={event.ticketUrl} target="_blank" rel="noreferrer">
-                            Tickets
-                          </a>
-                        ) : null}
-                        {googleMapsUrl ? (
-                          <a href={googleMapsUrl} target="_blank" rel="noreferrer">
-                            Google Maps
-                          </a>
-                        ) : null}
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </>
+            <ul className={styles.eventList}>
+              {filteredEvents.map((event) => {
+                const googleMapsUrl = getGoogleMapsUrl(event);
+                const isSelected = event.uid === selectedEventUid;
+                const isInSelectedLocation =
+                  selectedLocation && geoGroupKey(event) === selectedLocation;
+                const itemClass = [
+                  styles.eventItem,
+                  isSelected ? styles.eventItemActive : "",
+                  !isSelected && isInSelectedLocation ? styles.eventItemLocationActive : ""
+                ]
+                  .filter(Boolean)
+                  .join(" ");
+                return (
+                  <li
+                    key={event.uid}
+                    ref={(node) => {
+                      if (node) eventRefs.current.set(event.uid, node);
+                      else eventRefs.current.delete(event.uid);
+                    }}
+                    className={itemClass}
+                    onClick={() => {
+                      setSelectedLocation(geoGroupKey(event));
+                      setSelectedEventUid(event.uid);
+                    }}
+                  >
+                    <h3>{event.title}</h3>
+                    <p>
+                      {toDateLabel(event.date)} | {toTimeRange(event.starttime, event.endtime)}
+                    </p>
+                    <p>{event.location}</p>
+                    <p>{event.companyName}</p>
+                    <div className={styles.links}>
+                      {event.website ? (
+                        <a href={event.website} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                          Event page
+                        </a>
+                      ) : null}
+                      {event.ticketUrl ? (
+                        <a href={event.ticketUrl} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                          Tickets
+                        </a>
+                      ) : null}
+                      {googleMapsUrl ? (
+                        <a href={googleMapsUrl} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                          Google Maps
+                        </a>
+                      ) : null}
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
           )}
         </div>
       </section>
