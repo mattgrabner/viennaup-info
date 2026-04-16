@@ -164,4 +164,5 @@ https://<your-deployment>.vercel.app/api/mcp
 
 ## Licence / attribution
 
-Map and event data are derived from public ViennaUP sources; this project is not affiliated with ViennaUP. Respect their terms of use when scraping or redistributing content.
+Map and event data are derived from public ViennaUP sources; see website here: https://viennaup.com/
+This project is not affiliated with ViennaUP. Respect their terms of use when scraping or redistributing content.
