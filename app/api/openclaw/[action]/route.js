@@ -115,6 +115,8 @@ export async function GET(request, { params }) {
     const radiusKm = parseNumber(searchParams, "radiusKm") ?? 1.5;
     const date = searchParams.get("date") || undefined;
     const limit = parseNumber(searchParams, "limit") ?? 20;
+    const excludeSlug = searchParams.get("excludeSlug") || undefined;
+    const excludeUid = parseNumber(searchParams, "excludeUid");
 
     const origin = await resolveLocation({ lat, lng, address });
     if (!origin) {
@@ -129,7 +131,8 @@ export async function GET(request, { params }) {
       filtered,
       origin.lat,
       origin.lng,
-      Math.max(0.1, Math.min(50, radiusKm))
+      Math.max(0.1, Math.min(50, radiusKm)),
+      { excludeSlug, excludeUid }
     ).slice(0, Math.max(1, Math.min(50, Math.trunc(limit))));
 
     return Response.json({

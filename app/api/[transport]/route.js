@@ -81,9 +81,9 @@ const handler = createMcpHandler(
 
     server.tool(
       "search_events",
-      "Full-text search across the ViennaUP programme. Ranks events whose title, description, organizer, format, track, target group or enriched page text matches the query.",
+      "Broad full-text search across the ViennaUP programme. Matches title, description, organizer, format, track, target group and enriched page text using fuzzy term matching, so it is better for discovery than for exact title lookups.",
       {
-        query: z.string().min(1).describe("What to look for, e.g. 'AI' or 'sustainability pitch'"),
+        query: z.string().min(1).describe("What to look for, e.g. 'AI' or 'sustainability pitch'. This is fuzzy term matching, not exact title matching."),
         limit: z.number().int().min(1).max(50).optional().describe("Max events to return (default 15)"),
         full: z.boolean().optional().describe("Include full descriptions")
       },
@@ -136,16 +136,18 @@ const handler = createMcpHandler(
 
     server.tool(
       "events_near",
-      "Find events within a given radius of coordinates or an address. Useful for questions like 'what's close to X' or 'what's near my hotel'. Existing ViennaUP venues are geocoded from the cache; arbitrary addresses fall back to Google Geocoding (requires GOOGLE_MAPS_API_KEY).",
+      "Find events within a given radius of coordinates or an address. Useful for questions like 'what's close to X' or 'what's near my hotel'. Existing ViennaUP venues are geocoded from the cache; arbitrary addresses fall back to Google Geocoding (requires GOOGLE_MAPS_API_KEY). Use `excludeSlug` or `excludeUid` when you want nearby alternatives instead of including the origin event itself.",
       {
         lat: z.number().optional().describe("Latitude in decimal degrees"),
         lng: z.number().optional().describe("Longitude in decimal degrees"),
         address: z.string().optional().describe("Address or venue name to resolve, e.g. 'Stephansplatz, Vienna'"),
         radiusKm: z.number().positive().max(50).optional().describe("Search radius in kilometers (default 1.5)"),
         date: z.string().optional().describe("Restrict to a single date YYYY-MM-DD"),
-        limit: z.number().int().min(1).max(50).optional().describe("Max events to return (default 20)")
+        limit: z.number().int().min(1).max(50).optional().describe("Max events to return (default 20)"),
+        excludeSlug: z.string().optional().describe("Event slug to exclude from the results, useful when asking for events near a known event"),
+        excludeUid: z.number().int().optional().describe("Numeric event UID to exclude from the results")
       },
-      async ({ lat, lng, address, radiusKm = 1.5, date, limit = 20 }) => {
+      async ({ lat, lng, address, radiusKm = 1.5, date, limit = 20, excludeSlug, excludeUid }) => {
         const location = await resolveLocation({ lat, lng, address });
         if (!location) {
           return errorPayload(
@@ -154,7 +156,10 @@ const handler = createMcpHandler(
         }
         const events = await loadEvents();
         const filtered = date ? filterEvents(events, { date }) : events;
-        const near = eventsNear(filtered, location.lat, location.lng, radiusKm).slice(0, limit);
+        const near = eventsNear(filtered, location.lat, location.lng, radiusKm, {
+          excludeSlug,
+          excludeUid
+        }).slice(0, limit);
         return jsonPayload({
           origin: location,
           radiusKm,

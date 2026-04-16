@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { getConfiguredPublicSiteOrigin, getPublicMcpUrl } from "@/lib/public-urls";
 import styles from "./ConnectAgentModal.module.css";
 
 const SERVER_NAME = "viennaup-events";
@@ -240,14 +241,22 @@ function buildClients(mcpUrl) {
 
 export default function ConnectAgentModal({ open, onClose }) {
   const [activeTab, setActiveTab] = useState("claude-code");
-  const [mcpUrl, setMcpUrl] = useState("/api/mcp");
+  const [mcpUrl, setMcpUrl] = useState(() => {
+    const configuredOrigin = getConfiguredPublicSiteOrigin({ includeServerEnv: false });
+    return configuredOrigin ? `${configuredOrigin}/api/mcp` : "/api/mcp";
+  });
   const [copiedId, setCopiedId] = useState(null);
   const dialogRef = useRef(null);
 
   useEffect(() => {
     if (!open) return;
     if (typeof window !== "undefined") {
-      setMcpUrl(`${window.location.origin}/api/mcp`);
+      setMcpUrl(
+        getPublicMcpUrl({
+          fallbackOrigin: window.location.origin,
+          includeServerEnv: false
+        })
+      );
     }
   }, [open]);
 

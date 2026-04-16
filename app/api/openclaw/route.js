@@ -1,9 +1,11 @@
+import { getPublicOpenClawBaseUrl } from "@/lib/public-urls";
+
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET(request) {
   const url = new URL(request.url);
-  const baseUrl = `${url.origin}/api/openclaw`;
+  const baseUrl = getPublicOpenClawBaseUrl({ fallbackOrigin: url.origin });
 
   return Response.json({
     name: "viennaup-events-openclaw-api",

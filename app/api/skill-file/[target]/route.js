@@ -1,5 +1,6 @@
 import { buildSkillBundle, getSkillFileName } from "@/lib/skill-files";
 import { loadEvents } from "@/lib/events-query";
+import { getPublicMcpUrl } from "@/lib/public-urls";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -15,7 +16,7 @@ export async function GET(request, { params }) {
   const events = await loadEvents();
   const url = new URL(request.url);
   const bundle = buildSkillBundle(target, events, {
-    mcpUrl: `${url.origin}/api/mcp`
+    mcpUrl: getPublicMcpUrl({ fallbackOrigin: url.origin })
   });
 
   return new Response(bundle.bytes, {

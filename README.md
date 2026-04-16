@@ -21,6 +21,8 @@ Unofficial interactive map of [ViennaUP](https://viennaup.com) programme events:
 | --- | --- | --- |
 | `GOOGLE_MAPS_API_KEY` | Yes for map + geocoding | Maps JavaScript API, Geocoding API, and server-side geocode during scrape |
 | `GOOGLE_MAPS_MAP_ID` | No | If set, the map uses [cloud-based map styles](https://developers.google.com/maps/documentation/javascript/map-ids) instead of bundled `viennamapstyle.json` |
+| `NEXT_PUBLIC_SITE_URL` | Recommended in production | Canonical site origin used in install snippets and generated skill bundles, e.g. `https://viennaup-map.vercel.app` |
+| `MCP_PUBLIC_BASE_URL` | Optional server-side override | Canonical site origin for server-generated MCP/OpenClaw URLs when you do not want to rely on the request host |
 
 The maps key route also reads `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` / `NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID` if the non-public names are unset (handy for some hosting setups). Prefer server-only names when possible.
 
@@ -32,6 +34,8 @@ The maps key route also reads `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` / `NEXT_PUBLIC_G
 GOOGLE_MAPS_API_KEY=your_key
 # optional:
 # GOOGLE_MAPS_MAP_ID=your_map_id
+# NEXT_PUBLIC_SITE_URL=https://your-production-domain.vercel.app
+# MCP_PUBLIC_BASE_URL=https://your-production-domain.vercel.app
 ```
 
 2. Install and run:
@@ -109,16 +113,21 @@ Remote MCP at **`/api/mcp`** (Streamable HTTP). Example questions:
 | --- | --- |
 | `programme_overview` | Dates, counts per day, vocabulary (tracks, formats, venues, …) |
 | `list_events` | Filter by date range, format, track, target group, type, venue substring, text |
-| `search_events` | Full-text search over programme + enrichment |
+| `search_events` | Broad fuzzy full-text search over programme + enrichment |
 | `get_event` | Full record by `slug` or `uid` |
 | `events_on_date` | All events on one `YYYY-MM-DD` |
-| `events_near` | Radius around `lat`/`lng` or resolved address |
+| `events_near` | Radius around `lat`/`lng` or resolved address, with optional `excludeSlug` / `excludeUid` |
 | `recommend_events` | Scored picks from interests / tracks / formats / target groups |
 | `list_venues` | Distinct venues with counts and coordinates |
 
+Notes:
+
+- `search_events` is for discovery, not exact title matching. For an exact event, identify the event and then call `get_event`.
+- `events_near` includes the origin event unless you pass `excludeSlug` or `excludeUid`.
+
 ### Client config
 
-Replace `<your-deployment>` with your Vercel hostname.
+Replace `<your-deployment>` with your stable production hostname.
 
 **Streamable HTTP URL:**
 
@@ -160,9 +169,18 @@ https://<your-deployment>.vercel.app/api/mcp
 ### Vercel checklist
 
 - Set **`GOOGLE_MAPS_API_KEY`** (and optionally **`GOOGLE_MAPS_MAP_ID`**) in the Vercel project environment.
+- Set **`NEXT_PUBLIC_SITE_URL`** to your stable production origin so the UI and generated skill bundles do not copy preview or deleted deployment URLs.
+- Optionally set **`MCP_PUBLIC_BASE_URL`** to the same origin if you want a server-side override for generated integration URLs.
 - Enable **Fluid compute** if you want snappier cold starts (especially for MCP).
 - MCP reads **`data/events.json` from the deployment bundle**—no Redis required. After ViennaUP updates the programme, rely on the **GitHub Action** (or a local scrape + PR) so a new commit redeploys with fresh JSON.
 - For **`events_near`** on arbitrary addresses, the API key enables live Geocoding; cached ViennaUP venues work from `data/geocode-cache.json` alone.
+- Prefer a stable production domain or custom domain over one-off preview deployments. Preview URLs can disappear and trigger Vercel `DEPLOYMENT_NOT_FOUND` errors in MCP clients.
+
+### MCP verification
+
+- A plain `GET` request to `/api/mcp` may return `405 Method not allowed` even when the MCP endpoint is healthy. That route expects an MCP client transport, not a browser-style probe.
+- Test the integration with a real MCP client, or at least verify that the host resolves and does not return Vercel `DEPLOYMENT_NOT_FOUND`.
+- If your client logs show `DEPLOYMENT_NOT_FOUND`, the configured hostname is stale; update the MCP URL to the current production deployment.
 
 ## Skill bundles
 
