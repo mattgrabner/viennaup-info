@@ -1,15 +1,20 @@
 .page {
   display: grid;
-  grid-template-columns: minmax(320px, 430px) 1fr;
-  grid-template-rows: 1fr auto;
+  grid-template-columns: minmax(320px, 430px) minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "sidebarTop map"
+    "list map"
+    "footer footer";
   height: 100vh;
   max-height: 100vh;
   overflow: hidden;
 }
 
-.sidebar {
+.sidebarTop {
+  grid-area: sidebarTop;
   min-height: 0;
-  overflow: hidden;
+  overflow: auto;
   background: linear-gradient(165deg, rgba(18, 18, 42, 0.97), rgba(12, 12, 30, 0.99));
   border-right: 1px solid var(--border);
   padding: 1rem;
@@ -22,6 +27,40 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.brandText {
+  flex: 1;
+  min-width: 0;
+}
+
+.connectBtn {
+  appearance: none;
+  cursor: pointer;
+  border: 1px solid rgba(232, 216, 64, 0.4);
+  border-radius: 999px;
+  padding: 0.48rem 0.85rem;
+  background: linear-gradient(90deg, rgba(232, 216, 64, 0.18), rgba(71, 181, 229, 0.18));
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.connectBtn:hover {
+  border-color: var(--accent-2);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(71, 181, 229, 0.18);
+}
+
+.connectBtnIcon {
+  font-size: 0.9rem;
+  color: var(--accent-gold);
 }
 
 .logo {
@@ -81,14 +120,115 @@
   color: var(--text-muted);
 }
 
+.selectedLocationBar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(245, 225, 0, 0.4);
+  background: rgba(48, 32, 72, 0.6);
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.selectedLocationInfo {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.selectedLocationBar strong {
+  color: var(--text);
+  font-size: 0.95rem;
+  margin-top: 0.1rem;
+  word-break: break-word;
+}
+
+.selectedLocationLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.selectedLocationAddress {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  word-break: break-word;
+}
+
+.selectedLocationCount {
+  margin-top: 0.15rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.selectedLocationMapLink {
+  color: var(--accent-2);
+  text-decoration: none;
+}
+
+.selectedLocationMapLink:hover {
+  text-decoration: underline;
+}
+
+.clearSelection {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.clearSelection:hover {
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+}
+
+.nearbyDivider {
+  list-style: none;
+  padding: 0.35rem 0 0.15rem;
+  margin: 0.35rem 0 -0.25rem;
+  border: none !important;
+  background: transparent !important;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.distanceBadge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.45rem;
+  font-size: 0.72rem;
+  color: var(--accent-2);
+  border: 1px solid rgba(232, 24, 110, 0.4);
+  border-radius: 999px;
+  background: rgba(232, 24, 110, 0.08);
+}
+
+.sidebarList {
+  grid-area: list;
+  min-height: 0;
+  padding: 0 1rem 1rem;
+  background: linear-gradient(165deg, rgba(18, 18, 42, 0.97), rgba(12, 12, 30, 0.99));
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+}
+
 .listSection {
   background: rgba(12, 12, 30, 0.75);
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 0.85rem;
   overflow: auto;
-  min-height: 200px;
-  flex: 1;
+  min-height: 100%;
+  height: 100%;
 }
 
 .hint {
@@ -157,6 +297,7 @@
 }
 
 .mapSection {
+  grid-area: map;
   min-height: 0;
   display: flex;
   flex-direction: column;
@@ -169,6 +310,7 @@
 }
 
 .footer {
+  grid-area: footer;
   grid-column: 1 / -1;
   border-top: 1px solid var(--border);
   padding: 0.65rem 1rem;
@@ -216,21 +358,36 @@
 @media (max-width: 980px) {
   .page {
     grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(60vh, 1fr) auto;
+    grid-template-rows: auto minmax(52vh, auto) auto auto;
+    grid-template-areas:
+      "sidebarTop"
+      "map"
+      "list"
+      "footer";
     height: auto;
     max-height: none;
     min-height: 100vh;
     overflow: visible;
   }
 
-  .sidebar {
+  .sidebarTop,
+  .sidebarList {
     overflow: visible;
     border-right: 0;
     border-bottom: 1px solid var(--border);
   }
 
+  .sidebarList {
+    padding-top: 1rem;
+  }
+
   .map {
-    min-height: 60vh;
+    min-height: 52vh;
     flex: 1;
+  }
+
+  .listSection {
+    min-height: 200px;
+    height: auto;
   }
 }

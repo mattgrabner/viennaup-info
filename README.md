@@ -89,6 +89,8 @@ In production, data is updated by the **Automated daily refresh** workflow below
 | `GET` | `/api/maps-key` | `{ key, mapId }` for the browser loader |
 | `GET` | `/api/map-style` | Map style JSON rules (used when no Map ID) |
 | `GET`, `POST`, `DELETE` | `/api/mcp` | MCP Streamable HTTP endpoint |
+| `GET` | `/api/openclaw` | OpenClaw-friendly API index + config example |
+| `GET` | `/api/openclaw/:action` | JSON endpoints for the OpenClaw skill (`overview`, `events`, `event`, `date`, `near`, `recommend`, `venues`) |
 
 ## MCP server
 
@@ -153,6 +155,33 @@ https://<your-deployment>.vercel.app/api/mcp
 - Enable **Fluid compute** if you want snappier cold starts (especially for MCP).
 - MCP reads **`data/events.json` from the deployment bundle**—no Redis required. After ViennaUP updates the programme, rely on the **GitHub Action** (or a local scrape + PR) so a new commit redeploys with fresh JSON.
 - For **`events_near`** on arbitrary addresses, the API key enables live Geocoding; cached ViennaUP venues work from `data/geocode-cache.json` alone.
+
+## OpenClaw Skill
+
+OpenClaw works better here as a native skill that calls a small HTTP API, not as an MCP client config.
+
+1. Download the bundle from `/api/agent-skill`.
+2. Unzip it into `~/.openclaw/skills/`.
+3. Add this to `~/.openclaw/openclaw.json`:
+
+```json
+{
+  "skills": {
+    "entries": {
+      "viennaup-events": {
+        "enabled": true,
+        "env": {
+          "VIENNAUP_API_BASE_URL": "https://<your-deployment>.vercel.app/api/openclaw"
+        }
+      }
+    }
+  }
+}
+```
+
+No `mcpServers` block is required for OpenClaw. The skill uses `curl` against the `/api/openclaw/*` endpoints.
+
+If you run OpenClaw in a Docker sandbox, make sure the same env var is also available inside that sandbox environment.
 
 ## Data files
 

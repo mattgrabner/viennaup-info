@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { toDateLabel, toTimeRange } from "@/lib/date";
 import styles from "./MapApp.module.css";
+import ConnectAgentModal from "./ConnectAgentModal";
 
 const VIENNA_CENTER = { lat: 48.2082, lng: 16.3738 };
 
@@ -122,9 +123,33 @@ function geoGroupKey(event) {
   return `${event.geo.lat.toFixed(5)}::${event.geo.lng.toFixed(5)}`;
 }
 
-/** Brand gold → pink interpolation for marker density. `t` is clamped to [0, 1]. */
+const EARTH_RADIUS_M = 6371000;
+
+function toRadians(deg) {
+  return (deg * Math.PI) / 180;
+}
+
+/** Haversine great-circle distance in meters between two {lat, lng} points. */
+function haversineMeters(a, b) {
+  const dLat = toRadians(b.lat - a.lat);
+  const dLng = toRadians(b.lng - a.lng);
+  const lat1 = toRadians(a.lat);
+  const lat2 = toRadians(b.lat);
+  const h =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
+  return 2 * EARTH_RADIUS_M * Math.asin(Math.min(1, Math.sqrt(h)));
+}
+
+function formatDistance(meters) {
+  if (!Number.isFinite(meters)) return "";
+  if (meters < 950) return `${Math.round(meters / 10) * 10} m`;
+  return `${(meters / 1000).toFixed(meters < 9500 ? 1 : 0)} km`;
+}
+
+/** Brand yellow → cyan interpolation for marker density. `t` is clamped to [0, 1]. */
 const MARKER_COLOR_LOW = { r: 0xe8, g: 0xd8, b: 0x40 };
-const MARKER_COLOR_HIGH = { r: 0xe8, g: 0x18, b: 0x6e };
+const MARKER_COLOR_HIGH = { r: 0x40, g: 0xd8, b: 0xe8 };
 
 function mixMarkerColor(t) {
   const k = Math.max(0, Math.min(1, t));
@@ -138,22 +163,31 @@ function rgbString({ r, g, b }, a = 1) {
   return a >= 1 ? `rgb(${r}, ${g}, ${b})` : `rgba(${r}, ${g}, ${b}, ${a})`;
 }
 
-/** Same venue often appears with different spelling in source data; pick a stable label for the pin heading. */
-function pickRepresentativeLocation(events) {
+/** Same venue often appears with different spelling in source data; pick a stable label. */
+function pickMostCommonString(values) {
   const counts = new NativeMap();
-  for (const e of events) {
-    const loc = e.location || "";
-    counts.set(loc, (counts.get(loc) || 0) + 1);
+  for (const raw of values) {
+    const value = (raw || "").trim();
+    if (!value) continue;
+    counts.set(value, (counts.get(value) || 0) + 1);
   }
   let best = "";
   let bestCount = 0;
-  for (const [loc, c] of counts) {
-    if (c > bestCount || (c === bestCount && loc.length > best.length)) {
-      best = loc;
+  for (const [value, c] of counts) {
+    if (c > bestCount || (c === bestCount && value.length > best.length)) {
+      best = value;
       bestCount = c;
     }
   }
-  return best || events[0]?.location || "";
+  return best;
+}
+
+function pickRepresentativeLocation(events) {
+  return pickMostCommonString(events.map((e) => e.location)) || events[0]?.location || "";
+}
+
+function pickRepresentativeAddress(events) {
+  return pickMostCommonString(events.map((e) => e.geo?.formattedAddress));
 }
 
 export default function MapApp({ initialEvents }) {
@@ -164,6 +198,7 @@ export default function MapApp({ initialEvents }) {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [selectedEventUid, setSelectedEventUid] = useState(null);
   const [searchText, setSearchText] = useState("");
+  const [connectOpen, setConnectOpen] = useState(false);
   const [mapState, setMapState] = useState({ map: null, markers: [], initialized: false });
   const markersRef = useRef([]);
   const eventRefs = useRef(new NativeMap());
@@ -211,9 +246,48 @@ export default function MapApp({ initialEvents }) {
     }
     return [...grouped.values()].map((group) => ({
       ...group,
-      location: pickRepresentativeLocation(group.events)
+      location: pickRepresentativeLocation(group.events),
+      address: pickRepresentativeAddress(group.events)
     }));
   }, [filteredEvents]);
+
+  const selectedGroup = useMemo(() => {
+    if (!selectedLocation) return null;
+    return groupedByLocation.find((group) => group.key === selectedLocation) || null;
+  }, [selectedLocation, groupedByLocation]);
+
+  const orderedEvents = useMemo(() => {
+    if (!selectedGroup) {
+      return filteredEvents.map((event) => ({ event, distance: null, atLocation: false }));
+    }
+
+    const atLocation = [];
+    const elsewhere = [];
+    for (const event of filteredEvents) {
+      if (geoGroupKey(event) === selectedGroup.key) {
+        atLocation.push({ event, distance: 0, atLocation: true });
+      } else {
+        elsewhere.push({
+          event,
+          distance: haversineMeters(selectedGroup.geo, event.geo),
+          atLocation: false
+        });
+      }
+    }
+
+    elsewhere.sort((a, b) => {
+      if (a.distance !== b.distance) return a.distance - b.distance;
+      if (a.event.date !== b.event.date) return a.event.date.localeCompare(b.event.date);
+      return (a.event.starttime || "").localeCompare(b.event.starttime || "");
+    });
+
+    return [...atLocation, ...elsewhere];
+  }, [filteredEvents, selectedGroup]);
+
+  const atLocationCount = useMemo(
+    () => orderedEvents.filter((entry) => entry.atLocation).length,
+    [orderedEvents]
+  );
 
   const selectedEvent = useMemo(() => {
     if (!selectedEventUid) return null;
@@ -376,13 +450,24 @@ export default function MapApp({ initialEvents }) {
 
   return (
     <main className={styles.page}>
-      <section className={styles.sidebar}>
+      <section className={styles.sidebarTop}>
         <div className={styles.brandWrap}>
           <div className={styles.logo}>V↑</div>
-          <div>
+          <div className={styles.brandText}>
             <h1>ViennaUP Live Map</h1>
             <p>unofficial map guide to ViennaUp 2026 events</p>
           </div>
+          <button
+            type="button"
+            className={styles.connectBtn}
+            onClick={() => setConnectOpen(true)}
+            title="Connect an AI assistant to the ViennaUP events MCP server"
+          >
+            <span aria-hidden="true" className={styles.connectBtnIcon}>
+              ⚡
+            </span>
+            Connect your Agent
+          </button>
         </div>
 
         <div className={styles.filters}>
@@ -437,12 +522,60 @@ export default function MapApp({ initialEvents }) {
           <strong>{filteredEvents.length}</strong> filtered events across <strong>{groupedByLocation.length}</strong> locations
         </div>
 
+        {selectedGroup ? (
+          (() => {
+            const mapsQuery = selectedGroup.address
+              ? selectedGroup.address
+              : `${selectedGroup.geo.lat},${selectedGroup.geo.lng} (${selectedGroup.location || "Selected location"})`;
+            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`;
+            return (
+              <div className={styles.selectedLocationBar}>
+                <div className={styles.selectedLocationInfo}>
+                  <span className={styles.selectedLocationLabel}>Selected location</span>
+                  <strong>{selectedGroup.location || "Unnamed venue"}</strong>
+                  {selectedGroup.address ? (
+                    <span className={styles.selectedLocationAddress}>{selectedGroup.address}</span>
+                  ) : null}
+                  <span className={styles.selectedLocationCount}>
+                    {atLocationCount} event{atLocationCount === 1 ? "" : "s"} here ·{" "}
+                    <a
+                      href={mapsUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.selectedLocationMapLink}
+                    >
+                      Open in Google Maps
+                    </a>
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  className={styles.clearSelection}
+                  onClick={() => {
+                    setSelectedLocation(null);
+                    setSelectedEventUid(null);
+                  }}
+                >
+                  Clear
+                </button>
+              </div>
+            );
+          })()
+        ) : null}
+      </section>
+
+      <section className={styles.mapSection}>
+        <div id="viennaup-map" className={styles.map} />
+      </section>
+
+      <section className={styles.sidebarList}>
         <div className={styles.listSection}>
-          {filteredEvents.length === 0 ? (
+          {orderedEvents.length === 0 ? (
             <p className={styles.hint}>No events match the current filters.</p>
           ) : (
             <ul className={styles.eventList}>
-              {filteredEvents.map((event) => {
+              {orderedEvents.map((entry, index) => {
+                const { event, distance, atLocation } = entry;
                 const googleMapsUrl = getGoogleMapsUrl(event);
                 const isSelected = event.uid === selectedEventUid;
                 const isInSelectedLocation =
@@ -454,43 +587,58 @@ export default function MapApp({ initialEvents }) {
                 ]
                   .filter(Boolean)
                   .join(" ");
+
+                const showNearbyDivider =
+                  selectedGroup && !atLocation && index === atLocationCount;
+
                 return (
-                  <li
-                    key={event.uid}
-                    ref={(node) => {
-                      if (node) eventRefs.current.set(event.uid, node);
-                      else eventRefs.current.delete(event.uid);
-                    }}
-                    className={itemClass}
-                    onClick={() => {
-                      setSelectedLocation(geoGroupKey(event));
-                      setSelectedEventUid(event.uid);
-                    }}
-                  >
-                    <h3>{event.title}</h3>
-                    <p>
-                      {toDateLabel(event.date)} | {toTimeRange(event.starttime, event.endtime)}
-                    </p>
-                    <p>{event.location}</p>
-                    <p>{event.companyName}</p>
-                    <div className={styles.links}>
-                      {event.website ? (
-                        <a href={event.website} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
-                          Event page
-                        </a>
-                      ) : null}
-                      {event.ticketUrl ? (
-                        <a href={event.ticketUrl} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
-                          Tickets
-                        </a>
-                      ) : null}
-                      {googleMapsUrl ? (
-                        <a href={googleMapsUrl} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
-                          Google Maps
-                        </a>
-                      ) : null}
-                    </div>
-                  </li>
+                  <Fragment key={event.uid}>
+                    {showNearbyDivider ? (
+                      <li className={styles.nearbyDivider} aria-hidden="true">
+                        Nearby events
+                      </li>
+                    ) : null}
+                    <li
+                      ref={(node) => {
+                        if (node) eventRefs.current.set(event.uid, node);
+                        else eventRefs.current.delete(event.uid);
+                      }}
+                      className={itemClass}
+                      onClick={() => {
+                        setSelectedLocation(geoGroupKey(event));
+                        setSelectedEventUid(event.uid);
+                      }}
+                    >
+                      <h3>{event.title}</h3>
+                      <p>
+                        {toDateLabel(event.date)} | {toTimeRange(event.starttime, event.endtime)}
+                      </p>
+                      <p>
+                        {event.location}
+                        {selectedGroup && !atLocation && Number.isFinite(distance) ? (
+                          <span className={styles.distanceBadge}>{formatDistance(distance)}</span>
+                        ) : null}
+                      </p>
+                      <p>{event.companyName}</p>
+                      <div className={styles.links}>
+                        {event.website ? (
+                          <a href={event.website} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                            Event page
+                          </a>
+                        ) : null}
+                        {event.ticketUrl ? (
+                          <a href={event.ticketUrl} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                            Tickets
+                          </a>
+                        ) : null}
+                        {googleMapsUrl ? (
+                          <a href={googleMapsUrl} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                            Google Maps
+                          </a>
+                        ) : null}
+                      </div>
+                    </li>
+                  </Fragment>
                 );
               })}
             </ul>
@@ -498,9 +646,7 @@ export default function MapApp({ initialEvents }) {
         </div>
       </section>
 
-      <section className={styles.mapSection}>
-        <div id="viennaup-map" className={styles.map} />
-      </section>
+      <ConnectAgentModal open={connectOpen} onClose={() => setConnectOpen(false)} />
 
       <footer className={styles.footer}>
         <p>
@@ -508,8 +654,6 @@ export default function MapApp({ initialEvents }) {
           <br />
           Matthias Grabner e.U -{" "}
           <a href="mailto:office@grabner.tech">office@grabner.tech</a>
-          <br />
-          ATU66965000
         </p>
       </footer>
     </main>
