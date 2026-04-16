@@ -17,3 +17,5 @@ The canonical live integration remains streamable HTTP MCP:
 ```
 https://<your-deployment>.vercel.app/api/mcp
 ```
+
+Use a stable production domain here, not a disposable preview deployment URL.

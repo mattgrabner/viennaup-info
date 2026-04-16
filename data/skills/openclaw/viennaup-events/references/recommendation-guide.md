@@ -11,3 +11,5 @@ When recommending ViennaUP events from this bundle:
 5. Always include title, date, time, venue, and a URL when available.
 6. If the bundle does not contain enough evidence, say that clearly instead of
    inventing details.
+7. Treat MCP-style text search as fuzzy discovery. For exact event facts, rely
+   on a specific event record rather than a loose text match alone.
