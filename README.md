@@ -1,22 +1,37 @@
 # ViennaUP Maps
 
-Interactive local website that scrapes ViennaUP programme events and shows them on Google Maps with filters and a side panel.
+Unofficial interactive map of [ViennaUP](https://viennaup.com) programme events: scraped data, Google Maps markers, filters, and a side panel. The same app hosts a remote **MCP** server so assistants can answer questions about the programme.
+
+**Stack:** Next.js 16, React 19, Google Maps (advanced markers + optional cloud Map ID).
 
 ## Features
 
-- Scrapes all programme events from `https://viennaup.com/?type=1452982642`
-- Geocodes event locations via Google Geocoding API and caches coordinates
-- Responsive sidepanel + map UI for desktop and mobile
-- Filters by day, event type, format, plus search
-- Clicking a location marker shows all filtered events at that location
-- Backend re-scrape endpoint for refreshing event data
+- Scrapes the public programme JSON from `https://viennaup.com/?type=1452982642`
+- Geocodes venues via the Google Geocoding API (with a local cache in `data/geocode-cache.json`)
+- Enriches search from linked event / ticket pages (cached in `data/page-cache.json`)
+- Responsive sidebar + map for desktop and mobile
+- Filters by day, event type, format, and free-text search
+- Clicking a marker focuses events at that pin
+- **Daily data refresh** via GitHub Actions (commits updated `data/*.json`; Vercel redeploys on push)
+- **MCP** at `/api/mcp` for ChatGPT, Claude, Cursor, etc.
+
+## Environment variables
+
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `GOOGLE_MAPS_API_KEY` | Yes for map + geocoding | Maps JavaScript API, Geocoding API, and server-side geocode during scrape |
+| `GOOGLE_MAPS_MAP_ID` | No | If set, the map uses [cloud-based map styles](https://developers.google.com/maps/documentation/javascript/map-ids) instead of bundled `viennamapstyle.json` |
+
+The maps key route also reads `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` / `NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID` if the non-public names are unset (handy for some hosting setups). Prefer server-only names when possible.
 
 ## Setup
 
-1. Ensure `.env` contains:
+1. Create `.env` in the project root (it is gitignored). Minimal contents:
 
 ```bash
 GOOGLE_MAPS_API_KEY=your_key
+# optional:
+# GOOGLE_MAPS_MAP_ID=your_map_id
 ```
 
 2. Install and run:
@@ -28,66 +43,86 @@ npm run dev
 
 3. Open `http://localhost:3000`
 
-4. To fetch the latest programme data locally, run:
+4. Refresh programme data locally (writes under `data/`):
 
 ```bash
 node scripts/scrape.mjs
 ```
 
-This updates `data/events.json`, `data/geocode-cache.json` and `data/page-cache.json`. In production these files are refreshed automatically by the daily GitHub Actions workflow — see below.
+In production, data is updated by the **Automated daily refresh** workflow below—not by the UI.
+
+## Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Next.js dev server (Turbopack) |
+| `npm run build` | Production build |
+| `npm run start` | Run production server locally |
+| `npm run lint` | ESLint |
+| `node scripts/scrape.mjs` | Scrape, geocode, enrich → update `data/*.json` |
+
+## Repository notes
+
+- **`node_modules/`** and **`.next/`** are gitignored. Do not commit `.next`; Vercel (and CI) run `next build` themselves.
+- **`data/events.json`** (and related caches) are committed so the site and MCP work without a database. The scheduled workflow keeps them current.
 
 ## Automated daily refresh
 
-Programme data is refreshed nightly by `.github/workflows/refresh-events.yml`:
+`.github/workflows/refresh-events.yml`:
 
-- Runs every day at **22:00 UTC** (= 00:00 Vienna time during CEST, which covers the ViennaUP week). Adjust the cron expression if you want strict midnight year-round.
-- Runs `node scripts/scrape.mjs`, which re-scrapes the programme endpoint, geocodes any new venues and re-fetches enriched page content.
-- Commits the updated `data/*.json` files back to the default branch with `[skip ci]`, which triggers a Vercel production redeploy serving the fresh data to both the map UI and the MCP server.
-- Can also be triggered manually from the Actions tab (`workflow_dispatch`).
+- Cron: **22:00 UTC** (midnight in Vienna during **CEST**). Tweak the cron in the workflow if you want a different wall-clock time in winter (**CET**).
+- Runs `npm ci`, then `node scripts/scrape.mjs`.
+- Commits changes to `data/events.json`, `data/geocode-cache.json`, and `data/page-cache.json` with message `chore(data): refresh ViennaUP events [skip ci]` when there are diffs (`[skip ci]` avoids re-triggering heavy GitHub workflows on that commit; Vercel still deploys from the push if connected to the branch).
+- **Manual run:** GitHub → Actions → *Refresh ViennaUP events* → *Run workflow*.
 
-**Required repository secret:**
+**Repository secret (required for new addresses):**
 
-- `GOOGLE_MAPS_API_KEY` — needed to geocode any brand-new addresses. Known ViennaUP venues are already in `data/geocode-cache.json`, so geocoding only runs for new ones.
+- `GOOGLE_MAPS_API_KEY` — same capability as local scrape; new venues get geocoded and merged into the cache.
 
 ## API
 
-- `GET /api/events` - returns stored events
-- `GET /api/events?refresh=1` - scrape + store then return refresh stats (local only — Vercel filesystem is read-only, use the GitHub Action for production refreshes)
-- `POST /api/scrape` - trigger scrape + geocode refresh (local only, same caveat)
-- `GET /api/maps-key` - returns map key for script loading
-- `GET|POST /api/mcp` - MCP (Model Context Protocol) server, see below
+| Method | Path | Notes |
+| --- | --- | --- |
+| `GET` | `/api/events` | Stored events JSON |
+| `GET` | `/api/events?refresh=1` | Scrape + store, then stats (**local / writable filesystem only**; on Vercel the filesystem is read-only—use the GitHub Action) |
+| `POST` | `/api/scrape` | Same as refresh (**local only** on Vercel) |
+| `GET` | `/api/maps-key` | `{ key, mapId }` for the browser loader |
+| `GET` | `/api/map-style` | Map style JSON rules (used when no Map ID) |
+| `GET`, `POST`, `DELETE` | `/api/mcp` | MCP Streamable HTTP endpoint |
 
 ## MCP server
 
-The same deployment also exposes a remote MCP server at `/api/mcp` (Streamable HTTP transport). Point ChatGPT, Claude, Cursor or any other MCP-compatible client at it to ask questions like:
+Remote MCP at **`/api/mcp`** (Streamable HTTP). Example questions:
 
-- "What's on at ViennaUP on May 18?"
-- "Recommend three investor events about climate tech."
-- "Which sessions are within 2 km of Stephansplatz?"
-- "Give me the details for `startuplive26-viennaup`."
+- What is on at ViennaUP on a given date?
+- Recommend events for investors / founders / a topic.
+- What is near a coordinate or address?
+- Details for a specific event slug.
 
-### Tools exposed
+### Tools
 
 | Tool | Purpose |
 | --- | --- |
-| `programme_overview` | Dates, counts per day and the vocabulary (tracks, formats, target groups, venues) |
-| `list_events` | Filter the programme by date range, format, track, target group, type, venue substring, free-text query |
-| `search_events` | Ranked full-text search across titles, descriptions, tags and enriched page content |
-| `get_event` | Full details for a single event (by `slug` or `uid`) |
-| `events_on_date` | Everything happening on a given `YYYY-MM-DD`, sorted by start time |
-| `events_near` | Events within a radius of `lat/lng` or a resolved address (uses cached geocoding; falls back to Google Geocoding if `GOOGLE_MAPS_API_KEY` is set) |
-| `recommend_events` | Ranked recommendations from `interests`, `tracks`, `formats`, `targetGroups` and optional `date` |
-| `list_venues` | Venues with event counts and coordinates |
+| `programme_overview` | Dates, counts per day, vocabulary (tracks, formats, venues, …) |
+| `list_events` | Filter by date range, format, track, target group, type, venue substring, text |
+| `search_events` | Full-text search over programme + enrichment |
+| `get_event` | Full record by `slug` or `uid` |
+| `events_on_date` | All events on one `YYYY-MM-DD` |
+| `events_near` | Radius around `lat`/`lng` or resolved address |
+| `recommend_events` | Scored picks from interests / tracks / formats / target groups |
+| `list_venues` | Distinct venues with counts and coordinates |
 
-### Connect a client
+### Client config
 
-Streamable HTTP URL (works with ChatGPT custom connectors, Claude, Cursor, Windsurf, etc.):
+Replace `<your-deployment>` with your Vercel hostname.
+
+**Streamable HTTP URL:**
 
 ```
 https://<your-deployment>.vercel.app/api/mcp
 ```
 
-Cursor / Claude Desktop config snippet:
+**Cursor / Claude Desktop:**
 
 ```json
 {
@@ -99,7 +134,7 @@ Cursor / Claude Desktop config snippet:
 }
 ```
 
-For stdio-only clients, bridge via `mcp-remote`:
+**stdio-only clients** (bridge):
 
 ```json
 {
@@ -112,14 +147,21 @@ For stdio-only clients, bridge via `mcp-remote`:
 }
 ```
 
-### Vercel deployment notes
+### Vercel checklist
 
-- The MCP route is stateless and relies on the bundled `data/events.json`, so no Redis or KV store is required.
-- Enable **Fluid compute** on the Vercel project for better cold-start behavior with MCP.
-- `GOOGLE_MAPS_API_KEY` is optional for MCP — `events_near` will still work for the 52 ViennaUP venues (their geocodes live in `data/geocode-cache.json`); the key is only needed for ad-hoc addresses outside the cache.
-- Re-run the scrape (via `/api/events?refresh=1` or the UI button) after programme updates and commit `data/events.json` so the MCP server serves the latest content.
+- Set **`GOOGLE_MAPS_API_KEY`** (and optionally **`GOOGLE_MAPS_MAP_ID`**) in the Vercel project environment.
+- Enable **Fluid compute** if you want snappier cold starts (especially for MCP).
+- MCP reads **`data/events.json` from the deployment bundle**—no Redis required. After ViennaUP updates the programme, rely on the **GitHub Action** (or a local scrape + PR) so a new commit redeploys with fresh JSON.
+- For **`events_near`** on arbitrary addresses, the API key enables live Geocoding; cached ViennaUP venues work from `data/geocode-cache.json` alone.
 
 ## Data files
 
-- `data/events.json` - normalized events used by frontend and MCP server
-- `data/geocode-cache.json` - address-to-coordinates cache used for `events_near`
+| File | Role |
+| --- | --- |
+| `data/events.json` | Normalized events for the UI and MCP |
+| `data/geocode-cache.json` | Address → lat/lng (+ formatted address) |
+| `data/page-cache.json` | Fetched HTML summaries for search enrichment |
+
+## Licence / attribution
+
+Map and event data are derived from public ViennaUP sources; this project is not affiliated with ViennaUP. Respect their terms of use when scraping or redistributing content.
