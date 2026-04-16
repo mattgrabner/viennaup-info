@@ -21,6 +21,7 @@ Unofficial interactive map of [ViennaUP](https://viennaup.com) programme events:
 | --- | --- | --- |
 | `GOOGLE_MAPS_API_KEY` | Yes for map + geocoding | Maps JavaScript API, Geocoding API, and server-side geocode during scrape |
 | `GOOGLE_MAPS_MAP_ID` | No | If set, the map uses [cloud-based map styles](https://developers.google.com/maps/documentation/javascript/map-ids) instead of bundled `viennamapstyle.json` |
+| `NEXT_PUBLIC_GA_ID` | Optional | GA4 measurement ID for Google Analytics / Consent Mode, e.g. `G-ERK6DHM8F6` |
 | `NEXT_PUBLIC_SITE_URL` | Recommended in production | Canonical site origin used in install snippets and generated skill bundles, e.g. `https://viennaup-map.vercel.app` |
 | `MCP_PUBLIC_BASE_URL` | Optional server-side override | Canonical site origin for server-generated MCP/OpenClaw URLs when you do not want to rely on the request host |
 
@@ -34,6 +35,7 @@ The maps key route also reads `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` / `NEXT_PUBLIC_G
 GOOGLE_MAPS_API_KEY=your_key
 # optional:
 # GOOGLE_MAPS_MAP_ID=your_map_id
+# NEXT_PUBLIC_GA_ID=G-ERK6DHM8F6
 # NEXT_PUBLIC_SITE_URL=https://your-production-domain.vercel.app
 # MCP_PUBLIC_BASE_URL=https://your-production-domain.vercel.app
 ```
