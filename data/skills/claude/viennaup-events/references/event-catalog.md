@@ -1,57 +1,8 @@
----
-name: viennaup-events
-description: Portable ViennaUP 2026 skill generated from normalized event data.
-version: 1.0.0
-license: MIT
----
+# ViennaUP 2026 Event Catalogue
 
-# ViennaUP Events for OpenClaw
+Full generated event catalogue.
 
-This markdown file is a portable ViennaUP 2026 context pack generated from
-`data/events.json`.
-
-## How OpenClaw should use this file
-
-1. Use this file as the default local knowledge source for ViennaUP 2026
-   programme questions.
-2. Answer only from the facts in this file unless the user also provides another
-   trusted source.
-3. If a live MCP connection is available, prefer the streamable HTTP MCP server
-   for fresh filtering or exact lookups, but keep this file as fallback context.
-4. For itinerary and recommendation requests, rank events using track, format,
-   target group, timing, and venue relevance.
-5. Include title, date, time, venue, and URL when presenting suggestions.
-
-## Programme snapshot
-
-- Total events: 52
-- Dates covered: 2026-05-15, 2026-05-16, 2026-05-17, 2026-05-18, 2026-05-19, 2026-05-20, 2026-05-21, 2026-05-22
-- Formats: Conference, Fair/showcase/tech demo, Hackathon/bootcamp, Matchmaking, Meet-the-experts session, Networking & gathering only, Panel discussion, Pitch competition, Workshop
-- Tracks: Exploration, Founders, Impact, Investment, Tech, WarmUP
-- Target groups: Corporates, Creatives, Ecosystem representatives, Investors, Startups, Talents
-- Types: Hybrid, Onsite
-- Admission labels: Free entrance, Paid ticket
-
-## Event counts by date
-
-- 2026-05-15: 2 events
-- 2026-05-16: 2 events
-- 2026-05-17: 1 events
-- 2026-05-18: 8 events
-- 2026-05-19: 8 events
-- 2026-05-20: 12 events
-- 2026-05-21: 13 events
-- 2026-05-22: 6 events
-
-## Live integration
-
-- Preferred live integration: streamable HTTP MCP
-- MCP URL: https://<your-deployment>.vercel.app/api/mcp
-- This markdown file is a static snapshot generated from `data/events.json`
-
-## Full event catalogue
-
-### 1. StartupLive'26 ViennaUP
+## 1. StartupLive'26 ViennaUP
 
 - UID: 292
 - Slug: startuplive26-viennaup
@@ -75,7 +26,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://startuplive.ngo/events/startuplive26-viennaup
   - https://startuplive.ngo/
 
-### 2. Europe Tech Hackathon
+## 2. Europe Tech Hackathon
 
 - UID: 288
 - Slug: europe-tech-hackathon
@@ -99,7 +50,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://www.sustainista.net/hackathon
   - https://www.sustainista.net/hackathon
 
-### 3. Europe Tech Hackathon
+## 3. Europe Tech Hackathon
 
 - UID: 289
 - Slug: europe-tech-hackathon-1
@@ -123,7 +74,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://www.sustainista.net/hackathon
   - https://www.sustainista.net/hackathon
 
-### 4. StartupLive'26 ViennaUP
+## 4. StartupLive'26 ViennaUP
 
 - UID: 293
 - Slug: startuplive26-viennaup-1
@@ -147,7 +98,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://startuplive.ngo/events/startuplive26-viennaup
   - https://startuplive.ngo/
 
-### 5. Europe Tech Hackathon
+## 5. Europe Tech Hackathon
 
 - UID: 290
 - Slug: europe-tech-hackathon-2
@@ -171,7 +122,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://www.sustainista.net/hackathon
   - https://www.sustainista.net/hackathon
 
-### 6. Impact Days
+## 6. Impact Days
 
 - UID: 274
 - Slug: impact-days
@@ -195,7 +146,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://impactdays.at/
   - https://vienna.impacthub.net/
 
-### 7. ViennaUP Coffee House Sessions 2026
+## 7. ViennaUP Coffee House Sessions 2026
 
 - UID: 255
 - Slug: viennaup-coffee-house-sessions-2026-4
@@ -218,7 +169,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/viennaup-coffee-house-sessions-2026/edit
   - https://vienna.business/
 
-### 8. Fundraising Secrets - The Complete Masterplan for Winning Investors and Building Lasting Relationships
+## 8. Fundraising Secrets - The Complete Masterplan for Winning Investors and Building Lasting Relationships
 
 - UID: 285
 - Slug: fundraising-secrets-the-complete-masterplan-for-winning-investors-and-building-lasting-relationships
@@ -241,7 +192,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/fundraising-secrets-the-complete-masterplan-for-winning-investors-and-building-lasting-relationships/edit
   - https://derperfektepitch.com
 
-### 9. Energy Launchpad: Shaping Europe's Energy Future
+## 9. Energy Launchpad: Shaping Europe's Energy Future
 
 - UID: 294
 - Slug: energy-launchpad-shaping-europes-energy-future
@@ -265,7 +216,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://launchpad.energy/
   - https://launchpad.energy/
 
-### 10. Mobility in Action
+## 10. Mobility in Action
 
 - UID: 307
 - Slug: mobility-in-action
@@ -288,7 +239,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/mobility-in-action/edit
   - https://ivlv.me/3n98w
 
-### 11. Startup World Cup Austria 2026
+## 11. Startup World Cup Austria 2026
 
 - UID: 252
 - Slug: startup-world-cup-austria-2026
@@ -311,7 +262,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/startup-world-cup-austria-2026/edit
   - https://www.startupworldcup-austria.com/
 
-### 12. The Perfect Pitch: How to Create Interest in You and Your Big Idea
+## 12. The Perfect Pitch: How to Create Interest in You and Your Big Idea
 
 - UID: 286
 - Slug: the-perfect-pitch-how-to-create-interest-in-you-and-your-big-idea
@@ -334,7 +285,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/the-perfect-pitch-how-to-create-interest-in-you-and-your-big-idea/edit
   - https://derperfektepitch.com
 
-### 13. ViennaUP 2026 Opening Night
+## 13. ViennaUP 2026 Opening Night
 
 - UID: 308
 - Slug: viennaup-2026-opening-night
@@ -357,7 +308,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/viennaup-2026-opening-night/edit
   - https://viennabusinessagency.at/
 
-### 14. ViennaUP Coffee House Sessions 2026
+## 14. ViennaUP Coffee House Sessions 2026
 
 - UID: 256
 - Slug: viennaup-coffee-house-sessions-2026
@@ -380,7 +331,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/viennaup-coffee-house-sessions-2026/edit
   - https://vienna.business/
 
-### 15. Connect Day 26
+## 15. Connect Day 26
 
 - UID: 304
 - Slug: connect-day-26
@@ -404,7 +355,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://www.connectday.at
   - https://www.aws.at/en/
 
-### 16. Impact Days
+## 16. Impact Days
 
 - UID: 275
 - Slug: impact-days-1
@@ -428,7 +379,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://impactdays.at/
   - https://vienna.impacthub.net/
 
-### 17. The Female Founders Experience Vienna 2026
+## 17. The Female Founders Experience Vienna 2026
 
 - UID: 301
 - Slug: the-female-founders-experience-vienna-2026
@@ -452,7 +403,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://ffexperience.female-founders.org/
   - https://female-founders.org/
 
-### 18. Salon Future: Connecting Startup Ecosystems
+## 18. Salon Future: Connecting Startup Ecosystems
 
 - UID: 254
 - Slug: salon-future-connecting-startup-ecosystems
@@ -475,7 +426,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/salon-future-connecting-startup-ecosystems/edit
   - https://vienna.business/
 
-### 19. Human x AI Conference
+## 19. Human x AI Conference
 
 - UID: 263
 - Slug: human-x-ai-conference
@@ -499,7 +450,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://humanxai.events
   - https://visibilio.ai
 
-### 20. "Do it right" Basics for company founding in Vienna
+## 20. "Do it right" Basics for company founding in Vienna
 
 - UID: 262
 - Slug: do-it-right-basics-for-company-founding-in-vienna
@@ -522,7 +473,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/do-it-right-basics-for-company-founding-in-vienna/edit
   - https://www.wko.at/wien
 
-### 21. From Pitch to Patient: How Digital Health and AI actually make it into Practice
+## 21. From Pitch to Patient: How Digital Health and AI actually make it into Practice
 
 - UID: 250
 - Slug: from-pitch-to-patient-how-digital-health-and-ai-actually-make-it-into-practice
@@ -545,7 +496,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/from-pitch-to-patient-how-digital-health-and-ai-actually-make-it-into-practice/edit
   - https://healthhubvienna.at/
 
-### 22. ViennaUP Coffee House Sessions 2026
+## 22. ViennaUP Coffee House Sessions 2026
 
 - UID: 257
 - Slug: viennaup-coffee-house-sessions-2026-1
@@ -568,7 +519,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/viennaup-coffee-house-sessions-2026/edit
   - https://vienna.business/
 
-### 23. HOIV Founder Huddle 2026: Pitch, Build & Scale
+## 23. HOIV Founder Huddle 2026: Pitch, Build & Scale
 
 - UID: 312
 - Slug: hoiv-founder-huddle-2026-pitch-build-scale
@@ -592,7 +543,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://homeofinnovationx.com/events/
   - https://homeofinnovationx.com/
 
-### 24. Lab to Leader: Building Science Ventures That Last
+## 24. Lab to Leader: Building Science Ventures That Last
 
 - UID: 266
 - Slug: lab-to-leader-building-science-ventures-that-last
@@ -615,7 +566,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/lab-to-leader-building-science-ventures-that-last/edit
   - https://www.konsultori.com/
 
-### 25. The Recursive CEE Forum
+## 25. The Recursive CEE Forum
 
 - UID: 269
 - Slug: the-recursive-cee-forum
@@ -638,7 +589,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/the-recursive-cee-forum/edit
   - https://therecursive.com
 
-### 26. WSA Global Congress
+## 26. WSA Global Congress
 
 - UID: 276
 - Slug: wsa-global-congress
@@ -662,7 +613,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://wsa-global.org/2025/10/18/wsa-global-congress-in-vienna/
   - https://wsa-global.org/
 
-### 27. The Female Founders Experience Vienna 2026
+## 27. The Female Founders Experience Vienna 2026
 
 - UID: 302
 - Slug: the-female-founders-experience-vienna-2026-1
@@ -686,7 +637,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://ffexperience.female-founders.org/
   - https://female-founders.org/
 
-### 28. Road to Global x Tech Summit
+## 28. Road to Global x Tech Summit
 
 - UID: 264
 - Slug: road-to-global-x-tech-summit
@@ -708,7 +659,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/road-to-global-x-tech-summit/edit
 
-### 29. PeaceTech Conference: Advancing Ethical AI in a Sustainable World
+## 29. PeaceTech Conference: Advancing Ethical AI in a Sustainable World
 
 - UID: 272
 - Slug: peacetech-conference-advancing-ethical-ai-in-a-sustainable-world
@@ -731,7 +682,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/peacetech-conference-advancing-ethical-ai-in-a-sustainable-world/edit
   - https://nexus-group.ai/
 
-### 30. HOIV FUSION: The Beat of Innovation
+## 30. HOIV FUSION: The Beat of Innovation
 
 - UID: 311
 - Slug: hoiv-fusion-the-beat-of-innovation
@@ -755,7 +706,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://homeofinnovationx.com/events/
   - https://homeofinnovationx.com/
 
-### 31. Creative Days Vienna 2026
+## 31. Creative Days Vienna 2026
 
 - UID: 297
 - Slug: creative-days-vienna-2026
@@ -777,7 +728,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/creative-days-vienna-2026/edit
 
-### 32. The Future of Health and Age Tech: Pitch Session
+## 32. The Future of Health and Age Tech: Pitch Session
 
 - UID: 291
 - Slug: the-future-of-health-and-age-tech-pitch-session
@@ -800,7 +751,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/the-future-of-health-and-age-tech-pitch-session/edit
   - https://120.ventures/
 
-### 33. Fuckup Nights Vienna Vol 52 | ViennaUP 2026 Edition & Party
+## 33. Fuckup Nights Vienna Vol 52 | ViennaUP 2026 Edition & Party
 
 - UID: 303
 - Slug: fuckup-nights-vienna-vol-52-viennaup-2026-edition-party
@@ -822,7 +773,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/fuckup-nights-vienna-vol-52-viennaup-2026-edition-party/edit
 
-### 34. ViennaUP Coffee House Sessions 2026
+## 34. ViennaUP Coffee House Sessions 2026
 
 - UID: 258
 - Slug: viennaup-coffee-house-sessions-2026-2
@@ -845,7 +796,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/viennaup-coffee-house-sessions-2026/edit
   - https://vienna.business/
 
-### 35. Road to Global x Tech Summit
+## 35. Road to Global x Tech Summit
 
 - UID: 265
 - Slug: road-to-global-x-tech-summit-1
@@ -867,7 +818,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/road-to-global-x-tech-summit/edit
 
-### 36. Best practices for expanding your business to Vienna
+## 36. Best practices for expanding your business to Vienna
 
 - UID: 268
 - Slug: best-practices-for-expanding-your-business-to-vienna
@@ -890,7 +841,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/best-practices-for-expanding-your-business-to-vienna/edit
   - https://viennabusinessagency.at/
 
-### 37. Onco:Innovate Conference
+## 37. Onco:Innovate Conference
 
 - UID: 273
 - Slug: oncoinnovate-conference
@@ -914,7 +865,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://onco-innovate.org/
   - https://onco-innovate.org/
 
-### 38. WSA Global Congress
+## 38. WSA Global Congress
 
 - UID: 277
 - Slug: wsa-global-congress-1
@@ -938,7 +889,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://wsa-global.org/2025/10/18/wsa-global-congress-in-vienna/
   - https://wsa-global.org/
 
-### 39. Smart City SuMMit 2026
+## 39. Smart City SuMMit 2026
 
 - UID: 287
 - Slug: smart-city-summit-2026
@@ -961,7 +912,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/smart-city-summit-2026/edit
   - https://viennabusinessagency.at/
 
-### 40. Manufacturing Day
+## 40. Manufacturing Day
 
 - UID: 271
 - Slug: manufacturing-day
@@ -984,7 +935,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/manufacturing-day/edit
   - https://www.manufacturingday.eu
 
-### 41. Creative Days Vienna 2026
+## 41. Creative Days Vienna 2026
 
 - UID: 298
 - Slug: creative-days-vienna-2026-1
@@ -1006,7 +957,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/creative-days-vienna-2026/edit
 
-### 42. INSIDEOUT Summit
+## 42. INSIDEOUT Summit
 
 - UID: 299
 - Slug: insideout-summit
@@ -1030,7 +981,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://insideoutsummit.at/
   - https://tech2impact.com/
 
-### 43. International Blockchain Day: The New Money: Stablecoins, Crypto, CBDC and the Power of Tokenization
+## 43. International Blockchain Day: The New Money: Stablecoins, Crypto, CBDC and the Power of Tokenization
 
 - UID: 296
 - Slug: international-blockchain-day-the-new-money-stablecoins-crypto-cbdc-and-the-power-of-tokenization
@@ -1052,7 +1003,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/international-blockchain-day-the-new-money-stablecoins-crypto-cbdc-and-the-power-of-tokenization/edit
 
-### 44. Corporate Venturing Summit
+## 44. Corporate Venturing Summit
 
 - UID: 270
 - Slug: corporate-venturing-summit
@@ -1076,7 +1027,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://pioneers.io/corporate-venturing-summit/
   - https://pioneers.io/
 
-### 45. Longevity Business Forum
+## 45. Longevity Business Forum
 
 - UID: 251
 - Slug: longevity-business-forum
@@ -1100,7 +1051,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://longevityhub.at/business-forum/
   - https://longevityhub.at/
 
-### 46. ClawCon #3 - ViennaUP edition
+## 46. ClawCon #3 - ViennaUP edition
 
 - UID: 313
 - Slug: clawcon-3-viennaup-edition
@@ -1123,7 +1074,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/clawcon-3-viennaup-edition/edit
   - https://lumia.wien/
 
-### 47. ViennaUP Coffee House Sessions 2026
+## 47. ViennaUP Coffee House Sessions 2026
 
 - UID: 259
 - Slug: viennaup-coffee-house-sessions-2026-3
@@ -1146,7 +1097,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/viennaup-coffee-house-sessions-2026/edit
   - https://vienna.business/
 
-### 48. Founders & Future Founders Breakfast
+## 48. Founders & Future Founders Breakfast
 
 - UID: 295
 - Slug: founders-future-founders-breakfast
@@ -1169,7 +1120,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/founders-future-founders-breakfast/edit
   - https://www.calmstorm.vc/
 
-### 49. Creative Catalyst Aperture 
+## 49. Creative Catalyst Aperture 
 
 - UID: 306
 - Slug: creative-catalyst-super-node
@@ -1191,7 +1142,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
 - Enrichment sources:
   - https://eit-culture-creativity.eu
 
-### 50. Open House @AI Factory Austria AI:AT
+## 50. Open House @AI Factory Austria AI:AT
 
 - UID: 261
 - Slug: open-house-ai-factory-austria-aiat
@@ -1214,7 +1165,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/open-house-ai-factory-austria-ai-at/edit
   - https://ai-at.eu/
 
-### 51. WSA Community Day
+## 51. WSA Community Day
 
 - UID: 305
 - Slug: wsa-global-congress-day-3
@@ -1238,7 +1189,7 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://wsa-global.org/2025/10/18/wsa-global-congress-in-vienna/
   - https://wsa-global.org/
 
-### 52. { founders only }
+## 52. { founders only }
 
 - UID: 267
 - Slug: founder-only
@@ -1261,4 +1212,3 @@ This markdown file is a portable ViennaUP 2026 context pack generated from
   - https://viennaup.flave.world/user/events/founders-only/edit
   - https://founders-only.lovable.app/
   - https://austrianstartups.com/
-

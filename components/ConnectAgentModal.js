@@ -315,29 +315,29 @@ export default function ConnectAgentModal({ open, onClose }) {
 
         <div className={styles.downloadsRow}>
           <div>
-            <div className={styles.downloadsTitle}>Portable skill files</div>
+            <div className={styles.downloadsTitle}>Installable skill bundles</div>
             <p className={styles.downloadsHint}>
-              Static markdown snapshots generated from the latest programme data.
-              Useful for Claude skills or OpenClaw context when you do not want
-              to rely on a live MCP connection.
+              Generated zip bundles with a real skill folder structure, `SKILL.md`,
+              and supporting reference files derived from the latest programme
+              data.
             </p>
           </div>
           <div className={styles.downloadActions}>
             <a
               className={styles.downloadBtn}
               href="/api/skill-file/claude"
-              download="viennaup-events-claude.md"
+              download="viennaup-events-claude-skill.zip"
             >
               <span aria-hidden="true" className={styles.downloadIcon}>↓</span>
-              Claude skill (.md)
+              Claude skill (.zip)
             </a>
             <a
               className={styles.downloadBtn}
               href="/api/skill-file/openclaw"
-              download="viennaup-events-openclaw.md"
+              download="viennaup-events-openclaw-skill.zip"
             >
               <span aria-hidden="true" className={styles.downloadIcon}>↓</span>
-              OpenClaw skill (.md)
+              OpenClaw skill (.zip)
             </a>
           </div>
         </div>

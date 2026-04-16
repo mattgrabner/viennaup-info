@@ -12,7 +12,7 @@ Unofficial interactive map of [ViennaUP](https://viennaup.com) programme events:
 - Responsive sidebar + map for desktop and mobile
 - Filters by day, event type, format, and free-text search
 - Clicking a marker focuses events at that pin
-- **Daily data refresh** via GitHub Actions (commits updated `data/*.json` and `data/skills/*.md`; Vercel redeploys on push)
+- **Daily data refresh** via GitHub Actions (commits updated `data/*.json` and generated skill bundle folders under `data/skills/`; Vercel redeploys on push)
 - **MCP** at `/api/mcp` for ChatGPT, Claude, Cursor, etc.
 
 ## Environment variables
@@ -59,12 +59,12 @@ In production, data is updated by the **Automated daily refresh** workflow below
 | `npm run build` | Production build |
 | `npm run start` | Run production server locally |
 | `npm run lint` | ESLint |
-| `node scripts/scrape.mjs` | Scrape, geocode, enrich -> update `data/*.json` and `data/skills/*.md` |
+| `node scripts/scrape.mjs` | Scrape, geocode, enrich -> update `data/*.json` and generated skill bundle folders under `data/skills/` |
 
 ## Repository notes
 
 - **`node_modules/`** and **`.next/`** are gitignored. Do not commit `.next`; Vercel (and CI) run `next build` themselves.
-- **`data/events.json`** (and related caches) are committed so the site and MCP work without a database. The scheduled workflow also regenerates portable markdown skill files under `data/skills/`.
+- **`data/events.json`** (and related caches) are committed so the site and MCP work without a database. The scheduled workflow also regenerates installable skill bundle folders under `data/skills/`.
 
 ## Automated daily refresh
 
@@ -72,7 +72,7 @@ In production, data is updated by the **Automated daily refresh** workflow below
 
 - Cron: **22:00 UTC** (midnight in Vienna during **CEST**). Tweak the cron in the workflow if you want a different wall-clock time in winter (**CET**).
 - Runs `npm ci`, then `node scripts/scrape.mjs`.
-- Commits changes to `data/events.json`, `data/geocode-cache.json`, `data/page-cache.json`, and `data/skills/*.md` with message `chore(data): refresh ViennaUP events [skip ci]` when there are diffs (`[skip ci]` avoids re-triggering heavy GitHub workflows on that commit; Vercel still deploys from the push if connected to the branch).
+- Commits changes to `data/events.json`, `data/geocode-cache.json`, `data/page-cache.json`, and generated bundle files under `data/skills/` with message `chore(data): refresh ViennaUP events [skip ci]` when there are diffs (`[skip ci]` avoids re-triggering heavy GitHub workflows on that commit; Vercel still deploys from the push if connected to the branch).
 - **Manual run:** GitHub → Actions → *Refresh ViennaUP events* → *Run workflow*.
 
 **Repository secret (required for new addresses):**
@@ -89,8 +89,8 @@ In production, data is updated by the **Automated daily refresh** workflow below
 | `GET` | `/api/maps-key` | `{ key, mapId }` for the browser loader |
 | `GET` | `/api/map-style` | Map style JSON rules (used when no Map ID) |
 | `GET`, `POST`, `DELETE` | `/api/mcp` | MCP Streamable HTTP endpoint |
-| `GET` | `/api/skill-file/claude` | Download Claude-oriented markdown skill snapshot |
-| `GET` | `/api/skill-file/openclaw` | Download OpenClaw-oriented markdown skill snapshot |
+| `GET` | `/api/skill-file/claude` | Download Claude skill bundle zip |
+| `GET` | `/api/skill-file/openclaw` | Download OpenClaw skill bundle zip |
 | `GET` | `/api/openclaw` | OpenClaw-friendly API index + config example |
 | `GET` | `/api/openclaw/:action` | JSON endpoints for the OpenClaw skill (`overview`, `events`, `event`, `date`, `near`, `recommend`, `venues`) |
 
@@ -132,6 +132,7 @@ https://<your-deployment>.vercel.app/api/mcp
 {
   "mcpServers": {
     "viennaup-events": {
+      "type": "http",
       "url": "https://<your-deployment>.vercel.app/api/mcp"
     }
   }
@@ -163,19 +164,27 @@ https://<your-deployment>.vercel.app/api/mcp
 - MCP reads **`data/events.json` from the deployment bundle**—no Redis required. After ViennaUP updates the programme, rely on the **GitHub Action** (or a local scrape + PR) so a new commit redeploys with fresh JSON.
 - For **`events_near`** on arbitrary addresses, the API key enables live Geocoding; cached ViennaUP venues work from `data/geocode-cache.json` alone.
 
-## Portable skill files
+## Skill bundles
 
-If you want a static context file instead of a live MCP connection, the app also
-offers downloadable markdown skill snapshots generated from the latest
-`data/events.json`.
+If you want downloadable installable skills in addition to the live MCP server,
+the app also generates skill bundle folders from `data/events.json` and serves
+zip downloads for them.
 
-- Claude-oriented markdown: `/api/skill-file/claude`
-- OpenClaw-oriented markdown: `/api/skill-file/openclaw`
-- Generated repo copies: `data/skills/viennaup-events-claude.md` and `data/skills/viennaup-events-openclaw.md`
+- Claude zip: `/api/skill-file/claude`
+- OpenClaw zip: `/api/skill-file/openclaw`
+- Generated repo folders: `data/skills/claude/viennaup-events/` and `data/skills/openclaw/viennaup-events/`
 
-These files are snapshots, so streamable HTTP MCP at `/api/mcp` remains the
-canonical live integration. The markdown downloads are best used as portable
-fallback context or local skill docs.
+Each zip contains a proper skill folder with:
+
+- `SKILL.md`
+- `README.md`
+- `references/programme-overview.md`
+- `references/event-catalog.md`
+- `references/recommendation-guide.md`
+- `references/venues.md`
+
+These bundles are generated from the normalized event data, while streamable HTTP
+MCP at `/api/mcp` remains the canonical live integration.
 
 ## Data files
 
@@ -184,7 +193,8 @@ fallback context or local skill docs.
 | `data/events.json` | Normalized events for the UI and MCP |
 | `data/geocode-cache.json` | Address → lat/lng (+ formatted address) |
 | `data/page-cache.json` | Fetched HTML summaries for search enrichment |
-| `data/skills/*.md` | Generated portable markdown skill snapshots for Claude / OpenClaw |
+| `data/skills/claude/viennaup-events/` | Generated Claude skill bundle folder |
+| `data/skills/openclaw/viennaup-events/` | Generated OpenClaw skill bundle folder |
 
 ## Licence / attribution
 
