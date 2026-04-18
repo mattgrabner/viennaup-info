@@ -238,6 +238,7 @@ Full generated event catalogue.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/mobility-in-action/edit
   - https://ivlv.me/3n98w
+  - https://www.mobility.community
 
 ## 11. Startup World Cup Austria 2026
 
@@ -261,6 +262,7 @@ Full generated event catalogue.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/startup-world-cup-austria-2026/edit
   - https://www.startupworldcup-austria.com/
+  - https://www.invest-austria.com
 
 ## 12. The Perfect Pitch: How to Create Interest in You and Your Big Idea
 
@@ -667,7 +669,7 @@ Full generated event catalogue.
 - Time: 12:00:00 to 20:00:00
 - Venue: Impact Hub Vienna, Lindengasse 56, 1070 Vienna
 - Organizer: NGAI FlexCo
-- Website: www.peacehub.tech/conference
+- Website: https://www.peacehub.tech/conference
 - Ticket URL: https://viennaup.flave.world/user/events/peacetech-conference-advancing-ethical-ai-in-a-sustainable-world/edit
 - Type: Onsite
 - Format: Conference, Pitch competition, Fair/showcase/tech demo, Matchmaking, Panel discussion
@@ -680,6 +682,7 @@ Full generated event catalogue.
 - Description: Innovate. Network. Impact. It&#39;s time to move beyond discussion and start building. Join the PeaceTech Conference 2026 to integrate cutting-edge business strategy with meaningful, next-generation impact. This year we will explore practical strategies to Advance Ethical AI in a Sustainable World, addressing AI&#39;s dual environmental impact: leveraging it for the circular economy while managing data centre footprints.&nbsp; From panel discussions and networking opportunities to startup booths and pitching competitions, PTC26 has got you covered. Whether you are a founder, a developer, or a future industry leader, this is your chance to ensure AI drives a more sustainable world.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/peacetech-conference-advancing-ethical-ai-in-a-sustainable-world/edit
+  - https://www.peacehub.tech/conference
   - https://nexus-group.ai/
 
 ## 30. HOIV FUSION: The Beat of Innovation
@@ -714,7 +717,7 @@ Full generated event catalogue.
 - Time: 13:30:00 to 23:00:00
 - Venue: Funkhaus Vienna
 - Organizer: Vienna Business Agency
-- Website: creativedaysvienna.at
+- Website: https://creativedaysvienna.at
 - Ticket URL: https://viennaup.flave.world/user/events/creative-days-vienna-2026/edit
 - Type: Onsite
 - Format: Conference, Networking & gathering only, Workshop, Matchmaking
@@ -727,6 +730,8 @@ Full generated event catalogue.
 - Description: How are digital technologies shaping the future of cultural experiences? On 20 and 21 May 2026, Creative Days Vienna will once again bring together leading international creative professionals for a diverse program of talks, tours, performances, installations and networking formats. The participants of Creative Days Vienna 2026 will provide substantial impulses for architecture, design, film, gaming, fashion, music and the visual arts. Together, we will discuss the interplay between technological innovations, social change and the creative industries. Creative Days Vienna 2026 will open with an (Un)Conference exploring how creatives can reshape cultural and digital infrastructures. The opening features keynotes by Shumon Basar and G&uuml;nseli Yalcinkaya, as well as performances, installations and a club night. Day 2 brings workshops led by Paloma Oliveira, Ramon Reichert, NeverAtHome, Subotron, Marl&egrave;ne Delrive, Area 404 and a Tour presenting Biofabrique Vienna and Creatives for Vienna projects. &nbsp;
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/creative-days-vienna-2026/edit
+  - https://creativedaysvienna.at
+  - https://wirtschaftsagenturwien.at
 
 ## 32. The Future of Health and Age Tech: Pitch Session
 
@@ -759,7 +764,7 @@ Full generated event catalogue.
 - Time: 17:30:00 to 22:00:00
 - Venue: U4 Vienna, Schönbrunnerstr. 222-228, 1120 Vienna
 - Organizer: The Failure Institute
-- Website: www.fuckupnights.at
+- Website: https://www.fuckupnights.at
 - Ticket URL: https://viennaup.flave.world/user/events/fuckup-nights-vienna-vol-52-viennaup-2026-edition-party/edit
 - Type: Onsite
 - Format: Fair/showcase/tech demo, Networking & gathering only, Matchmaking, Meet-the-experts session, Panel discussion
@@ -772,6 +777,8 @@ Full generated event catalogue.
 - Description: Fuckup Nights ViennaUP 2026: Burn the Script Last year was just the warm-up. If you thought we went hard before, you haven&#39;t seen anything yet. We&rsquo;re back at ViennaUP to tear down the wall of perfect entrepreneurship and show you the fuckups, blood, sweat, and bad decisions hidden behind the greatest wins. We are not a polite panel but rather a riot European Entrepreneurship desperately needs. Forget the sanitized lessons learned slides. We&rsquo;re bringing three fearless speakers to the stage to bleed out the truth and share their most powerful fuckups &amp; lessons learned. For this very special occasion, we&rsquo;ll be taking over the legendary U4 - the home of Falco, birthplace of Viennese counter-culture and now one of the ViennaUP event venues. Come join us, coz this is where the coolest crowd of the entire ViennaUP week gathers to ditch the masks and get real. Fail loud. Fail proud. Burn the rulebook.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/fuckup-nights-vienna-vol-52-viennaup-2026-edition-party/edit
+  - https://www.fuckupnights.at
+  - https://www.fuckupnights.at
 
 ## 34. ViennaUP Coffee House Sessions 2026
 
@@ -934,6 +941,7 @@ Full generated event catalogue.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/manufacturing-day/edit
   - https://www.manufacturingday.eu
+  - https://www.eitmanufacturing.eu
 
 ## 41. Creative Days Vienna 2026
 
@@ -943,7 +951,7 @@ Full generated event catalogue.
 - Time: 09:30:00 to 19:00:00
 - Venue: various locations in Vienna
 - Organizer: Vienna Business Agency
-- Website: creativedaysvienna.at
+- Website: https://creativedaysvienna.at
 - Ticket URL: https://viennaup.flave.world/user/events/creative-days-vienna-2026/edit
 - Type: Onsite
 - Format: Conference, Networking & gathering only, Workshop, Matchmaking
@@ -956,6 +964,8 @@ Full generated event catalogue.
 - Description: How are digital technologies shaping the future of cultural experiences? On 20 and 21 May 2026, Creative Days Vienna will once again bring together leading international creative professionals for a diverse program of talks, tours, performances, installations and networking formats. The participants of Creative Days Vienna 2026 will provide substantial impulses for architecture, design, film, gaming, fashion, music and the visual arts. Together, we will discuss the interplay between technological innovations, social change and the creative industries. Creative Days Vienna 2026 will open with an (Un)Conference exploring how creatives can reshape cultural and digital infrastructures. The opening features keynotes by Shumon Basar and G&uuml;nseli Yalcinkaya, as well as performances, installations and a club night. Day 2 brings workshops led by Paloma Oliveira, Ramon Reichert, NeverAtHome, Subotron, Marl&egrave;ne Delrive, Area 404 and a Tour presenting Biofabrique Vienna and Creatives for Vienna projects.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/creative-days-vienna-2026/edit
+  - https://creativedaysvienna.at
+  - https://wirtschaftsagenturwien.at
 
 ## 42. INSIDEOUT Summit
 
