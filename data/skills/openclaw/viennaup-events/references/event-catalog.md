@@ -1139,7 +1139,7 @@ Full generated event catalogue.
 - Venue: MuseumsQuartier Wien, Barocke Suiten
 - Organizer: EIT Culture & Creativtiy
 - Website: None
-- Ticket URL: None
+- Ticket URL: https://viennaup.flave.world/user/events/creative-catalyst-aperture/edit
 - Type: Onsite
 - Format: Conference, Workshop, Matchmaking, Meet-the-experts session, Panel discussion
 - Tracks: None
@@ -1150,6 +1150,7 @@ Full generated event catalogue.
 - Coordinates: 48.2033369, 16.3586166 (1070 Vienna, Austria)
 - Description: What does it take to bring a creative business to European scale? Aperture is the launch of Creative Catalyst Austria, an innovation pathway programme for Austrian creative businesses moving beyond borders, designed to push creative businesses beyond local markets and into European scale, through tailored innovation and growth pathways. The day traces the Creative Catalyst journey from provocation and foresight to hands-on collaboration. The morning is dedicated to talks from practitioners working at the intersection of materials and creative technology, perspectives that highlight emerging shifts shaping Europe&#39;s creative economy, and where creative businesses can position themselves within it. In the afternoon, the focus turns to application. Participants take part in smaller sessions with members of the Creative Catalyst network: coaches, investors, and industry experts working directly with businesses on their next steps.&nbsp;Alongside these sessions, participants can also learn more about current opportunities from&nbsp;EIT Culture &amp; Creativity&nbsp;and explore how to engage with upcoming programmes and funding calls.&nbsp;
 - Enrichment sources:
+  - https://viennaup.flave.world/user/events/creative-catalyst-aperture/edit
   - https://eit-culture-creativity.eu
 
 ## 50. Open House @AI Factory Austria AI:AT
