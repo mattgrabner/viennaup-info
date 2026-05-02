@@ -777,8 +777,6 @@ Full generated event catalogue.
 - Description: Fuckup Nights ViennaUP 2026: Burn the Script Last year was just the warm-up. If you thought we went hard before, you haven&#39;t seen anything yet. We&rsquo;re back at ViennaUP to tear down the wall of perfect entrepreneurship and show you the fuckups, blood, sweat, and bad decisions hidden behind the greatest wins. We are not a polite panel but rather a riot European Entrepreneurship desperately needs. Forget the sanitized lessons learned slides. We&rsquo;re bringing three fearless speakers to the stage to bleed out the truth and share their most powerful fuckups &amp; lessons learned. For this very special occasion, we&rsquo;ll be taking over the legendary U4 - the home of Falco, birthplace of Viennese counter-culture and now one of the ViennaUP event venues. Come join us, coz this is where the coolest crowd of the entire ViennaUP week gathers to ditch the masks and get real. Fail loud. Fail proud. Burn the rulebook.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/fuckup-nights-vienna-vol-52-viennaup-2026-edition-party/edit
-  - https://www.fuckupnights.at
-  - https://www.fuckupnights.at
 
 ## 34. ViennaUP Coffee House Sessions 2026
 
