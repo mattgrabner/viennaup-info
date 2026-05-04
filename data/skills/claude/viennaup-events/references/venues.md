@@ -142,35 +142,35 @@ Distinct venues extracted from the generated event catalogue.
 - Event count: 1
 - Coordinates: None
 
-### 29. Track 1: das forum, Operngasse 17-21/11. OG, 1040 Vienna; Track 2: Vienna Business Agency, Mariahilfer Straße 20, 1070 Vienna
-
-- Event count: 1
-- Coordinates: 48.2010228, 16.3582058 (Mariahilfer Str. 20/11 og, 1070 Wien, Austria)
-
-### 30. TU in the Sky,  Getreidemarkt  9,  1060 Vienna
+### 29. TU in the Sky,  Getreidemarkt  9,  1060 Vienna
 
 - Event count: 1
 - Coordinates: 48.2012094, 16.3635647 (Getreidemarkt 9, 1060 Wien, Austria)
 
-### 31. TU Wien (Technology University Vienna) near Karlsplatz (exact address will be shared after booking)
+### 30. TU Wien (Technology University Vienna) near Karlsplatz (exact address will be shared after booking)
 
 - Event count: 1
 - Coordinates: 48.1986546, 16.3684626 (Karlsplatz 13, 1040 Wien, Austria)
 
-### 32. U4 Vienna, Schönbrunnerstr. 222-228, 1120 Vienna
+### 31. U4 Vienna, Schönbrunnerstr. 222-228, 1120 Vienna
 
 - Event count: 1
 - Coordinates: 48.1832718, 16.3280708 (Schönbrunner Str. 222/702, 1120 Wien, Austria)
 
-### 33. various locations in Vienna
+### 32. various locations in Vienna
 
 - Event count: 1
 - Coordinates: 48.20806959999999, 16.3713095 (Vienna, Austria)
 
-### 34. Various Viennese coffee houses
+### 33. Various Viennese coffee houses
 
 - Event count: 5
 - Coordinates: 48.20806959999999, 16.3713095 (Vienna, Austria)
+
+### 34. Vienna Business Agency, Mariahilfer Straße 20, 1070 Vienna
+
+- Event count: 1
+- Coordinates: None
 
 ### 35. wexelerate, Praterstrasse 1
 

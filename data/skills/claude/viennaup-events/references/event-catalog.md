@@ -1179,8 +1179,8 @@ Full generated event catalogue.
 - UID: 305
 - Slug: wsa-global-congress-day-3
 - Date: 2026-05-22
-- Time: 10:00:00 to 14:30:00
-- Venue: Track 1: das forum, Operngasse 17-21/11. OG, 1040 Vienna; Track 2: Vienna Business Agency, Mariahilfer Straße 20, 1070 Vienna
+- Time: 09:30:00 to 15:00:00
+- Venue: Vienna Business Agency, Mariahilfer Straße 20, 1070 Vienna
 - Organizer: ICNM
 - Website: https://wsa-global.org/2025/10/18/wsa-global-congress-in-vienna/
 - Ticket URL: https://viennaup.flave.world/user/events/wsa-community-day/edit
@@ -1191,8 +1191,8 @@ Full generated event catalogue.
 - Admission: Paid ticket
 - Registration: Registration required
 - Accessibility: Other
-- Coordinates: 48.2010228, 16.3582058 (Mariahilfer Str. 20/11 og, 1070 Wien, Austria)
-- Description: On the final day of the WSA Global Congress, participants can dive deeper into the topics most relevant to their work. Two parallel tracks run simultaneously, so make sure to choose the ticket that best fits your interests and goals in the next step. Track 1: Democracy in the Digital Age This highly interactive morning in partnership with Urban Innovation Austria brings together international experts and entrepreneurs to discuss the challenges and opportunities of democracy in the digital era, exploring how digital solutions can strengthen democratic values while addressing threats such as misinformation, platform dominance, and digital dependency. Track 2: Impact Founders Lab &ndash; Tools for Scaling Your Startup Designed for impact entrepreneurs and tech startups, this hands-on workshop series hosted at the Vienna Business Agency provides practical tools to strengthen your business while staying true to your mission, focusing on real founder challenges. Workshops include: Impact That Pays Off: Measuring What Matters Business Models for Mission-Driven Startups Founder Resilience &amp; Team Health Play to Pivot: Creative Problem Solving for Founders
+- Coordinates: None
+- Description: On the final day of the WSA Global Congress , participants can dive deeper into the topics most relevant to their work with the offer of multiple workshops at the Impact Founders Lab &ndash; Tools for Scaling Your Startup . Designed for impact entrepreneurs and tech startups, this hands-on workshop series hosted at the Vienna Business Agency provides practical tools to strengthen your business while staying true to your mission, focusing on real founder challenges. &nbsp; Included workshops: 9:30-10:30 How to Develop an AI Strategy for Your Business Deep Dive Workshop by Odeta Iseviciute, Change AI, Lithuania. 10:30-11:30 Why Measuring Your Impact Matters and How to Start Deep Dive Workshop by Connor Sattely, Decile Group, Netherlands. 11:30-14:00 Playful Problem-Solving for Startups Hands-on, minds-on LEGO brick-based workshop by Caspar Aarlit Jensen, Pressplay, Denmark. Designed to strengthen your ability to navigate challenges, pivot fast, and think creatively under pressure. 14:00-15:00 How to Scale in Cooperation with Vienna Business Agency Scaling Readiness, by Petra Wolkenstein and Michael Kubiena, Konsultori, Austria Fill out this form before: https://konsultori.typeform.com/to/v9QUPlfb?utm_source=event&amp;utm_medium=email&amp;utm_campaign=VUP%20WSA &nbsp; You can find our evolving and continually updated congress program HERE For questions and further inquiry please contact office@wsa-global.org
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/wsa-community-day/edit
   - https://wsa-global.org/2025/10/18/wsa-global-congress-in-vienna/
