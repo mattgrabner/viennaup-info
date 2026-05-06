@@ -647,7 +647,7 @@ Full generated event catalogue.
 - Time: 11:00:00 to 17:00:00
 - Venue: WKÖ Wiedner Hauptstraße 63, 1040 Wien
 - Organizer: Road to Global / Tech Summit
-- Website: https://tech-summit.org/
+- Website: None
 - Ticket URL: https://viennaup.flave.world/user/events/road-to-global-x-tech-summit/edit
 - Type: Onsite
 - Format: Conference, Pitch competition, Fair/showcase/tech demo, Networking & gathering only, Workshop, Matchmaking, Panel discussion
@@ -809,7 +809,7 @@ Full generated event catalogue.
 - Time: 08:50:00 to 17:00:00
 - Venue: WKÖ Wiedner Hauptstraße 63, 1040 Wien
 - Organizer: Road to Global / Tech Summit
-- Website: https://tech-summit.org/
+- Website: None
 - Ticket URL: https://viennaup.flave.world/user/events/road-to-global-x-tech-summit/edit
 - Type: Onsite
 - Format: Conference, Fair/showcase/tech demo, Networking & gathering only, Workshop, Matchmaking, Panel discussion
