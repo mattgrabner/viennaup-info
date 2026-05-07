@@ -6,6 +6,14 @@ import styles from "./MapApp.module.css";
 import ConnectAgentModal from "./ConnectAgentModal";
 
 const VIENNA_CENTER = { lat: 48.2082, lng: 16.3738 };
+const MAX_USER_LOCATION_DISTANCE_M = 100000;
+const FAVORITES_STORAGE_KEY = "viennaup:favorites";
+const TIME_FILTER_OPTIONS = [
+  { value: "all", label: "All" },
+  { value: "today", label: "Today" },
+  { value: "now", label: "Now" },
+  { value: "upcoming", label: "Upcoming" }
+];
 
 /** Native ES `Map` (avoid name clash with `google.maps.Map` in some bundles). */
 const NativeMap = globalThis.Map;
@@ -109,6 +117,31 @@ function getSearchableText(event) {
     .join(" ");
 }
 
+function escapeRegex(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function termMatches(haystack, term) {
+  if (term.length <= 3) {
+    const re = new RegExp(`(^|[^a-z0-9])${escapeRegex(term)}(?=$|[^a-z0-9])`, "i");
+    return re.test(haystack);
+  }
+  return haystack.includes(term);
+}
+
+function searchMatches(event, query) {
+  const terms = String(query || "")
+    .toLowerCase()
+    .split(/\s+/)
+    .map((term) => term.trim())
+    .filter(Boolean);
+
+  if (terms.length === 0) return true;
+
+  const haystack = getSearchableText(event).toLowerCase();
+  return terms.every((term) => termMatches(haystack, term));
+}
+
 function getGoogleMapsUrl(event) {
   const hasGeo = Number.isFinite(event?.geo?.lat) && Number.isFinite(event?.geo?.lng);
   const query = hasGeo
@@ -117,6 +150,27 @@ function getGoogleMapsUrl(event) {
 
   if (!query) return null;
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+function getRouteUrl(event, userLocation) {
+  const hasGeo = Number.isFinite(event?.geo?.lat) && Number.isFinite(event?.geo?.lng);
+  const destination = hasGeo
+    ? `${event.geo.lat},${event.geo.lng}`
+    : event?.location || event?.title || "";
+
+  if (!destination) return null;
+
+  const params = new URLSearchParams({
+    api: "1",
+    destination,
+    travelmode: "walking"
+  });
+
+  if (userLocation) {
+    params.set("origin", `${userLocation.lat},${userLocation.lng}`);
+  }
+
+  return `https://www.google.com/maps/dir/?${params.toString()}`;
 }
 
 function geoGroupKey(event) {
@@ -145,6 +199,34 @@ function formatDistance(meters) {
   if (!Number.isFinite(meters)) return "";
   if (meters < 950) return `${Math.round(meters / 10) * 10} m`;
   return `${(meters / 1000).toFixed(meters < 9500 ? 1 : 0)} km`;
+}
+
+function toLocalDateKey(date = new Date()) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function parseEventDateTime(date, time, fallbackTime) {
+  const rawTime = time || fallbackTime;
+  if (!date || !rawTime) return null;
+  const normalizedTime = rawTime.length === 5 ? `${rawTime}:00` : rawTime;
+  const parsed = new Date(`${date}T${normalizedTime}`);
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+function eventMatchesTimeFilter(event, timeFilter, now = new Date()) {
+  if (timeFilter === "all") return true;
+  if (timeFilter === "today") return event.date === toLocalDateKey(now);
+
+  const start = parseEventDateTime(event.date, event.starttime, "00:00:00");
+  const end = parseEventDateTime(event.date, event.endtime, "23:59:59") || start;
+
+  if (!start || !end) return false;
+  if (timeFilter === "now") return start <= now && now <= end;
+  if (timeFilter === "upcoming") return end >= now;
+  return true;
 }
 
 /** Brand yellow → cyan interpolation for marker density. `t` is clamped to [0, 1]. */
@@ -193,15 +275,45 @@ function pickRepresentativeAddress(events) {
 export default function MapApp({ initialEvents }) {
   const events = initialEvents;
   const [selectedDate, setSelectedDate] = useState("all");
+  const [selectedTimeFilter, setSelectedTimeFilter] = useState("all");
   const [selectedType, setSelectedType] = useState("all");
   const [selectedFormat, setSelectedFormat] = useState("all");
+  const [favoritesOnly, setFavoritesOnly] = useState(false);
+  const [favoriteEventIds, setFavoriteEventIds] = useState(() => new Set());
+  const [currentTime, setCurrentTime] = useState(() => new Date());
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [selectedEventUid, setSelectedEventUid] = useState(null);
   const [searchText, setSearchText] = useState("");
   const [connectOpen, setConnectOpen] = useState(false);
+  const [userLocation, setUserLocation] = useState(null);
+  const [locationStatus, setLocationStatus] = useState("idle");
+  const [locationMessage, setLocationMessage] = useState("");
   const [mapState, setMapState] = useState({ map: null, markers: [], initialized: false });
   const markersRef = useRef([]);
+  const userMarkerRef = useRef(null);
   const eventRefs = useRef(new NativeMap());
+
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(FAVORITES_STORAGE_KEY);
+      const ids = raw ? JSON.parse(raw) : [];
+      if (Array.isArray(ids)) {
+        setFavoriteEventIds(new Set(ids.map(String)));
+      }
+    } catch {
+      setFavoriteEventIds(new Set());
+    }
+  }, []);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setCurrentTime(new Date());
+    }, 60000);
+
+    return () => {
+      window.clearInterval(timer);
+    };
+  }, []);
 
   const filters = useMemo(() => {
     const dates = unique(events.map((event) => event.date));
@@ -211,25 +323,34 @@ export default function MapApp({ initialEvents }) {
   }, [events]);
 
   const filteredEvents = useMemo(() => {
-    const query = searchText.toLowerCase().trim();
+    const query = searchText.trim();
 
     const matches = events.filter((event) => {
       if (!event.geo) return false;
       if (selectedDate !== "all" && event.date !== selectedDate) return false;
+      if (!eventMatchesTimeFilter(event, selectedTimeFilter, currentTime)) return false;
       if (selectedType !== "all" && !(event.type || []).includes(selectedType)) return false;
       if (selectedFormat !== "all" && !(event.format || []).includes(selectedFormat)) return false;
-      if (!query) return true;
+      if (favoritesOnly && !favoriteEventIds.has(String(event.uid))) return false;
 
-      const haystack = getSearchableText(event).toLowerCase();
-
-      return haystack.includes(query);
+      return searchMatches(event, query);
     });
 
     return matches.slice().sort((a, b) => {
       if (a.date !== b.date) return a.date.localeCompare(b.date);
       return (a.starttime || "").localeCompare(b.starttime || "");
     });
-  }, [events, selectedDate, selectedType, selectedFormat, searchText]);
+  }, [
+    events,
+    currentTime,
+    favoriteEventIds,
+    favoritesOnly,
+    searchText,
+    selectedDate,
+    selectedFormat,
+    selectedTimeFilter,
+    selectedType
+  ]);
 
   const groupedByLocation = useMemo(() => {
     const grouped = new NativeMap();
@@ -257,32 +378,46 @@ export default function MapApp({ initialEvents }) {
   }, [selectedLocation, groupedByLocation]);
 
   const orderedEvents = useMemo(() => {
-    if (!selectedGroup) {
-      return filteredEvents.map((event) => ({ event, distance: null, atLocation: false }));
-    }
-
-    const atLocation = [];
-    const elsewhere = [];
-    for (const event of filteredEvents) {
-      if (geoGroupKey(event) === selectedGroup.key) {
-        atLocation.push({ event, distance: 0, atLocation: true });
-      } else {
-        elsewhere.push({
-          event,
-          distance: haversineMeters(selectedGroup.geo, event.geo),
-          atLocation: false
-        });
+    if (selectedGroup) {
+      const atLocation = [];
+      const elsewhere = [];
+      for (const event of filteredEvents) {
+        if (geoGroupKey(event) === selectedGroup.key) {
+          atLocation.push({ event, distance: 0, atLocation: true });
+        } else {
+          elsewhere.push({
+            event,
+            distance: haversineMeters(selectedGroup.geo, event.geo),
+            atLocation: false
+          });
+        }
       }
+
+      elsewhere.sort((a, b) => {
+        if (a.distance !== b.distance) return a.distance - b.distance;
+        if (a.event.date !== b.event.date) return a.event.date.localeCompare(b.event.date);
+        return (a.event.starttime || "").localeCompare(b.event.starttime || "");
+      });
+
+      return [...atLocation, ...elsewhere];
     }
 
-    elsewhere.sort((a, b) => {
-      if (a.distance !== b.distance) return a.distance - b.distance;
-      if (a.event.date !== b.event.date) return a.event.date.localeCompare(b.event.date);
-      return (a.event.starttime || "").localeCompare(b.event.starttime || "");
-    });
+    if (userLocation) {
+      return filteredEvents
+        .map((event) => ({
+          event,
+          distance: haversineMeters(userLocation, event.geo),
+          atLocation: false
+        }))
+        .sort((a, b) => {
+          if (a.distance !== b.distance) return a.distance - b.distance;
+          if (a.event.date !== b.event.date) return a.event.date.localeCompare(b.event.date);
+          return (a.event.starttime || "").localeCompare(b.event.starttime || "");
+        });
+    }
 
-    return [...atLocation, ...elsewhere];
-  }, [filteredEvents, selectedGroup]);
+    return filteredEvents.map((event) => ({ event, distance: null, atLocation: false }));
+  }, [filteredEvents, selectedGroup, userLocation]);
 
   const atLocationCount = useMemo(
     () => orderedEvents.filter((entry) => entry.atLocation).length,
@@ -293,6 +428,83 @@ export default function MapApp({ initialEvents }) {
     if (!selectedEventUid) return null;
     return filteredEvents.find((event) => event.uid === selectedEventUid) || null;
   }, [filteredEvents, selectedEventUid]);
+
+  const dateLockedByTimeFilter = selectedTimeFilter === "today" || selectedTimeFilter === "now";
+
+  function changeTimeFilter(nextTimeFilter) {
+    setSelectedTimeFilter(nextTimeFilter);
+    if (nextTimeFilter === "today" || nextTimeFilter === "now") {
+      setSelectedDate("all");
+    }
+  }
+
+  function requestUserLocation() {
+    if (!navigator.geolocation) {
+      setLocationStatus("unsupported");
+      setLocationMessage("Location is not supported by this browser.");
+      return;
+    }
+
+    setLocationStatus("loading");
+    setLocationMessage("Requesting your device location...");
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const nextLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+          accuracy: position.coords.accuracy
+        };
+        const distanceFromVienna = haversineMeters(VIENNA_CENTER, nextLocation);
+        if (distanceFromVienna > MAX_USER_LOCATION_DISTANCE_M) {
+          setUserLocation(null);
+          setLocationStatus("outside");
+          setLocationMessage(
+            `You're about ${formatDistance(distanceFromVienna)} from Vienna, so your location is not shown on this ViennaUP map.`
+          );
+          return;
+        }
+
+        setUserLocation(nextLocation);
+        setSelectedLocation(null);
+        setSelectedEventUid(null);
+        setLocationStatus("granted");
+        setLocationMessage(
+          `Using your location${Number.isFinite(nextLocation.accuracy) ? ` (about ${formatDistance(nextLocation.accuracy)} accuracy)` : ""}.`
+        );
+        mapState.map?.panTo({ lat: nextLocation.lat, lng: nextLocation.lng });
+      },
+      (error) => {
+        setLocationStatus("error");
+        setLocationMessage(error?.message || "Could not get your location.");
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 60000
+      }
+    );
+  }
+
+  function toggleFavorite(eventUid) {
+    setFavoriteEventIds((current) => {
+      const next = new Set(current);
+      const key = String(eventUid);
+      if (next.has(key)) {
+        next.delete(key);
+      } else {
+        next.add(key);
+      }
+
+      try {
+        window.localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify([...next]));
+      } catch {
+        // Favorites still work for the current session if storage is unavailable.
+      }
+
+      return next;
+    });
+  }
 
   useEffect(() => {
     let mounted = true;
@@ -356,6 +568,10 @@ export default function MapApp({ initialEvents }) {
         marker.map = null;
       });
       markersRef.current = [];
+      if (userMarkerRef.current) {
+        userMarkerRef.current.map = null;
+        userMarkerRef.current = null;
+      }
 
       const maxEventsAtLocation = groupedByLocation.reduce(
         (acc, group) => Math.max(acc, group.events.length),
@@ -403,9 +619,24 @@ export default function MapApp({ initialEvents }) {
 
       markersRef.current = markers;
 
-      if (markers.length > 0) {
+      if (userLocation) {
+        const userLatLng = { lat: userLocation.lat, lng: userLocation.lng };
+        const dot = document.createElement("div");
+        dot.className = styles.userLocationMarker;
+        dot.title = "Your current location";
+
+        userMarkerRef.current = new AdvancedMarkerElement({
+          position: userLatLng,
+          map: mapState.map,
+          title: "Your current location",
+          content: dot
+        });
+      }
+
+      if (markers.length > 0 || userLocation) {
         const bounds = new window.google.maps.LatLngBounds();
         groupedByLocation.forEach((group) => bounds.extend(group.geo));
+        if (userLocation) bounds.extend({ lat: userLocation.lat, lng: userLocation.lng });
 
         const mapDiv = mapState.map.getDiv();
         const runFit = () => {
@@ -421,12 +652,6 @@ export default function MapApp({ initialEvents }) {
 
       setMapState((prev) => ({ ...prev, markers }));
 
-      if (selectedLocation && !groupedByLocation.find((group) => group.key === selectedLocation)) {
-        setSelectedLocation(null);
-      }
-      if (selectedEventUid && !filteredEvents.find((event) => event.uid === selectedEventUid)) {
-        setSelectedEventUid(null);
-      }
     }
 
     renderMarkers().catch(console.error);
@@ -437,8 +662,21 @@ export default function MapApp({ initialEvents }) {
         marker.map = null;
       });
       markersRef.current = [];
+      if (userMarkerRef.current) {
+        userMarkerRef.current.map = null;
+        userMarkerRef.current = null;
+      }
     };
-  }, [groupedByLocation, mapState.map, filteredEvents]);
+  }, [groupedByLocation, mapState.map, userLocation]);
+
+  useEffect(() => {
+    if (selectedLocation && !groupedByLocation.find((group) => group.key === selectedLocation)) {
+      setSelectedLocation(null);
+    }
+    if (selectedEventUid && !filteredEvents.find((event) => event.uid === selectedEventUid)) {
+      setSelectedEventUid(null);
+    }
+  }, [filteredEvents, groupedByLocation, selectedEventUid, selectedLocation]);
 
   useEffect(() => {
     if (!selectedEvent) return;
@@ -450,200 +688,302 @@ export default function MapApp({ initialEvents }) {
 
   return (
     <main className={styles.page}>
-      <section className={styles.sidebarTop}>
-        <div className={styles.brandWrap}>
-          <div className={styles.logo}>V↑</div>
-          <div className={styles.brandText}>
-            <h1>ViennaUP Live Map</h1>
-            <p>unofficial map guide to ViennaUp 2026 events</p>
+      <aside className={styles.sidebar}>
+        <section className={styles.sidebarTop}>
+          <div className={styles.brandWrap}>
+            <div className={styles.logo}>V↑</div>
+            <div className={styles.brandText}>
+              <h1>ViennaUP Live Map</h1>
+              <p>unofficial map guide to ViennaUp 2026 events</p>
+            </div>
+            <button
+              type="button"
+              className={styles.connectBtn}
+              onClick={() => setConnectOpen(true)}
+              title="Connect an AI assistant to the ViennaUP events MCP server"
+            >
+              <span aria-hidden="true" className={styles.connectBtnIcon}>
+                ⚡
+              </span>
+              Connect your Agent
+            </button>
           </div>
-          <button
-            type="button"
-            className={styles.connectBtn}
-            onClick={() => setConnectOpen(true)}
-            title="Connect an AI assistant to the ViennaUP events MCP server"
-          >
-            <span aria-hidden="true" className={styles.connectBtnIcon}>
-              ⚡
-            </span>
-            Connect your Agent
-          </button>
-        </div>
 
-        <div className={styles.filters}>
-          <label>
-            Day
-            <select value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)}>
-              <option value="all">All days</option>
-              {filters.dates.map((date) => (
-                <option value={date} key={date}>
-                  {toDateLabel(date)} ({date})
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <label>
-            Event type
-            <select value={selectedType} onChange={(e) => setSelectedType(e.target.value)}>
-              <option value="all">All types</option>
-              {filters.types.map((type) => (
-                <option value={type} key={type}>
-                  {type}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <label>
-            Format
-            <select value={selectedFormat} onChange={(e) => setSelectedFormat(e.target.value)}>
-              <option value="all">All formats</option>
-              {filters.formats.map((format) => (
-                <option value={format} key={format}>
-                  {format}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <label>
-            Search
-            <input
-              type="text"
-              placeholder="Title, host, keyword..."
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-            />
-          </label>
-        </div>
-
-        <div className={styles.resultMeta}>
-          <strong>{filteredEvents.length}</strong> filtered events across <strong>{groupedByLocation.length}</strong> locations
-        </div>
-
-        {selectedGroup ? (
-          (() => {
-            const mapsQuery = selectedGroup.address
-              ? selectedGroup.address
-              : `${selectedGroup.geo.lat},${selectedGroup.geo.lng} (${selectedGroup.location || "Selected location"})`;
-            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`;
-            return (
-              <div className={styles.selectedLocationBar}>
-                <div className={styles.selectedLocationInfo}>
-                  <span className={styles.selectedLocationLabel}>Selected location</span>
-                  <strong>{selectedGroup.location || "Unnamed venue"}</strong>
-                  {selectedGroup.address ? (
-                    <span className={styles.selectedLocationAddress}>{selectedGroup.address}</span>
-                  ) : null}
-                  <span className={styles.selectedLocationCount}>
-                    {atLocationCount} event{atLocationCount === 1 ? "" : "s"} here ·{" "}
-                    <a
-                      href={mapsUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.selectedLocationMapLink}
-                    >
-                      Open in Google Maps
-                    </a>
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  className={styles.clearSelection}
-                  onClick={() => {
-                    setSelectedLocation(null);
-                    setSelectedEventUid(null);
-                  }}
-                >
-                  Clear
-                </button>
+          <div className={styles.filters}>
+            <div className={styles.timeFilter} role="group" aria-label="Time filter">
+              <span>When</span>
+              <div className={styles.timeFilterOptions}>
+                {TIME_FILTER_OPTIONS.map((option) => (
+                  <button
+                    type="button"
+                    key={option.value}
+                    className={[
+                      styles.timeFilterButton,
+                      selectedTimeFilter === option.value ? styles.timeFilterButtonActive : ""
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                    aria-pressed={selectedTimeFilter === option.value}
+                    onClick={() => changeTimeFilter(option.value)}
+                  >
+                    {option.label}
+                  </button>
+                ))}
               </div>
-            );
-          })()
-        ) : null}
-      </section>
+            </div>
+
+            <label>
+              Day
+              <select
+                value={selectedDate}
+                onChange={(e) => setSelectedDate(e.target.value)}
+                disabled={dateLockedByTimeFilter}
+              >
+                <option value="all">All days</option>
+                {filters.dates.map((date) => (
+                  <option value={date} key={date}>
+                    {toDateLabel(date)} ({date})
+                  </option>
+                ))}
+              </select>
+              {dateLockedByTimeFilter ? (
+                <span className={styles.filterHint}>
+                  {selectedTimeFilter === "now" ? "Now always means today." : "Today sets the day automatically."}
+                </span>
+              ) : null}
+            </label>
+
+            <label>
+              Event type
+              <select value={selectedType} onChange={(e) => setSelectedType(e.target.value)}>
+                <option value="all">All types</option>
+                {filters.types.map((type) => (
+                  <option value={type} key={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label>
+              Format
+              <select value={selectedFormat} onChange={(e) => setSelectedFormat(e.target.value)}>
+                <option value="all">All formats</option>
+                {filters.formats.map((format) => (
+                  <option value={format} key={format}>
+                    {format}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label>
+              Search
+              <input
+                type="text"
+                placeholder="Title, host, keyword..."
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+              />
+            </label>
+
+            <label className={styles.checkboxControl}>
+              <input
+                type="checkbox"
+                checked={favoritesOnly}
+                onChange={(e) => setFavoritesOnly(e.target.checked)}
+              />
+              Favorites only
+            </label>
+
+            <div className={styles.locationControls}>
+              <button
+                type="button"
+                onClick={requestUserLocation}
+                disabled={locationStatus === "loading"}
+              >
+                {locationStatus === "granted" ? "Update my location" : "Use my location"}
+              </button>
+              {locationMessage ? (
+                <span
+                  className={
+                    locationStatus === "error" || locationStatus === "unsupported"
+                      ? styles.locationError
+                      : styles.locationHint
+                  }
+                >
+                  {locationMessage}
+                </span>
+              ) : null}
+            </div>
+          </div>
+
+          <div className={styles.resultMeta}>
+            <strong>{filteredEvents.length}</strong> filtered events across <strong>{groupedByLocation.length}</strong> locations
+          </div>
+
+          {selectedGroup ? (
+            (() => {
+              const mapsQuery = selectedGroup.address
+                ? selectedGroup.address
+                : `${selectedGroup.geo.lat},${selectedGroup.geo.lng} (${selectedGroup.location || "Selected location"})`;
+              const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`;
+              return (
+                <div className={styles.selectedLocationBar}>
+                  <div className={styles.selectedLocationInfo}>
+                    <span className={styles.selectedLocationLabel}>Selected location</span>
+                    <strong>{selectedGroup.location || "Unnamed venue"}</strong>
+                    {selectedGroup.address ? (
+                      <span className={styles.selectedLocationAddress}>{selectedGroup.address}</span>
+                    ) : null}
+                    <span className={styles.selectedLocationCount}>
+                      {atLocationCount} event{atLocationCount === 1 ? "" : "s"} here ·{" "}
+                      <a
+                        href={mapsUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.selectedLocationMapLink}
+                      >
+                        Open in Google Maps
+                      </a>
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    className={styles.clearSelection}
+                    onClick={() => {
+                      setSelectedLocation(null);
+                      setSelectedEventUid(null);
+                    }}
+                  >
+                    Clear
+                  </button>
+                </div>
+              );
+            })()
+          ) : null}
+        </section>
+
+        <section className={styles.sidebarList}>
+          <div className={styles.listSection}>
+            {orderedEvents.length === 0 ? (
+              <p className={styles.hint}>No events match the current filters.</p>
+            ) : (
+              <>
+                {userLocation && !selectedGroup ? (
+                  <div className={styles.nearbyListHeader}>
+                    <strong>Events nearby</strong>
+                    <span>Sorted by distance from your device location.</span>
+                  </div>
+                ) : null}
+                <ul className={styles.eventList}>
+                  {orderedEvents.map((entry, index) => {
+                    const { event, distance, atLocation } = entry;
+                    const googleMapsUrl = getGoogleMapsUrl(event);
+                    const routeUrl = getRouteUrl(event, userLocation);
+                    const isFavorite = favoriteEventIds.has(String(event.uid));
+                    const isSelected = event.uid === selectedEventUid;
+                    const isInSelectedLocation =
+                      selectedLocation && geoGroupKey(event) === selectedLocation;
+                    const itemClass = [
+                      styles.eventItem,
+                      isSelected ? styles.eventItemActive : "",
+                      !isSelected && isInSelectedLocation ? styles.eventItemLocationActive : ""
+                    ]
+                      .filter(Boolean)
+                      .join(" ");
+
+                    const showNearbyDivider =
+                      selectedGroup && !atLocation && index === atLocationCount;
+
+                    return (
+                      <Fragment key={event.uid}>
+                        {showNearbyDivider ? (
+                          <li className={styles.nearbyDivider} aria-hidden="true">
+                            Nearby events
+                          </li>
+                        ) : null}
+                        <li
+                          ref={(node) => {
+                            if (node) eventRefs.current.set(event.uid, node);
+                            else eventRefs.current.delete(event.uid);
+                          }}
+                          className={itemClass}
+                          onClick={() => {
+                            setSelectedLocation(geoGroupKey(event));
+                            setSelectedEventUid(event.uid);
+                          }}
+                        >
+                          <div className={styles.eventHeader}>
+                            <h3>{event.title}</h3>
+                            <button
+                              type="button"
+                              className={[
+                                styles.favoriteButton,
+                                isFavorite ? styles.favoriteButtonActive : ""
+                              ]
+                                .filter(Boolean)
+                                .join(" ")}
+                              aria-pressed={isFavorite}
+                              aria-label={
+                                isFavorite
+                                  ? `Remove ${event.title} from favorites`
+                                  : `Save ${event.title} to favorites`
+                              }
+                              title={isFavorite ? "Remove from favorites" : "Save event"}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleFavorite(event.uid);
+                              }}
+                            >
+                              {isFavorite ? "Saved" : "Save"}
+                            </button>
+                          </div>
+                          <p>
+                            {toDateLabel(event.date)} | {toTimeRange(event.starttime, event.endtime)}
+                          </p>
+                          <p>
+                            {event.location}
+                            {Number.isFinite(distance) && !atLocation ? (
+                              <span className={styles.distanceBadge}>{formatDistance(distance)}</span>
+                            ) : null}
+                          </p>
+                          <p>{event.companyName}</p>
+                          <div className={styles.links}>
+                            {event.website ? (
+                              <a href={event.website} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                                Event page
+                              </a>
+                            ) : null}
+                            {event.ticketUrl ? (
+                              <a href={event.ticketUrl} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                                Tickets
+                              </a>
+                            ) : null}
+                            {googleMapsUrl ? (
+                              <a href={googleMapsUrl} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                                Google Maps
+                              </a>
+                            ) : null}
+                            {routeUrl ? (
+                              <a href={routeUrl} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                                Route to
+                              </a>
+                            ) : null}
+                          </div>
+                        </li>
+                      </Fragment>
+                    );
+                  })}
+                </ul>
+              </>
+            )}
+          </div>
+        </section>
+      </aside>
 
       <section className={styles.mapSection}>
         <div id="viennaup-map" className={styles.map} />
-      </section>
-
-      <section className={styles.sidebarList}>
-        <div className={styles.listSection}>
-          {orderedEvents.length === 0 ? (
-            <p className={styles.hint}>No events match the current filters.</p>
-          ) : (
-            <ul className={styles.eventList}>
-              {orderedEvents.map((entry, index) => {
-                const { event, distance, atLocation } = entry;
-                const googleMapsUrl = getGoogleMapsUrl(event);
-                const isSelected = event.uid === selectedEventUid;
-                const isInSelectedLocation =
-                  selectedLocation && geoGroupKey(event) === selectedLocation;
-                const itemClass = [
-                  styles.eventItem,
-                  isSelected ? styles.eventItemActive : "",
-                  !isSelected && isInSelectedLocation ? styles.eventItemLocationActive : ""
-                ]
-                  .filter(Boolean)
-                  .join(" ");
-
-                const showNearbyDivider =
-                  selectedGroup && !atLocation && index === atLocationCount;
-
-                return (
-                  <Fragment key={event.uid}>
-                    {showNearbyDivider ? (
-                      <li className={styles.nearbyDivider} aria-hidden="true">
-                        Nearby events
-                      </li>
-                    ) : null}
-                    <li
-                      ref={(node) => {
-                        if (node) eventRefs.current.set(event.uid, node);
-                        else eventRefs.current.delete(event.uid);
-                      }}
-                      className={itemClass}
-                      onClick={() => {
-                        setSelectedLocation(geoGroupKey(event));
-                        setSelectedEventUid(event.uid);
-                      }}
-                    >
-                      <h3>{event.title}</h3>
-                      <p>
-                        {toDateLabel(event.date)} | {toTimeRange(event.starttime, event.endtime)}
-                      </p>
-                      <p>
-                        {event.location}
-                        {selectedGroup && !atLocation && Number.isFinite(distance) ? (
-                          <span className={styles.distanceBadge}>{formatDistance(distance)}</span>
-                        ) : null}
-                      </p>
-                      <p>{event.companyName}</p>
-                      <div className={styles.links}>
-                        {event.website ? (
-                          <a href={event.website} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
-                            Event page
-                          </a>
-                        ) : null}
-                        {event.ticketUrl ? (
-                          <a href={event.ticketUrl} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
-                            Tickets
-                          </a>
-                        ) : null}
-                        {googleMapsUrl ? (
-                          <a href={googleMapsUrl} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
-                            Google Maps
-                          </a>
-                        ) : null}
-                      </div>
-                    </li>
-                  </Fragment>
-                );
-              })}
-            </ul>
-          )}
-        </div>
       </section>
 
       <ConnectAgentModal open={connectOpen} onClose={() => setConnectOpen(false)} />
