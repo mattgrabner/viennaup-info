@@ -39,7 +39,7 @@ Distinct venues extracted from the generated event catalogue.
 
 ### 8. HOIV - Home of Innovation, Arsenalstrasse 11, 1030, Vienna
 
-- Event count: 2
+- Event count: 1
 - Coordinates: 48.1761151, 16.3953038 (Arsenalstraße 11, 1030 Wien, Austria)
 
 ### 9. HOIV – Home of Innovation, Arsenalstraße 11, 1030 Vienna
@@ -79,7 +79,7 @@ Distinct venues extracted from the generated event catalogue.
 
 ### 16. ÖBB Open Innovation Factory, Foyer 1 Ecke, Lassallestraße, Joseph-Roth-Gasse 5, 1020 Vienna
 
-- Event count: 3
+- Event count: 2
 - Coordinates: 48.2212298, 16.395566 (Lassallestraße, Foyer 1 Ecke, Joseph-Roth-Gasse 5, 1020 Wien, Austria)
 
 ### 17. ÖBB Open Innovation Factory, Lassallestrasse 5, 1020 Vienna
