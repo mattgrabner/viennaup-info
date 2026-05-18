@@ -57,147 +57,117 @@ Distinct venues extracted from the generated event catalogue.
 - Event count: 1
 - Coordinates: 48.2033369, 16.3586166 (1070 Vienna, Austria)
 
-### 12. Near Vienna Central Station (Hauptbahnhof) / Südtiroler Platz (exact address will be shared after booking)
-
-- Event count: 1
-- Coordinates: 48.18567239999999, 16.3760038 (Wien Hauptbahnhof, 1100 Wien, Austria)
-
-### 13. Near Vienna Central Station (Hauptbahnhof) / Südtiroler Platz (exact location will be shared after booking)
-
-- Event count: 1
-- Coordinates: 48.18567239999999, 16.3760038 (Wien Hauptbahnhof, 1100 Wien, Austria)
-
-### 14. Novotel Vienna Hauptbahnhof, Canettistrasse 6, 1100 Vienna
+### 12. Novotel Vienna Hauptbahnhof, Canettistrasse 6, 1100 Vienna
 
 - Event count: 1
 - Coordinates: 48.1856743, 16.379164 (Canettistraße 6, 1100 Wien, Austria)
 
-### 15. ÖBB Open Innovation Factory, Lassallestrasse 5, 1020 Vienna
-
-- Event count: 1
-- Coordinates: 48.2212298, 16.395566 (Lassallestraße, Foyer 1 Ecke, Joseph-Roth-Gasse 5, 1020 Wien, Austria)
-
-### 16. OeKB Strauchergasse 3, 1010 Vienna
+### 13. OeKB Strauchergasse 3, 1010 Vienna
 
 - Event count: 1
 - Coordinates: 48.2082647, 16.3739206 (1010 Vienna, Austria)
 
-### 17. Palais Wertheim, Canovagasse 1a, 1010 Vienna
+### 14. Palais Wertheim, Canovagasse 1a, 1010 Vienna
 
 - Event count: 1
 - Coordinates: 48.2010213, 16.3736234 (Canovagasse 1a, 1010 Wien, Austria)
 
-### 18. Palais Wertheim, Canovagasse 1a, 1010 Wien
+### 15. Palais Wertheim, Canovagasse 1a, 1010 Wien
 
 - Event count: 1
 - Coordinates: 48.2010213, 16.3736234 (Canovagasse 1a, 1010 Wien, Austria)
 
-### 19. Prisma by Lumia, Am Grünen Prater 2, 1020 Vienna
+### 16. Prisma by Lumia, Am Grünen Prater 2, 1020 Vienna
 
 - Event count: 1
 - Coordinates: 48.210015, 16.4127684 (Am Grünen Prater 2/Tribüne 2, 1020 Wien, Austria)
 
-### 20. Rathaus Wien (City Hall Vienna), Friedrich-Schmidt-Platz 1, 1010, Vienna
+### 17. Rathaus Wien (City Hall Vienna), Friedrich-Schmidt-Platz 1, 1010, Vienna
 
-- Event count: 2
+- Event count: 1
 - Coordinates: 48.210821, 16.3580827 (Friedrich-Schmidt-Platz 1, 1010 Wien, Austria)
 
-### 21. Secret venue in 1010 Vienna
+### 18. Secret venue in 1010 Vienna
 
 - Event count: 1
 - Coordinates: 48.20806959999999, 16.3713095 (Vienna, Austria)
 
-### 22. Sky Lounge, Oskar‑Morgenstern‑Platz 1, 1090, Vienna
+### 19. Sky Lounge, Oskar‑Morgenstern‑Platz 1, 1090, Vienna
 
 - Event count: 1
 - Coordinates: 48.219237, 16.3673029 (Oskar-Morgenstern-Platz 1, 1090 Wien, Austria)
 
-### 23. The Social Hub Vienna, Nordbahnstrasse 47, 1020 Vienna
+### 20. The Social Hub Vienna, Nordbahnstrasse 47, 1020 Vienna
 
 - Event count: 2
 - Coordinates: 48.2228617, 16.3900071 (Nordbahnstraße 47, 1020 Wien, Austria)
 
-### 24. The Social Hub, Nordbahnstraße 47, 1020 Vienna
+### 21. The Social Hub, Nordbahnstraße 47, 1020 Vienna
 
 - Event count: 1
 - Coordinates: 48.2228617, 16.3900071 (Nordbahnstraße 47, 1020 Wien, Austria)
 
-### 25. The Vienna City Hall, Friedrich-Schmidt-Platz 1, 1010, Vienna
-
-- Event count: 1
-- Coordinates: 48.210821, 16.3580827 (Friedrich-Schmidt-Platz 1, 1010 Wien, Austria)
-
-### 26. To be announced
+### 22. To be announced
 
 - Event count: 1
 - Coordinates: None
 
-### 27. TU in the Sky,  Getreidemarkt  9,  1060 Vienna
+### 23. TU in the Sky,  Getreidemarkt  9,  1060 Vienna
 
 - Event count: 1
 - Coordinates: 48.2012094, 16.3635647 (Getreidemarkt 9, 1060 Wien, Austria)
 
-### 28. TU Wien (Technology University Vienna) near Karlsplatz (exact address will be shared after booking)
-
-- Event count: 1
-- Coordinates: 48.1986546, 16.3684626 (Karlsplatz 13, 1040 Wien, Austria)
-
-### 29. U4 Vienna, Schönbrunnerstr. 222-228, 1120 Vienna
+### 24. U4 Vienna, Schönbrunnerstr. 222-228, 1120 Vienna
 
 - Event count: 1
 - Coordinates: 48.1832718, 16.3280708 (Schönbrunner Str. 222/702, 1120 Wien, Austria)
 
-### 30. various locations in Vienna
+### 25. various locations in Vienna
 
 - Event count: 1
 - Coordinates: 48.20806959999999, 16.3713095 (Vienna, Austria)
 
-### 31. Various Viennese coffee houses
+### 26. Various Viennese coffee houses
 
-- Event count: 5
+- Event count: 4
 - Coordinates: 48.20806959999999, 16.3713095 (Vienna, Austria)
 
-### 32. Vienna Business Agency, Mariahilfer Straße 20, 1070 Vienna
+### 27. Vienna Business Agency, Mariahilfer Straße 20, 1070 Vienna
 
 - Event count: 1
 - Coordinates: None
 
-### 33. wexelerate, Praterstrasse 1
+### 28. wexelerate, Praterstrasse 1
 
 - Event count: 1
 - Coordinates: 48.2131378, 16.3796897 (Praterstraße 1, 1020 Wien, Austria)
 
-### 34. weXelerate, Praterstraße 1, 1020 Vienna
+### 29. weXelerate, Praterstraße 1, 1020 Vienna
 
 - Event count: 1
 - Coordinates: 48.2131378, 16.3796897 (Praterstraße 1, 1020 Wien, Austria)
 
-### 35. Wexelerate, Praterstraße 1, 1020 Vienna
+### 30. Wexelerate, Praterstraße 1, 1020 Vienna
 
 - Event count: 1
 - Coordinates: 48.2131378, 16.3796897 (Praterstraße 1, 1020 Wien, Austria)
 
-### 36. Wien Museum, Karlsplatz 8, 1040 Vienna
+### 31. Wien Museum, Karlsplatz 8, 1040 Vienna
 
 - Event count: 1
 - Coordinates: 48.1993921, 16.3729554 (Karlsplatz 8, 1040 Wien, Austria)
 
-### 37. Wirtschaftskammer Wien, Straße der Wiener Wirtschaft 1, 1020 Vienna, EG (ground floor), Saal 5
+### 32. Wirtschaftskammer Wien, Straße der Wiener Wirtschaft 1, 1020 Vienna, EG (ground floor), Saal 5
 
 - Event count: 1
 - Coordinates: 48.2205229, 16.3927186 (Str. d. Wiener Wirtschaft 1, 1020 Wien, Austria)
 
-### 38. WKO - Wiedner Hauptstr. 63, 1040 Vienna, Austria
+### 33. WKO - Wiedner Hauptstr. 63, 1040 Vienna, Austria
 
 - Event count: 1
 - Coordinates: 48.1899767, 16.3679734 (Wiedner Hauptstraße 63, 1040 Wien, Austria)
 
-### 39. WKÖ Wiedner Hauptstraße 63, 1040 Wien
+### 34. WKÖ Wiedner Hauptstraße 63, 1040 Wien
 
 - Event count: 2
 - Coordinates: 48.1904309, 16.3668939 (Wiedner Hauptstraße 63, 1040 Wien, Austria)
-
-### 40. WKO, Wiedner Hauptstraße 63, 1040, Vienna
-
-- Event count: 1
-- Coordinates: 48.1899767, 16.3679734 (Wiedner Hauptstraße 63, 1040 Wien, Austria)
