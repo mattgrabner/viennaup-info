@@ -2,127 +2,7 @@
 
 Full generated event catalogue.
 
-## 1. StartupLive'26 ViennaUP
-
-- UID: 292
-- Slug: startuplive26-viennaup
-- Date: 2026-05-15
-- Time: 09:00:00 to 18:00:00
-- Venue: HOIV - Home of Innovation, Arsenalstrasse 11, 1030, Vienna
-- Organizer: StartupLive
-- Website: https://startuplive.ngo/events/startuplive26-viennaup
-- Ticket URL: https://viennaup.flave.world/user/events/startuplive-26-viennaup/edit
-- Type: Onsite
-- Format: Workshop, Meet-the-experts session
-- Tracks: WarmUP, Founders
-- Target groups: Startups, Investors, Creatives, Talents, Corporates, Ecosystem representatives
-- Admission: Free entrance
-- Registration: Registration required
-- Accessibility: Wheel-chair accessible venue
-- Coordinates: 48.1761151, 16.3953038 (Arsenalstraße 11, 1030 Wien, Austria)
-- Description: Two Days. Limitless Potential. One Transformational Experience. Join StartupLive&rsquo;26 ViennaUP and immerse yourself in two days of innovation, collaboration, and competition within Vienna&rsquo;s dynamic startup ecosystem. Whether you&rsquo;re a founder with a bold idea or a professional in tech, design, marketing, or business, this is your opportunity to build something meaningful alongside ambitious creators and experienced mentors. Day 1 focuses on connection and creation. Founders deliver fast-paced 90-second pitches, followed by focused workshops and mentoring to refine business models, sharpen strategy, and strengthen startups. Day 2 focuses on refinement and performance, with pitch training and financing workshops, followed by live competition in front of investors and corporate leaders. Professionals (attendees) are invited to contribute their skills and co-create with early-stage founders. Startups gain direct access to mentors, investors, and Vienna&rsquo;s startup ecosystem. Visitors are welcome to join the final pitch event and experience the future of entrepreneurship live.
-- Enrichment sources:
-  - https://viennaup.flave.world/user/events/startuplive-26-viennaup/edit
-  - https://startuplive.ngo/events/startuplive26-viennaup
-  - https://startuplive.ngo/
-
-## 2. Europe Tech Hackathon
-
-- UID: 288
-- Slug: europe-tech-hackathon
-- Date: 2026-05-15
-- Time: 15:45:00 to 21:00:00
-- Venue: ÖBB Open Innovation Factory, Foyer 1 Ecke, Lassallestraße, Joseph-Roth-Gasse 5, 1020 Vienna
-- Organizer: Sustainista GmbH
-- Website: https://www.sustainista.net/hackathon
-- Ticket URL: https://viennaup.flave.world/user/events/europe-tech-hackathon/edit
-- Type: Onsite
-- Format: Hackathon/bootcamp
-- Tracks: WarmUP, Tech, Impact
-- Target groups: Startups, Investors, Creatives, Corporates
-- Admission: Free entrance
-- Registration: Registration required
-- Accessibility: Wheel-chair accessible venue
-- Coordinates: 48.2212298, 16.395566 (Lassallestraße, Foyer 1 Ecke, Joseph-Roth-Gasse 5, 1020 Wien, Austria)
-- Description: The Europe Tech Hackathon is an intensive, hands-on innovation experience for people who want to turn ideas into real impact. In Vienna, interdisciplinary teams work on concrete sustainability challenges using technology, AI and data. Throughout the hackathon, participants benefit from experienced mentors from tech, business and sustainability who actively support teams in sharpening ideas, validating assumptions and building functional prototypes. The results are presented to a professional jury of industry and innovation experts, who provide honest, constructive feedback focused on impact, feasibility and scalability. More than a competition, the Europe Tech Hackathon is a unique experience : intense collaboration, rapid learning, strong community spirit and the energy of creating something meaningful together. Join if you want to build, learn and connect.
-- Enrichment sources:
-  - https://viennaup.flave.world/user/events/europe-tech-hackathon/edit
-  - https://www.sustainista.net/hackathon
-  - https://www.sustainista.net/hackathon
-
-## 3. Europe Tech Hackathon
-
-- UID: 289
-- Slug: europe-tech-hackathon-1
-- Date: 2026-05-16
-- Time: 09:00:00 to 20:00:00
-- Venue: ÖBB Open Innovation Factory, Foyer 1 Ecke, Lassallestraße, Joseph-Roth-Gasse 5, 1020 Vienna
-- Organizer: Sustainista GmbH
-- Website: https://www.sustainista.net/hackathon
-- Ticket URL: https://viennaup.flave.world/user/events/europe-tech-hackathon/edit
-- Type: Onsite
-- Format: Hackathon/bootcamp
-- Tracks: WarmUP, Tech, Impact
-- Target groups: Startups, Investors, Creatives, Corporates
-- Admission: Free entrance
-- Registration: Registration required
-- Accessibility: Wheel-chair accessible venue
-- Coordinates: 48.2212298, 16.395566 (Lassallestraße, Foyer 1 Ecke, Joseph-Roth-Gasse 5, 1020 Wien, Austria)
-- Description: The Europe Tech Hackathon is an intensive, hands-on innovation experience for people who want to turn ideas into real impact. In Vienna, interdisciplinary teams work on concrete sustainability challenges using technology, AI and data. Throughout the hackathon, participants benefit from experienced mentors from tech, business and sustainability who actively support teams in sharpening ideas, validating assumptions and building functional prototypes. The results are presented to a professional jury of industry and innovation experts, who provide honest, constructive feedback focused on impact, feasibility and scalability. More than a competition, the Europe Tech Hackathon is a unique experience : intense collaboration, rapid learning, strong community spirit and the energy of creating something meaningful together. Join if you want to build, learn and connect.
-- Enrichment sources:
-  - https://viennaup.flave.world/user/events/europe-tech-hackathon/edit
-  - https://www.sustainista.net/hackathon
-  - https://www.sustainista.net/hackathon
-
-## 4. StartupLive'26 ViennaUP
-
-- UID: 293
-- Slug: startuplive26-viennaup-1
-- Date: 2026-05-16
-- Time: 09:30:00 to 18:00:00
-- Venue: HOIV - Home of Innovation, Arsenalstrasse 11, 1030, Vienna
-- Organizer: StartupLive
-- Website: https://startuplive.ngo/events/startuplive26-viennaup
-- Ticket URL: https://viennaup.flave.world/user/events/startuplive-26-viennaup/edit
-- Type: Onsite
-- Format: Pitch competition, Networking & gathering only, Workshop
-- Tracks: WarmUP, Founders
-- Target groups: Startups, Investors, Creatives, Talents, Corporates, Ecosystem representatives
-- Admission: Free entrance
-- Registration: Registration required
-- Accessibility: Wheel-chair accessible venue
-- Coordinates: 48.1761151, 16.3953038 (Arsenalstraße 11, 1030 Wien, Austria)
-- Description: Two Days. Limitless Potential. One Transformational Experience. Join StartupLive&rsquo;26 ViennaUP and immerse yourself in two days of innovation, collaboration, and competition within Vienna&rsquo;s dynamic startup ecosystem. Whether you&rsquo;re a founder with a bold idea or a professional in tech, design, marketing, or business, this is your opportunity to build something meaningful alongside ambitious creators and experienced mentors. Day 1 focuses on connection and creation. Founders deliver fast-paced 90-second pitches, followed by focused workshops and mentoring to refine business models, sharpen strategy, and strengthen startups. Day 2 focuses on refinement and performance, with pitch training and financing workshops, followed by live competition in front of investors and corporate leaders. Professionals (attendees) are invited to contribute their skills and co-create with early-stage founders. Startups gain direct access to mentors, investors, and Vienna&rsquo;s startup ecosystem. Visitors are welcome to join the final pitch event and experience the future of entrepreneurship live.
-- Enrichment sources:
-  - https://viennaup.flave.world/user/events/startuplive-26-viennaup/edit
-  - https://startuplive.ngo/events/startuplive26-viennaup
-  - https://startuplive.ngo/
-
-## 5. Europe Tech Hackathon
-
-- UID: 290
-- Slug: europe-tech-hackathon-2
-- Date: 2026-05-17
-- Time: 09:00:00 to 15:00:00
-- Venue: ÖBB Open Innovation Factory, Foyer 1 Ecke, Lassallestraße, Joseph-Roth-Gasse 5, 1020 Vienna
-- Organizer: Sustainista GmbH
-- Website: https://www.sustainista.net/hackathon
-- Ticket URL: https://viennaup.flave.world/user/events/europe-tech-hackathon/edit
-- Type: Onsite
-- Format: Hackathon/bootcamp
-- Tracks: WarmUP, Tech, Impact
-- Target groups: Startups, Investors, Creatives, Corporates
-- Admission: Free entrance
-- Registration: Registration required
-- Accessibility: Wheel-chair accessible venue
-- Coordinates: 48.2212298, 16.395566 (Lassallestraße, Foyer 1 Ecke, Joseph-Roth-Gasse 5, 1020 Wien, Austria)
-- Description: The Europe Tech Hackathon is an intensive, hands-on innovation experience for people who want to turn ideas into real impact. In Vienna, interdisciplinary teams work on concrete sustainability challenges using technology, AI and data. Throughout the hackathon, participants benefit from experienced mentors from tech, business and sustainability who actively support teams in sharpening ideas, validating assumptions and building functional prototypes. The results are presented to a professional jury of industry and innovation experts, who provide honest, constructive feedback focused on impact, feasibility and scalability. More than a competition, the Europe Tech Hackathon is a unique experience : intense collaboration, rapid learning, strong community spirit and the energy of creating something meaningful together. Join if you want to build, learn and connect.
-- Enrichment sources:
-  - https://viennaup.flave.world/user/events/europe-tech-hackathon/edit
-  - https://www.sustainista.net/hackathon
-  - https://www.sustainista.net/hackathon
-
-## 6. Impact Days
+## 1. Impact Days
 
 - UID: 274
 - Slug: impact-days
@@ -146,7 +26,7 @@ Full generated event catalogue.
   - https://impactdays.at/
   - https://vienna.impacthub.net/
 
-## 7. ViennaUP Coffee House Sessions 2026
+## 2. ViennaUP Coffee House Sessions 2026
 
 - UID: 255
 - Slug: viennaup-coffee-house-sessions-2026-4
@@ -169,7 +49,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/viennaup-coffee-house-sessions-2026/edit
   - https://vienna.business/
 
-## 8. Fundraising Secrets - The Complete Masterplan for Winning Investors and Building Lasting Relationships
+## 3. Fundraising Secrets - The Complete Masterplan for Winning Investors and Building Lasting Relationships
 
 - UID: 285
 - Slug: fundraising-secrets-the-complete-masterplan-for-winning-investors-and-building-lasting-relationships
@@ -192,7 +72,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/fundraising-secrets-the-complete-masterplan-for-winning-investors-and-building-lasting-relationships/edit
   - https://derperfektepitch.com
 
-## 9. Energy Launchpad: Shaping Europe's Energy Future
+## 4. Energy Launchpad: Shaping Europe's Energy Future
 
 - UID: 294
 - Slug: energy-launchpad-shaping-europes-energy-future
@@ -216,7 +96,7 @@ Full generated event catalogue.
   - https://launchpad.energy/
   - https://launchpad.energy/
 
-## 10. Mobility in Action
+## 5. Mobility in Action
 
 - UID: 307
 - Slug: mobility-in-action
@@ -240,7 +120,7 @@ Full generated event catalogue.
   - https://ivlv.me/3n98w
   - https://www.mobility.community
 
-## 11. Startup World Cup Austria 2026
+## 6. Startup World Cup Austria 2026
 
 - UID: 252
 - Slug: startup-world-cup-austria-2026
@@ -264,7 +144,7 @@ Full generated event catalogue.
   - https://www.startupworldcup-austria.com/
   - https://www.invest-austria.com
 
-## 12. The Perfect Pitch: How to Create Interest in You and Your Big Idea
+## 7. The Perfect Pitch: How to Create Interest in You and Your Big Idea
 
 - UID: 286
 - Slug: the-perfect-pitch-how-to-create-interest-in-you-and-your-big-idea
@@ -287,7 +167,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/the-perfect-pitch-how-to-create-interest-in-you-and-your-big-idea/edit
   - https://derperfektepitch.com
 
-## 13. ViennaUP 2026 Opening Night
+## 8. ViennaUP 2026 Opening Night
 
 - UID: 308
 - Slug: viennaup-2026-opening-night
@@ -310,7 +190,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/viennaup-2026-opening-night/edit
   - https://viennabusinessagency.at/
 
-## 14. ViennaUP Coffee House Sessions 2026
+## 9. ViennaUP Coffee House Sessions 2026
 
 - UID: 256
 - Slug: viennaup-coffee-house-sessions-2026
@@ -333,7 +213,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/viennaup-coffee-house-sessions-2026/edit
   - https://vienna.business/
 
-## 15. Connect Day 26
+## 10. Connect Day 26
 
 - UID: 304
 - Slug: connect-day-26
@@ -357,7 +237,7 @@ Full generated event catalogue.
   - https://www.connectday.at
   - https://www.aws.at/en/
 
-## 16. Impact Days
+## 11. Impact Days
 
 - UID: 275
 - Slug: impact-days-1
@@ -381,7 +261,7 @@ Full generated event catalogue.
   - https://impactdays.at/
   - https://vienna.impacthub.net/
 
-## 17. The Female Founders Experience Vienna 2026
+## 12. The Female Founders Experience Vienna 2026
 
 - UID: 301
 - Slug: the-female-founders-experience-vienna-2026
@@ -405,7 +285,7 @@ Full generated event catalogue.
   - https://ffexperience.female-founders.org/
   - https://female-founders.org/
 
-## 18. Salon Future: Connecting Startup Ecosystems
+## 13. Salon Future: Connecting Startup Ecosystems
 
 - UID: 254
 - Slug: salon-future-connecting-startup-ecosystems
@@ -428,7 +308,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/salon-future-connecting-startup-ecosystems/edit
   - https://vienna.business/
 
-## 19. Human x AI Conference
+## 14. Human x AI Conference
 
 - UID: 263
 - Slug: human-x-ai-conference
@@ -452,7 +332,7 @@ Full generated event catalogue.
   - https://humanxai.events
   - https://visibilio.ai
 
-## 20. "Do it right" Basics for company founding in Vienna
+## 15. "Do it right" Basics for company founding in Vienna
 
 - UID: 262
 - Slug: do-it-right-basics-for-company-founding-in-vienna
@@ -475,7 +355,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/do-it-right-basics-for-company-founding-in-vienna/edit
   - https://www.wko.at/wien
 
-## 21. From Pitch to Patient: How Digital Health and AI actually make it into Practice
+## 16. From Pitch to Patient: How Digital Health and AI actually make it into Practice
 
 - UID: 250
 - Slug: from-pitch-to-patient-how-digital-health-and-ai-actually-make-it-into-practice
@@ -498,7 +378,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/from-pitch-to-patient-how-digital-health-and-ai-actually-make-it-into-practice/edit
   - https://healthhubvienna.at/
 
-## 22. ViennaUP Coffee House Sessions 2026
+## 17. ViennaUP Coffee House Sessions 2026
 
 - UID: 257
 - Slug: viennaup-coffee-house-sessions-2026-1
@@ -521,7 +401,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/viennaup-coffee-house-sessions-2026/edit
   - https://vienna.business/
 
-## 23. HOIV Founder Huddle 2026: Pitch, Build & Scale
+## 18. HOIV Founder Huddle 2026: Pitch, Build & Scale
 
 - UID: 312
 - Slug: hoiv-founder-huddle-2026-pitch-build-scale
@@ -545,7 +425,7 @@ Full generated event catalogue.
   - https://homeofinnovationx.com/events/
   - https://homeofinnovationx.com/
 
-## 24. Lab to Leader: Building Science Ventures That Last
+## 19. Lab to Leader: Building Science Ventures That Last
 
 - UID: 266
 - Slug: lab-to-leader-building-science-ventures-that-last
@@ -563,12 +443,12 @@ Full generated event catalogue.
 - Registration: Registration required
 - Accessibility: Wheel-chair accessible venue
 - Coordinates: 48.2012094, 16.3635647 (Getreidemarkt 9, 1060 Wien, Austria)
-- Description: Future-Proof Cofounder Teams &amp; Scaling-Ready Startups Transform research into ventures built to scale. This full-day track tackles the make-or-break challenges every science startup&nbsp;faces: finding the right cofounder and scaling successfully.&nbsp; What to Expect Cofounder Matching Pitches &ndash; A joint initiative by AIT, BOKU, MedUni Wien, TU Wien, Uni Wien, WU Wien &amp; Xista, connecting local and international academic spinoffs with business cofounders through pitches and dedicated networking zones. Panel: &quot;Cofounder and Scaling Stories &ndash; Wins, Woes &amp; Needs,&quot; moderated by Petra Wolkenstein, Konsultori. Keynote: &quot;Aligning for Success &ndash; Building Future-Proof Cofounder Teams,&quot; with Michael Kubiena, Konsultori. Session: &nbsp;&quot;How to Build a Dream Team: Why Interdisciplinarity is Key&quot;, New Venture Scouting. For: Science entrepreneurs, aspiring cofounders, spinoffs in formation, pre-scaleups, and accelerator/entrepreneurship program managers. Organised by: &nbsp;Konsultori &amp; Vienna Spin-Off Project (AIT, BOKU, Medizinische Universit&auml;t Wien, TU Wien, Universit&auml;t Wien, WU Wien, Xista) Sponsored by &nbsp; AWS. &nbsp;
+- Description: Future-Proof Cofounder Teams &amp; Scaling-Ready Startups Transform research into ventures built to scale. This full-day track tackles the make-or-break challenges every science startup&nbsp;faces: finding the right cofounder and scaling successfully.&nbsp; What to Expect Cofounder Matching Pitches &ndash; A joint initiative by AIT, BOKU, MedUni Wien, TU Wien, Uni Wien, WU Wien &amp; Xista, connecting local and international academic spinoffs with business cofounders through pitches and dedicated networking zones Panel: &quot;Cofounder and Scaling Stories &ndash; Wins, Woes &amp; Needs,&quot; moderated by Petra Wolkenstein, Konsultori Guided Networking &amp; Spin-Off Booths Keynote: &quot;Aligning for Success &ndash; Building Future-Proof Cofounder Teams,&quot; with Michael Kubiena, Konsultori Session: &nbsp;&quot;How to Build a Dream Team: Why Interdisciplinarity is Key&quot;, New Venture Scouting Closing: Markus Wanko, XISTA For: Science entrepreneurs, aspiring cofounders, spinoffs in formation, pre-scaleups, and accelerator/entrepreneurship program managers. Organised by: &nbsp;Konsultori &amp; Vienna Spin-Off Project (AIT, BOKU, Medizinische Universit&auml;t Wien, TU Wien, Universit&auml;t Wien, WU Wien, Xista) Sponsored by &nbsp; AWS. &nbsp;
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/lab-to-leader-building-science-ventures-that-last/edit
   - https://www.konsultori.com/
 
-## 25. The Recursive CEE Forum
+## 20. The Recursive CEE Forum
 
 - UID: 269
 - Slug: the-recursive-cee-forum
@@ -591,7 +471,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/the-recursive-cee-forum/edit
   - https://therecursive.com
 
-## 26. WSA Global Congress
+## 21. WSA Global Congress
 
 - UID: 276
 - Slug: wsa-global-congress
@@ -615,7 +495,7 @@ Full generated event catalogue.
   - https://wsa-global.org/2025/10/18/wsa-global-congress-in-vienna/
   - https://wsa-global.org/
 
-## 27. The Female Founders Experience Vienna 2026
+## 22. The Female Founders Experience Vienna 2026
 
 - UID: 302
 - Slug: the-female-founders-experience-vienna-2026-1
@@ -639,7 +519,7 @@ Full generated event catalogue.
   - https://ffexperience.female-founders.org/
   - https://female-founders.org/
 
-## 28. Road to Global x Tech Summit
+## 23. Road to Global x Tech Summit
 
 - UID: 264
 - Slug: road-to-global-x-tech-summit
@@ -661,7 +541,7 @@ Full generated event catalogue.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/road-to-global-x-tech-summit/edit
 
-## 29. PeaceTech Conference: Advancing Ethical AI in a Sustainable World
+## 24. PeaceTech Conference: Advancing Ethical AI in a Sustainable World
 
 - UID: 272
 - Slug: peacetech-conference-advancing-ethical-ai-in-a-sustainable-world
@@ -685,7 +565,7 @@ Full generated event catalogue.
   - https://www.peacehub.tech/conference
   - https://nexus-group.ai/
 
-## 30. HOIV FUSION: The Beat of Innovation
+## 25. HOIV FUSION: The Beat of Innovation
 
 - UID: 311
 - Slug: hoiv-fusion-the-beat-of-innovation
@@ -709,7 +589,7 @@ Full generated event catalogue.
   - https://homeofinnovationx.com/events/
   - https://homeofinnovationx.com/
 
-## 31. Creative Days Vienna 2026
+## 26. Creative Days Vienna 2026
 
 - UID: 297
 - Slug: creative-days-vienna-2026
@@ -733,7 +613,7 @@ Full generated event catalogue.
   - https://creativedaysvienna.at
   - https://wirtschaftsagenturwien.at
 
-## 32. The Future of Health and Age Tech: Pitch Session
+## 27. The Future of Health and Age Tech: Pitch Session
 
 - UID: 291
 - Slug: the-future-of-health-and-age-tech-pitch-session
@@ -756,7 +636,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/the-future-of-health-and-age-tech-pitch-session/edit
   - https://120.ventures/
 
-## 33. Fuckup Nights Vienna Vol 52 | ViennaUP 2026 Edition & Party
+## 28. Fuckup Nights Vienna Vol 52 | ViennaUP 2026 Edition & Party
 
 - UID: 303
 - Slug: fuckup-nights-vienna-vol-52-viennaup-2026-edition-party
@@ -777,8 +657,10 @@ Full generated event catalogue.
 - Description: Fuckup Nights ViennaUP 2026: Burn the Script Last year was just the warm-up. If you thought we went hard before, you haven&#39;t seen anything yet. We&rsquo;re back at ViennaUP to tear down the wall of perfect entrepreneurship and show you the fuckups, blood, sweat, and bad decisions hidden behind the greatest wins. We are not a polite panel but rather a riot European Entrepreneurship desperately needs. Forget the sanitized lessons learned slides. We&rsquo;re bringing three fearless speakers to the stage to bleed out the truth and share their most powerful fuckups &amp; lessons learned. For this very special occasion, we&rsquo;ll be taking over the legendary U4 - the home of Falco, birthplace of Viennese counter-culture and now one of the ViennaUP event venues. Come join us, coz this is where the coolest crowd of the entire ViennaUP week gathers to ditch the masks and get real. Fail loud. Fail proud. Burn the rulebook.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/fuckup-nights-vienna-vol-52-viennaup-2026-edition-party/edit
+  - https://www.fuckupnights.at
+  - https://www.fuckupnights.at
 
-## 34. ViennaUP Coffee House Sessions 2026
+## 29. ViennaUP Coffee House Sessions 2026
 
 - UID: 258
 - Slug: viennaup-coffee-house-sessions-2026-2
@@ -801,7 +683,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/viennaup-coffee-house-sessions-2026/edit
   - https://vienna.business/
 
-## 35. Road to Global x Tech Summit
+## 30. Road to Global x Tech Summit
 
 - UID: 265
 - Slug: road-to-global-x-tech-summit-1
@@ -823,7 +705,7 @@ Full generated event catalogue.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/road-to-global-x-tech-summit/edit
 
-## 36. Best practices for expanding your business to Vienna
+## 31. Best practices for expanding your business to Vienna
 
 - UID: 268
 - Slug: best-practices-for-expanding-your-business-to-vienna
@@ -846,7 +728,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/best-practices-for-expanding-your-business-to-vienna/edit
   - https://viennabusinessagency.at/
 
-## 37. Onco:Innovate Conference
+## 32. Onco:Innovate Conference
 
 - UID: 273
 - Slug: oncoinnovate-conference
@@ -870,7 +752,7 @@ Full generated event catalogue.
   - https://onco-innovate.org/
   - https://onco-innovate.org/
 
-## 38. WSA Global Congress
+## 33. WSA Global Congress
 
 - UID: 277
 - Slug: wsa-global-congress-1
@@ -894,7 +776,7 @@ Full generated event catalogue.
   - https://wsa-global.org/2025/10/18/wsa-global-congress-in-vienna/
   - https://wsa-global.org/
 
-## 39. Smart City SuMMit 2026
+## 34. Smart City SuMMit 2026
 
 - UID: 287
 - Slug: smart-city-summit-2026
@@ -917,7 +799,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/smart-city-summit-2026/edit
   - https://viennabusinessagency.at/
 
-## 40. Manufacturing Day
+## 35. Manufacturing Day
 
 - UID: 271
 - Slug: manufacturing-day
@@ -941,7 +823,7 @@ Full generated event catalogue.
   - https://www.manufacturingday.eu
   - https://www.eitmanufacturing.eu
 
-## 41. Creative Days Vienna 2026
+## 36. Creative Days Vienna 2026
 
 - UID: 298
 - Slug: creative-days-vienna-2026-1
@@ -965,7 +847,7 @@ Full generated event catalogue.
   - https://creativedaysvienna.at
   - https://wirtschaftsagenturwien.at
 
-## 42. INSIDEOUT Summit
+## 37. INSIDEOUT Summit
 
 - UID: 299
 - Slug: insideout-summit
@@ -989,7 +871,7 @@ Full generated event catalogue.
   - https://insideoutsummit.at/
   - https://tech2impact.com/
 
-## 43. International Blockchain Day: The New Money: Stablecoins, Crypto, CBDC and the Power of Tokenization
+## 38. International Blockchain Day: The New Money: Stablecoins, Crypto, CBDC and the Power of Tokenization
 
 - UID: 296
 - Slug: international-blockchain-day-the-new-money-stablecoins-crypto-cbdc-and-the-power-of-tokenization
@@ -1011,7 +893,7 @@ Full generated event catalogue.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/international-blockchain-day-the-new-money-stablecoins-crypto-cbdc-and-the-power-of-tokenization/edit
 
-## 44. Corporate Venturing Summit
+## 39. Corporate Venturing Summit
 
 - UID: 270
 - Slug: corporate-venturing-summit
@@ -1035,7 +917,7 @@ Full generated event catalogue.
   - https://pioneers.io/corporate-venturing-summit/
   - https://pioneers.io/
 
-## 45. Longevity Business Forum
+## 40. Longevity Business Forum
 
 - UID: 251
 - Slug: longevity-business-forum
@@ -1059,7 +941,7 @@ Full generated event catalogue.
   - https://longevityhub.at/business-forum/
   - https://longevityhub.at/
 
-## 46. ClawCon #2 - ViennaUP edition
+## 41. ClawCon #2 - ViennaUP edition
 
 - UID: 313
 - Slug: clawcon-3-viennaup-edition
@@ -1082,7 +964,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/clawcon-3-viennaup-edition/edit
   - https://lumia.wien/
 
-## 47. ViennaUP Coffee House Sessions 2026
+## 42. ViennaUP Coffee House Sessions 2026
 
 - UID: 259
 - Slug: viennaup-coffee-house-sessions-2026-3
@@ -1105,7 +987,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/viennaup-coffee-house-sessions-2026/edit
   - https://vienna.business/
 
-## 48. Founders & Future Founders Breakfast
+## 43. Founders & Future Founders Breakfast
 
 - UID: 295
 - Slug: founders-future-founders-breakfast
@@ -1128,7 +1010,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/founders-future-founders-breakfast/edit
   - https://www.calmstorm.vc/
 
-## 49. Creative Catalyst Aperture 
+## 44. Creative Catalyst Aperture 
 
 - UID: 306
 - Slug: creative-catalyst-super-node
@@ -1151,7 +1033,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/creative-catalyst-aperture/edit
   - https://eit-culture-creativity.eu
 
-## 50. Open House @AI Factory Austria AI:AT
+## 45. Open House @AI Factory Austria AI:AT
 
 - UID: 261
 - Slug: open-house-ai-factory-austria-aiat
@@ -1174,7 +1056,7 @@ Full generated event catalogue.
   - https://viennaup.flave.world/user/events/open-house-ai-factory-austria-ai-at/edit
   - https://ai-at.eu/
 
-## 51. WSA Community Day
+## 46. WSA Community Day
 
 - UID: 305
 - Slug: wsa-global-congress-day-3
@@ -1198,7 +1080,7 @@ Full generated event catalogue.
   - https://wsa-global.org/2025/10/18/wsa-global-congress-in-vienna/
   - https://wsa-global.org/
 
-## 52. { founders only }
+## 47. { founders only }
 
 - UID: 267
 - Slug: founder-only
