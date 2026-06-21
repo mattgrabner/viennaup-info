@@ -496,6 +496,7 @@ Full generated event catalogue.
 - Description: There are plenty of new HealthTech ideas &ndash; and some actually have the potential to change the healthcare system ! At this meetup we will bring startups and professionals from hospitals, care facilities, and medical practices together and focus on real problems in healthcare, concrete solutions, and an honest look at what works in practice. Beyond individual improvements, we explore how technological innovation has the potential to fundamentally transform healthcare systems, making them more efficient, accessible, and patient-centered. Through short keynotes, startup pitches, use cases and interactive discussions, we show how innovations can be designed to ease workflows, benefit patients, and integrate into existing structures. Whether you&#39;re a founder, physician, nurse, manager, or IT professional &ndash; if you want to help ensure that innovation in healthcare doesn&#39;t get stuck in pitch decks but actually reaches patients and teams, driving systemic change in the process, you&#39;re in the right place.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/from-pitch-to-patient-how-digital-health-and-ai-actually-make-it-into-practice/edit
+  - https://healthhubvienna.at/
 
 ## 22. ViennaUP Coffee House Sessions 2026
 
@@ -541,6 +542,8 @@ Full generated event catalogue.
 - Description: HOIV Founder Huddle 2026 is a focused, consultation-driven session designed for a curated group of startup teams who are actively building and looking for meaningful strategic input. As part of ViennaUP, the session enables a space where founders can openly discuss real challenges and receive practical, experience-driven feedback. This is not a traditional demo day or pitch competition. Instead, it is a structured working session that blends elements of a workshop, meet-the-expert format, and moderated group discussion. Selected startups will join experienced operators, investors, VCs, banks, and industry experts in a structured working format. - It is an open setting designed for real conversation. - The focus is on real topics that founders face every day &mdash; from market positioning and product direction to fundraising preparation, operational bottlenecks, team dynamics, and scaling decisions.&nbsp;
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/hoiv-founder-huddle-2026-pitch-build-scale/edit
+  - https://homeofinnovationx.com/events/
+  - https://homeofinnovationx.com/
 
 ## 24. Lab to Leader: Building Science Ventures That Last
 
@@ -563,6 +566,7 @@ Full generated event catalogue.
 - Description: Future-Proof Cofounder Teams &amp; Scaling-Ready Startups Transform research into ventures built to scale. This full-day track tackles the make-or-break challenges every science startup&nbsp;faces: finding the right cofounder and scaling successfully.&nbsp; What to Expect Cofounder Matching Pitches &ndash; A joint initiative by AIT, BOKU, MedUni Wien, TU Wien, Uni Wien, WU Wien &amp; Xista, connecting local and international academic spinoffs with business cofounders through pitches and dedicated networking zones Panel: &quot;Cofounder and Scaling Stories &ndash; Wins, Woes &amp; Needs,&quot; moderated by Petra Wolkenstein, Konsultori Guided Networking &amp; Spin-Off Booths Keynote: &quot;Aligning for Success &ndash; Building Future-Proof Cofounder Teams,&quot; with Michael Kubiena, Konsultori Session: &nbsp;&quot;How to Build a Dream Team: Why Interdisciplinarity is Key&quot;, New Venture Scouting Closing: Markus Wanko, XISTA For: Science entrepreneurs, aspiring cofounders, spinoffs in formation, pre-scaleups, and accelerator/entrepreneurship program managers. Organised by: &nbsp;Konsultori &amp; Vienna Spin-Off Project (AIT, BOKU, Medizinische Universit&auml;t Wien, TU Wien, Universit&auml;t Wien, WU Wien, Xista) Sponsored by &nbsp; AWS. &nbsp;
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/lab-to-leader-building-science-ventures-that-last/edit
+  - https://www.konsultori.com/
 
 ## 25. The Recursive CEE Forum
 
@@ -703,6 +707,8 @@ Full generated event catalogue.
 - Description: Where Tech, Capital, and Culture Collide. &nbsp;Skip the hype. Get to the deals. Building on our successful Grand Opening at ViennaUP 2025, we will host a dynamic happening at our hub that merges creativity, technology, and investment into a tangible, experience-driven format . We are transforming the HOIV hub into the ultimate arena for founders, VCs, and tech builders to connect and close. Why You Need to Be There: Direct Access: Skip the gatekeepers. Meet face-to-face with investors and industry leaders across our stages, studios, and networking zones. Tangible Action: Dive into curated workshops, rapid-fire pitches , and live music-tech performances . The Full Experience: Navigate interactive tech installations, outdoor relaxation areas , a dynamic food court, and an ViennaUP WarmUP Afterparty and Vernissage . This is where capital meets creation. Stop talking about innovation and come build it.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/hoiv-fusion-the-beat-of-innovation/edit
+  - https://homeofinnovationx.com/events/
+  - https://homeofinnovationx.com/
 
 ## 31. Creative Days Vienna 2026
 
@@ -1078,6 +1084,7 @@ Full generated event catalogue.
 - Description: For space lobsters, humans, and everything in between The Claw is back and proud to be an official part of ViennaUP! Join us for a high-energy evening dedicated to the OpenClaw movement&mdash;the world&rsquo;s fastest-growing open-source AI agent ecosystem. Whether you&rsquo;re a builder, a hacker, or just &quot;Claw-curious,&quot; this is the hub for the new Agent Economy. What&rsquo;s on the Agenda? Lightning Talks @ 5 Mins: No boring PowerPoints. Just raw, 5-minute demos of the coolest and weirdest use cases&mdash;from autonomous home setups to AI-driven &quot;vibe coding&quot; projects that run 24/7. Community over Corporate: Experience the &quot;lobster&quot; atmosphere where technical fails are celebrated, and &quot;how did you build that?&quot; is the only question that matters. Meet The New Agentic Hub: Hosted by Lumia , your dedicated space for the agent economy. Don&rsquo;t miss the ViennaUP edition of the world&#39;s most creative AI meetup and take the chance to connect with the builders shaping the future of decentralized AI.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/clawcon-3-viennaup-edition/edit
+  - https://lumia.wien/
 
 ## 47. ViennaUP Coffee House Sessions 2026
 
