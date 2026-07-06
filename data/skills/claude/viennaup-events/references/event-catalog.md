@@ -402,7 +402,6 @@ Full generated event catalogue.
 - Description: Fostering change through real connections. ​The world may feel like it&rsquo;s going crazy. Instead of complaining, we created&nbsp; FFX &nbsp;&ndash; a space for trusted, authentic, and lasting connections. ​We bring together Europe&rsquo;s leading&nbsp; founders, investors, and leaders &nbsp;to learn from each other, exchange openly, and build relationships that last a lifetime. And yes, this is a&nbsp; women-only event . ​This time, we bundle strengths as we know it&#39;s the only path forward for&nbsp; radical change : FFX joins forces with &nbsp;ViennaUP &nbsp;to bring the Austrian and European ecosystems together.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/the-female-founders-experience-vienna-2026/edit
-  - https://ffexperience.female-founders.org/
   - https://female-founders.org/
 
 ## 18. Salon Future: Connecting Startup Ecosystems
@@ -542,8 +541,6 @@ Full generated event catalogue.
 - Description: HOIV Founder Huddle 2026 is a focused, consultation-driven session designed for a curated group of startup teams who are actively building and looking for meaningful strategic input. As part of ViennaUP, the session enables a space where founders can openly discuss real challenges and receive practical, experience-driven feedback. This is not a traditional demo day or pitch competition. Instead, it is a structured working session that blends elements of a workshop, meet-the-expert format, and moderated group discussion. Selected startups will join experienced operators, investors, VCs, banks, and industry experts in a structured working format. - It is an open setting designed for real conversation. - The focus is on real topics that founders face every day &mdash; from market positioning and product direction to fundraising preparation, operational bottlenecks, team dynamics, and scaling decisions.&nbsp;
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/hoiv-founder-huddle-2026-pitch-build-scale/edit
-  - https://homeofinnovationx.com/events/
-  - https://homeofinnovationx.com/
 
 ## 24. Lab to Leader: Building Science Ventures That Last
 
@@ -636,7 +633,6 @@ Full generated event catalogue.
 - Description: What Makes FFX Unique? ​ Curated &amp; Application-Only 120 participants: founders, investors, leaders. Every profile is carefully selected to ensure the right mix and the right energy.&nbsp; No randomness, no crowd. ​ Hub Agendas Forget FOMO. At FFX, you don&rsquo;t need to choose between sessions or stress about missing out. We design your hub agenda so you can focus fully on connecting, learning, and enjoying the experience. ​ Real Engagement No endless pitches. No empty networking. Just&nbsp; in-depth conversations, genuine connections, and lasting collaborations.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/the-female-founders-experience-vienna-2026/edit
-  - https://ffexperience.female-founders.org/
   - https://female-founders.org/
 
 ## 28. Road to Global x Tech Summit
@@ -707,8 +703,6 @@ Full generated event catalogue.
 - Description: Where Tech, Capital, and Culture Collide. &nbsp;Skip the hype. Get to the deals. Building on our successful Grand Opening at ViennaUP 2025, we will host a dynamic happening at our hub that merges creativity, technology, and investment into a tangible, experience-driven format . We are transforming the HOIV hub into the ultimate arena for founders, VCs, and tech builders to connect and close. Why You Need to Be There: Direct Access: Skip the gatekeepers. Meet face-to-face with investors and industry leaders across our stages, studios, and networking zones. Tangible Action: Dive into curated workshops, rapid-fire pitches , and live music-tech performances . The Full Experience: Navigate interactive tech installations, outdoor relaxation areas , a dynamic food court, and an ViennaUP WarmUP Afterparty and Vernissage . This is where capital meets creation. Stop talking about innovation and come build it.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/hoiv-fusion-the-beat-of-innovation/edit
-  - https://homeofinnovationx.com/events/
-  - https://homeofinnovationx.com/
 
 ## 31. Creative Days Vienna 2026
 
