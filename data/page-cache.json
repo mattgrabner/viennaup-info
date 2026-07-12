@@ -16,7 +16,7 @@
   },
   "https://startuplive.ngo/": {
     "url": "https://startuplive.ngo/",
-    "fetchedAt": 1783205069458,
+    "fetchedAt": 1783895731887,
     "ok": true,
     "title": "StartupLive Global - Pre-Acceleration Program & Startup Events",
     "meta": [
@@ -32,7 +32,7 @@
   },
   "https://startuplive.ngo/events/startuplive26-viennaup": {
     "url": "https://startuplive.ngo/events/startuplive26-viennaup",
-    "fetchedAt": 1783205070063,
+    "fetchedAt": 1783895732174,
     "ok": true,
     "title": "StartupLive Global - Pre-Acceleration Program & Startup Events",
     "meta": [
@@ -48,7 +48,7 @@
   },
   "https://impactdays.at/": {
     "url": "https://impactdays.at/",
-    "fetchedAt": 1783205069500,
+    "fetchedAt": 1783895731637,
     "ok": true,
     "title": "Impact Days '26",
     "meta": [
@@ -60,7 +60,7 @@
   },
   "https://vienna.impacthub.net/": {
     "url": "https://vienna.impacthub.net/",
-    "fetchedAt": 1783205069616,
+    "fetchedAt": 1783895731896,
     "ok": true,
     "title": "Impact Hub Vienna",
     "meta": [
@@ -73,7 +73,7 @@
   },
   "https://viennaup.flave.world/user/events/impact-days/edit": {
     "url": "https://viennaup.flave.world/user/events/impact-days/edit",
-    "fetchedAt": 1783205069922,
+    "fetchedAt": 1783895732763,
     "ok": true,
     "title": "ViennaUP | Impact Days",
     "meta": [],
@@ -81,7 +81,7 @@
   },
   "https://viennaup.flave.world/user/events/startuplive-26-viennaup/edit": {
     "url": "https://viennaup.flave.world/user/events/startuplive-26-viennaup/edit",
-    "fetchedAt": 1783205069780,
+    "fetchedAt": 1783895732240,
     "ok": true,
     "title": "ViennaUP | StartupLive'26 ViennaUP",
     "meta": [],
@@ -119,7 +119,7 @@
   },
   "https://viennaup.flave.world/user/events/fundraising-secrets-the-complete-masterplan-for-winning-investors-and-building-lasting-relationships/edit": {
     "url": "https://viennaup.flave.world/user/events/fundraising-secrets-the-complete-masterplan-for-winning-investors-and-building-lasting-relationships/edit",
-    "fetchedAt": 1783205070430,
+    "fetchedAt": 1783895732502,
     "ok": true,
     "title": "ViennaUP | Fundraising Secrets - The Complete Masterplan for Winning Investors and Building Lasting Relationships",
     "meta": [],
@@ -127,7 +127,7 @@
   },
   "https://viennaup.flave.world/user/events/mobility-in-action/edit": {
     "url": "https://viennaup.flave.world/user/events/mobility-in-action/edit",
-    "fetchedAt": 1783205070819,
+    "fetchedAt": 1783895733384,
     "ok": true,
     "title": "ViennaUP | Mobility in Action",
     "meta": [],
@@ -135,7 +135,7 @@
   },
   "https://viennaup.flave.world/user/events/energy-launchpad-shaping-europe-s-energy-future/edit": {
     "url": "https://viennaup.flave.world/user/events/energy-launchpad-shaping-europe-s-energy-future/edit",
-    "fetchedAt": 1783205070832,
+    "fetchedAt": 1783895733045,
     "ok": true,
     "title": "ViennaUP | Energy Launchpad: Shaping Europe's Energy Future",
     "meta": [],
@@ -143,7 +143,7 @@
   },
   "https://viennaup.flave.world/user/events/startup-world-cup-austria-2026/edit": {
     "url": "https://viennaup.flave.world/user/events/startup-world-cup-austria-2026/edit",
-    "fetchedAt": 1783205071337,
+    "fetchedAt": 1783895733681,
     "ok": true,
     "title": "ViennaUP | Startup World Cup Austria 2026",
     "meta": [],
@@ -151,7 +151,7 @@
   },
   "https://launchpad.energy/": {
     "url": "https://launchpad.energy/",
-    "fetchedAt": 1783205070679,
+    "fetchedAt": 1783895734432,
     "ok": true,
     "title": "Energy Launchpad | Europe’s Energy Innovation Program",
     "meta": [
@@ -166,7 +166,7 @@
   },
   "https://www.startupworldcup-austria.com/": {
     "url": "https://www.startupworldcup-austria.com/",
-    "fetchedAt": 1783205071048,
+    "fetchedAt": 1783895733459,
     "ok": true,
     "title": "Startup World Cup Austria | Finale 18.05.2026",
     "meta": [
@@ -181,7 +181,7 @@
   },
   "https://ivlv.me/3n98w": {
     "url": "https://ivlv.me/3n98w",
-    "fetchedAt": 1783205071699,
+    "fetchedAt": 1783895741339,
     "ok": true,
     "title": "Pitch at Mobility in Action - ViennaUP'26",
     "meta": [
@@ -192,7 +192,7 @@
   },
   "https://viennaup.flave.world/user/events/the-perfect-pitch-how-to-create-interest-in-you-and-your-big-idea/edit": {
     "url": "https://viennaup.flave.world/user/events/the-perfect-pitch-how-to-create-interest-in-you-and-your-big-idea/edit",
-    "fetchedAt": 1783205071557,
+    "fetchedAt": 1783895734134,
     "ok": true,
     "title": "ViennaUP | The Perfect Pitch: How to Create Interest in You and Your Big Idea",
     "meta": [],
@@ -200,7 +200,7 @@
   },
   "https://derperfektepitch.com": {
     "url": "https://derperfektepitch.com",
-    "fetchedAt": 1783205070743,
+    "fetchedAt": 1783895732957,
     "ok": true,
     "title": "Der perfekte Pitch - vom Pitch Doktor, Dr. Florian Kandler -",
     "meta": [
@@ -276,7 +276,7 @@
   },
   "https://viennaup.flave.world/user/events/salon-future-connecting-startup-ecosystems/edit": {
     "url": "https://viennaup.flave.world/user/events/salon-future-connecting-startup-ecosystems/edit",
-    "fetchedAt": 1783205071812,
+    "fetchedAt": 1783895734403,
     "ok": true,
     "title": "ViennaUP | Salon Future: Connecting Startup Ecosystems",
     "meta": [],
@@ -889,15 +889,15 @@
   },
   "https://www.invest-austria.com": {
     "url": "https://www.invest-austria.com",
-    "fetchedAt": 1783205071196,
+    "fetchedAt": 1783895733934,
     "ok": true,
-    "title": "Home | invest.austria",
+    "title": "Status | invest.austria",
     "meta": [
       "With over 350 members, invest.austria is the leading network for investors in the pre-IPO capital market in Austria. We are the central point of contact for all questions relating to Angel Investing, Venture Capital and Private Equity.",
-      "Home | invest.austria",
+      "Status | invest.austria",
       "With over 350 members, invest.austria is the leading network for investors in the pre-IPO capital market in Austria. We are the central point of contact for all questions relating to Angel Investing, Venture Capital and Private Equity.",
       "invest.austria",
-      "Home | invest.austria",
+      "Status | invest.austria",
       "With over 350 members, invest.austria is the leading network for investors in the pre-IPO capital market in Austria. We are the central point of contact for all questions relating to Angel Investing, Venture Capital and Private Equity."
     ],
     "text": "top of page Plattform Mitgliedschaften Business Angel Early Stage Later Stage Unsere Mitglieder Business Angel Early Stage Later Stage Unsere Mitglieder Investor finden Investor finden Pitch Deck Playbook & Checkliste Startups, Scale-ups, Spin-offs and SMEs Funds Investor finden Pitch Deck Playbook & Checkliste Startups, Scale-ups, Spin-offs and SMEs Funds Leistungen Plattform Investors Academy Advanced Academy Angel Investing Handbook Austrian Investing Reports Plattform Investors Academy Advanced Academy Angel Investing Handbook Austrian Investing Reports Politik Politik Dachfonds Austrian Investing Reports Vision 2030 Flex Co. Politik Dachfonds Austrian Investing Reports Vision 2030 Flex Co. Events Events Investors Lounge Advanced Academy Investors Academy Invest•austria conference Startup World Cup Austria Volunteering Events Investors Lounge Advanced Academy Investors Academy Invest•austria conference Startup World Cup Austria Volunteering Über uns Presse Blog Team Volunteering Datenschutz Impressum Presse Blog Team Volunteering Datenschutz Impressum Menu Close Private Capital for Tomorrow Mit &uuml;ber 350 Mitgliedern ist invest &bull; austria das f&uuml;hrende Netzwerk f&uuml;r Investor:innen am vorb&ouml;rslichen Kapitalmarkt in &Ouml;sterreich. Wir sind die zentrale Anlaufstelle f&uuml;r alle Fragen rund um Angel Investing, Venture Capital und Private Equity. Mitglied werden Private Capital for Tomorrow Mit &uuml;ber 350 Mitgliedern ist invest &bull; austria das f&uuml;hrende Netzwerk f&uuml;r Investor:innen am vorb&ouml;rslichen Kapitalmarkt in &Ouml;sterreich. Wir sind die zentrale Anlaufstelle f&uuml;r alle Fragen rund um Angel Investing, Venture Capital und Private Equity. Mitglied werden Investors Academy 10.09 - 11.09.2026 Mehr Informationen 5th November, 2025 4th November, 2026 VIENNA VIENNA • 4th November, 2026 • We’re thrilled to welcome you back for the 6th edition of the invest.austria conference. Get Your Ticket Neue Daten - frische Einblicke - wichtige Trends Austrian Investing Report Zum Investing Report 2024 Private Capital for Tomorrow Mit &uuml;ber 350 Mitgliedern ist invest &bull; austria das f&uuml;hrende Netzwerk f&uuml;r Investor:innen am vorb&ouml;rslichen Kapitalmarkt in &Ouml;sterreich. Wir sind die zentrale Anlaufstelle f&uuml;r alle Fragen rund um Angel Investing, Venture Capital und Private Equity. Mitglied werden Im Fokus Konferenz Events Dachfonds Dealflow Austrian Investing Report Neue Daten - frische Einblicke - wichtige Trends ​ Die alle zwei Jahre erscheinende Studie gilt als eine der fundiertesten Analysen des &ouml;sterreichischen Privatkapitalmarkts. Sie beleuchtet exklusiv die Perspektive privater Kapitalgeber:innen, eine Seite des Startup-&Ouml;kosystems, die in der &ouml;ffentlichen Wahrnehmung h&auml;ufig zu kurz kommt. Jetzt eintauchen ANGEL INVESTING Mehr erfahren VENTURE CAPITAL Mehr erfahren PRIVATE EQUITY Mehr erfahren Zusammen die Zukunft gestalten! Vorteile unserer Mitglieder Networking Vernetzen Sie sich mit einer Community von &uuml;ber 350 Investor:innen. Erhalten Sie exklusiven Zugang zu unserer Mitgliederplattform und nehmen Sie an unserer monatlichen Investors Lounge teil – f&uuml;r hochwertiges Networking und wertvolle Brancheneinblicke. Politik & Sichtbarkeit Wir vertreten die Interessen von privaten Investor:innen und setzen uns auf politischer Ebene f&uuml;r ihre Anliegen ein. Gestalten Sie mit uns ein regulatorisches Umfeld, das Innovation und nachhaltiges Wachstum f&ouml;rdert. Wissen & Weiterbildung Erweitern Sie Ihr Knowhow. In unseren exklusiven Masterclasses und Webinaren geben erfahrene Branchenexpert:innen Einblicke und teilen ihr Wissen. Profitieren Sie von Studien, Leitf&auml;den und fundierten Marktanalysen, um immer einen Schritt voraus zu sein. Dealflow Wir unterst&uuml;tzen Sie bei der Suche nach Co-Investor:innen und vernetzen Sie mit vielversprechenden Startups aus ganz &Ouml;sterreich und Europa. Bleiben Sie stets informiert &uuml;ber exklusive Pitch-Events und spannende Investmentm&ouml;glichkeiten. Internationale Reichweite Bei unseren j&auml;hrlichen Investorenreisen lernen Sie Akteure aus den f&uuml;hrenden Netzwerken Europa's kennen, wie European Business Angel Network (EBAN) und Invest Europe. Mit uns erhalten Sie Zugang zu hochkar&auml;tigen Partnerevents im In- und Ausland und k&ouml;nnen sich so ideal f&uuml;r grenz&uuml;berschreitende Investments aufstellen. Branchenevents Bei unseren Veranstaltungen, wie dem Startup World Cup, der invest&bull;austria Konferenz und unseren exklusiven monatlichen Investors Lounges, sind Sie mittendrin statt nur dabei - im direkten Austausch mit den entscheidenden K&ouml;pfen der &ouml;sterreichischen Investment- und Startup-Szene. Together we create the future! ANGEL INVESTING ANGEL INVESTING ANGEL INVESTING ANGEL INVESTING Mehr erfahren VENTURE CAPITAL VENTURE CAPITAL VENTURE CAPITAL VENTURE CAPITAL Mehr erfahren PRIVATE EQUITY PRIVATE EQUITY PRIVATE EQUITY PRIVATE EQUITY Mehr erfahren Together we create the future! Benefits for Members Networking Vernetzen Sie sich mit einer Community von &uuml;ber 350 Investor:innen. Erhalten Sie exklusiven Zugang zu unserer Mitgliederplattform und nehmen Sie an unserer monatlichen Investors Lounge teil – f&uuml;r hochwertiges Networking und wertvolle Brancheneinblicke. Vernetzen Sie sich mit einer Community von &uuml;ber 350 Investor:innen. Erhalten Sie exklusiven Zugang zu unserer Mitgliederplattform und nehmen Sie an unserer monatlichen Investors Lounge teil – f&uuml;r hochwertiges Networking und wertvolle Brancheneinblicke. Politik & Sichtbarkeit Wir vertreten die Interessen von Investor:innen am vorb&ouml;rslichen Kapitalmarkt und setzen uns auf politischer Ebene f&uuml;r ihre Anliegen ein. Gestalten Sie mit uns ein regulatorisches Umfeld, das Innovation und nachhaltiges Wachstum f&ouml;rdert. Wir vertreten die Interessen von Investor:innen am vorb&ouml;rslichen Kapitalmarkt und setzen uns auf politischer Ebene f&uuml;r ihre Anliegen ein. Gestalten Sie mit uns ein regulatorisches Umfeld, das Innovation und nachhaltiges Wachstum f&ouml;rdert. Wissen & Weiterbildung Erweitern Sie Ihr Know-how mit Einblicken erfahrener Branchenexpert:innen in exklusiven Masterclasses und Webinaren. Profitieren Sie von Studien, Leitf&auml;den und fundierten Marktanalysen, um immer einen Schritt voraus zu sein. Erweitern Sie Ihr Know-how mit Einblicken erfahrener Branchenexpert:innen in exklusiven Masterclasses und Webinaren. Profitieren Sie von Studien, Leitf&auml;den und fundierten Marktanalysen, um immer einen Schritt voraus zu sein. Dealflow Wir unterst&uuml;tzen Sie bei der Suche nach Co-Investor:innen und vernetzen Sie mit vielversprechenden Startups aus ganz &Ouml;sterreich und Europa. Bleiben Sie stets informiert &uuml;ber exklusive Pitch-Events und spannende Investmentm&ouml;glichkeiten. Wir unterst&uuml;tzen Sie bei der Suche nach Co-Investor:innen und vernetzen Sie mit vielversprechenden Startups aus ganz &Ouml;sterreich und Europa. Bleiben Sie stets informiert &uuml;ber exklusive Pitch-Events und spannende Investmentm&ouml;glichkeiten. Internationale Reichweite Nehmen Sie an j&auml;hrlichen Investorenreisen teil und vernetzen sich mit f&uuml;hrenden Netzwerken wie dem European Business Angel Network (EBAN) und Invest Europe. Erhalte Zugang zu hochkar&auml;tigen Partnerevents in ganz Europa und erweitern Sie Ihren Horizont f&uuml;r grenz&uuml;berschreitende Investments. Nehmen Sie an j&auml;hrlichen Investorenreisen teil und vernetzen sich mit f&uuml;hrenden Netzwerken wie dem European Business Angel Network (EBAN) und Invest Europe. Erhalte Zugang zu hochkar&auml;tigen Partnerevents in ganz Europa und erweitern Sie Ihren Horizont f&uuml;r grenz&uuml;berschreitende Investments. Industry Events Halten Sie sich &uuml;ber aktuelle Entwicklungen in der Investmentwelt auf dem Laufenden – mit dem Startup World Cup, der invest&bull;austria Konferenz und unseren exklusiven monatlichen Investors Lounges"
@@ -939,7 +939,7 @@
   },
   "https://www.mobility.community": {
     "url": "https://www.mobility.community",
-    "fetchedAt": 1783205072466,
+    "fetchedAt": 1783895734779,
     "ok": true,
     "title": "Community Creates Mobility | Mobilität von allen und für alle gestalten.",
     "meta": [],
@@ -970,7 +970,7 @@
   },
   "https://viennaup.flave.world/user/events/creative-catalyst-aperture/edit": {
     "url": "https://viennaup.flave.world/user/events/creative-catalyst-aperture/edit",
-    "fetchedAt": 1783205072081,
+    "fetchedAt": 1783895734913,
     "ok": true,
     "title": "ViennaUP | Creative Catalyst Aperture",
     "meta": [],
@@ -978,7 +978,7 @@
   },
   "https://roadtoglobal.org/": {
     "url": "https://roadtoglobal.org/",
-    "fetchedAt": 1783205072784,
+    "fetchedAt": 1783895735491,
     "ok": true,
     "title": "Road To Global - Road To Global",
     "meta": [
@@ -987,6 +987,6 @@
       "Road to Global connects founders, investors, corporates, and innovation hubs from across Europe and beyond; all united by one goal...",
       "Road To Global"
     ],
-    "text": "Expo & Partners Speakers Tickets LocalToGlobal Get your pass Close Contact Wien, Austria [email protected] Get in touch Expo & Partners Speakers Tickets LocalToGlobal Get your pass Expo & Partners Speakers Tickets LocalToGlobal Get your pass Build what's next. Together. A global tour for the innovators, disruptors, and visionaries building the future. Go from local idea to global impact. Event Location: WKÖ Wiedner Hauptstraße 63 1040 Wien Grab Your Ticket Now! Road to Global Investor Breakfast Ticket The Investor Breakfast brings together global investors, visionary entrepreneurs, and key ecosystem players for an intimate networking session. Grab Your Ticket Now! Shining Stars on Stage Shining Stars On Stage is your platform to connect with the investors and corporates shaping the future of global business. Being selected to pitch places you at the epicenter of opportunity. Apply now! Vienna’s Global Growth Hub Surrounded by Vienna’s buzzing innovation scene, we brought together speakers and attendees from 25 countries , with 50% of speakers joining from outside Austria . Secure your spot 0 M$ Secured in deals. 2026: Bigger. Bolder. Unmissable. 70+ speakers revealing unfiltered scaling tactics 800+ attendees from EU, EMEA and US $50M+ deal-making target Save your seat now Shape your global journey! Road to Global x Tech Summit connects founders, investors, corporates, and innovation hubs from across Europe and beyond; all united by one goal: turning great ideas into global success stories. Across two days of interactive sessions, investor-startup matchmaking, and cross-industry collaborations , you’ll engage with global thought leaders and scaling experts who share real experiences, not theory, on how companies expand internationally. 01 step Discover the Secrets to Global Success Learn the journeys of companies expanding internationally, uncover their strategies, and start crafting your own global story. Road to Global offers a unique platform where experiences, ideas, and connections come together. 02 step Connect with Leaders Shaping the Future Join investors, technoparks, startups, and scaleups to become part of the global ecosystem. This event breaks down barriers to collaboration and innovation, offering you unparalleled opportunities. 03 step Step Into the Global Spotlight At the heart of ViennaUp Startup Festival, Road to Global invites you to a stage filled with inspiring stories. For those aiming to make an impact on a global scale, this is an opportunity you can’t miss! / Founders / Investors / C orporates / P olicy makers / Institutions / Startups / Founders / Investors / C orporates / P olicy makers / Institutions / Startups / Founders / Investors / C orporates / P olicy makers / Institutions / Startups / Founders / Investors / C orporates / P olicy makers / Institutions / Startups Vienna 20-21 May 2026 Vienna 20-21 May 2026 Vienna 20-21 May 2026 Vienna 20-21 May 2026 roadtoglobal Experiences Investor Breakfast Startup Pitches Global Stories & Experiences Competition and Negotiation Inspirational Speakers & Workshops Side Events & Networking Area Event Schedule Program pricing Tickets To Road Global 2026 Job Seeker 2-Day Pass Proof of your Work/Project/ LinkedIn General Networking Area 1:1 Matchmaking Meetings Expo Floor Access € 15 Get Your Pass Attendee Pass Innovators, ecosystem builders, and anyone passionate about startups. Be inspired, make connections, and experience the energy of the startup world. 2-Day Pass to Road to Global 2026 Full access to all conference stages, keynotes & panels € 99 Get Your Pass Popular Startup Pass For founders, startup teams, and early-stage entrepreneurs only. Perfect if you’re building, launching, or scaling your venture. 2-Day Pass to Road to Global 2026 Full access to all conference stages, keynotes & panels Requires proof of your work / project € 150 Get Your Pass Exclusive Investor Pass An Exclusive Pass for angel investors, VCs, corporate innovation teams, and LPs. 2-Day Pass to Road to Global 2026 Full access to all conference stages, keynotes & panels Priority 1:1 meetings with startups Entry to Investor Breakfast € 199 Get Your Pass the power of connection Defining the future of business through innovation and collaboration. 0 + Participants Bringing together over 800 industry professionals, innovators, and decision-makers from around the world. 0 + Speakers Thought leaders and experts sharing transformative insights across technology, business, and innovation. 0 + Investors Top-tier investors exploring the next big opportunities in emerging markets and startups. 0 + Startups High-potential startups presenting breakthrough ideas and scalable solutions. Vienna 20-21 May 2026 Vienna 20-21 May 2026 Vienna 20-21 May 2026 Vienna 20-21 May 2026 / Founders / Investors / C orporates / P olicy makers / Institutions / Startups / Founders / Investors / C orporates / P olicy makers / Institutions / Startups / Founders / Investors / C orporates / P olicy makers / Institutions / Startups / Founders / Investors / C orporates / P olicy makers / Institutions / Startups speakers Inspiring Speakers Awasome speaker member 0 + RTG Artus Braekeveldt Account Management / Mastercard RTG Mats Kasküemme Country Director, E-Residency RTG Nadia Tor Sales Director G&E, ZTE Austria RTG Deepak V. Katkoria Founder, Logiicdev GmbH RTG Dr. techn. Osman Bodur, MSc. R&D Project Manager | PostDoc, TU Wien / IFT RTG Ersoy Soyer Founder / Nexrone Global RTG Arzum Hiller TS Odeta Iseviciute Founder & CEO, ChangeAI TS Alexandra Müller-Stingl Founder, Fractional leader, Author and Lecturer TS Dr. Priyanka Dutta Passecker Cofounder and Board Member, WU FLN TS Katarina Stanisavljevic Founder, Amazing Next TS Daniela Buchmayr CEO, Sacura TS Josip Povreslo Founder, Field39 TS Anto Siric CEO, sportreact TS Zdenko Marinčić CEO/Co-founder, X-LOGIC ltd Pagination 1 2 3 4 5 Next Our Partners services Apply for a Spotlight to Pitch Top-Tier VCs Shining Stars On Stage is your platform to connect with the investors and corporates shaping the future of global business. Being selected to pitch places you at the epicenter of opportunity. Your Direct Path to Global Momentum: Proven Fundraising Impact : Some startups that pitched on our stage saw an average fundraising increase of 300% in the following year. Strategic Deal Flow: 75% of our past founders secured a major partnership or pilot program with an international leader they met at the event. This is more than a presentation; it’s a catalyst for your global journey. in Deals $ 0 M+ Investors Attending 0 + Grab your spot before April 1! Unlock Your Next Chapter! Pitch to Top-Tier VCs & Corporate Leaders with the capital and network to make global scaling a reality. Secure Major Deals & Funding : Follow in the footsteps of last year’s stars, who closed over €20M in new agreements post-event. Forge Exclusive Connections with potential partners, clients, and mentors who matter. Gain Global Media Spotlight with featured exposure in leading international tech and business press. Is This You? We’re looking for visionary founders who fit this profile: Early-stage or scaling startups with proven global ambition. Built on an innovative, tech-driven business model. Founders who are ready to seize the moment and scale to the next level. Mark Your Calendar Application Deadline : March 15, 2026 Selected Startups Notified : April 1, 2026 Event Dates : May 20-21, 2026 Don’t just plan for growth, execute it. get in touch Become a #roadtoglobal26 event partner! Join us as a sponsor at Road to Global 2026 to connect with top innovators, scale your brand globally, and be part of the future of entrepreneurship! Join now! or book a meeting. I had the opportunity to present at Road2Global as part of ViennaUp. What a rewarding experience! From the engaging program and inspiring conversations to the perfect venue, everything was top-notch. I'd be happy to contribute again in the future! Thomas Ossmann Head of Sales"
+    "text": "Expo & Partners Speakers Tickets LocalToGlobal Get your pass Close Contact Wien, Austria [email protected] Get in touch Expo & Partners Speakers Tickets LocalToGlobal Expo & Partners Speakers Tickets LocalToGlobal Build what's next. Together. A global tour for the innovators, disruptors, and visionaries building the future. Go from local idea to global impact. Event Location: WKÖ Wiedner Hauptstraße 63 1040 Wien Grab Your Ticket Now! Road to Global Investor Breakfast Ticket The Investor Breakfast brings together global investors, visionary entrepreneurs, and key ecosystem players for an intimate networking session. Grab Your Ticket Now! Shining Stars on Stage Shining Stars On Stage is your platform to connect with the investors and corporates shaping the future of global business. Being selected to pitch places you at the epicenter of opportunity. Apply now! Vienna’s Global Growth Hub Surrounded by Vienna’s buzzing innovation scene, we brought together speakers and attendees from 25 countries , with 50% of speakers joining from outside Austria . Secure your spot 0 M$ Secured in deals. 2026: Bigger. Bolder. Unmissable. 70+ speakers revealing unfiltered scaling tactics 800+ attendees from EU, EMEA and US $50M+ deal-making target Save your seat now Shape your global journey! Road to Global connects founders, investors, corporates, and innovation hubs from across Europe and beyond; all united by one goal: turning great ideas into global success stories. Across two days of interactive sessions, investor-startup matchmaking, and cross-industry collaborations , you’ll engage with global thought leaders and scaling experts who share real experiences, not theory, on how companies expand internationally. 01 step Discover the Secrets to Global Success Learn the journeys of companies expanding internationally, uncover their strategies, and start crafting your own global story. Road to Global offers a unique platform where experiences, ideas, and connections come together. 02 step Connect with Leaders Shaping the Future Join investors, technoparks, startups, and scaleups to become part of the global ecosystem. This event breaks down barriers to collaboration and innovation, offering you unparalleled opportunities. 03 step Step Into the Global Spotlight At the heart of ViennaUp Startup Festival, Road to Global invites you to a stage filled with inspiring stories. For those aiming to make an impact on a global scale, this is an opportunity you can’t miss! / Founders / Investors / C orporates / P olicy makers / Institutions / Startups / Founders / Investors / C orporates / P olicy makers / Institutions / Startups / Founders / Investors / C orporates / P olicy makers / Institutions / Startups / Founders / Investors / C orporates / P olicy makers / Institutions / Startups Vienna 20-21 May 2026 Vienna 20-21 May 2026 Vienna 20-21 May 2026 Vienna 20-21 May 2026 roadtoglobal Experiences Investor Breakfast Startup Pitches Global Stories & Experiences Competition and Negotiation Inspirational Speakers & Workshops Side Events & Networking Area Event Schedule Program pricing Tickets To Road Global 2026 Job Seeker 2-Day Pass Proof of your Work/Project/ LinkedIn General Networking Area 1:1 Matchmaking Meetings Expo Floor Access Get Your Pass Attendee Pass Innovators, ecosystem builders, and anyone passionate about startups. Be inspired, make connections, and experience the energy of the startup world. 2-Day Pass to Road to Global 2026 Full access to all conference stages, keynotes & panels Get Your Pass Popular Startup Pass For founders, startup teams, and early-stage entrepreneurs only. Perfect if you’re building, launching, or scaling your venture. 2-Day Pass to Road to Global 2026 Full access to all conference stages, keynotes & panels Requires proof of your work / project Get Your Pass Exclusive Investor Pass An Exclusive Pass for angel investors, VCs, corporate innovation teams, and LPs. 2-Day Pass to Road to Global 2026 Full access to all conference stages, keynotes & panels Priority 1:1 meetings with startups Entry to Investor Breakfast Get Your Pass the power of connection Defining the future of business through innovation and collaboration. 0 + Participants Bringing together over 800 industry professionals, innovators, and decision-makers from around the world. 0 + Speakers Thought leaders and experts sharing transformative insights across technology, business, and innovation. 0 + Investors Top-tier investors exploring the next big opportunities in emerging markets and startups. 0 + Startups High-potential startups presenting breakthrough ideas and scalable solutions. Vienna 20-21 May 2026 Vienna 20-21 May 2026 Vienna 20-21 May 2026 Vienna 20-21 May 2026 / Founders / Investors / C orporates / P olicy makers / Institutions / Startups / Founders / Investors / C orporates / P olicy makers / Institutions / Startups / Founders / Investors / C orporates / P olicy makers / Institutions / Startups / Founders / Investors / C orporates / P olicy makers / Institutions / Startups speakers Inspiring Speakers Awasome speaker member 0 + RTG Artus Braekeveldt Account Management / Mastercard RTG Mats Kasküemme Country Director, E-Residency RTG Nadia Tor Sales Director G&E, ZTE Austria RTG Deepak V. Katkoria Founder, Logiicdev GmbH RTG Dr. techn. Osman Bodur, MSc. R&D Project Manager | PostDoc, TU Wien / IFT RTG Ersoy Soyer Founder / Nexrone Global RTG Arzum Hiller TS Odeta Iseviciute Founder & CEO, ChangeAI TS Alexandra Müller-Stingl Founder, Fractional leader, Author and Lecturer TS Dr. Priyanka Dutta Passecker Cofounder and Board Member, WU FLN TS Katarina Stanisavljevic Founder, Amazing Next TS Daniela Buchmayr CEO, Sacura TS Josip Povreslo Founder, Field39 TS Anto Siric CEO, sportreact TS Zdenko Marinčić CEO/Co-founder, X-LOGIC ltd Pagination 1 2 3 4 5 Next Our Partners services Apply for a Spotlight to Pitch Top-Tier VCs Shining Stars On Stage is your platform to connect with the investors and corporates shaping the future of global business. Being selected to pitch places you at the epicenter of opportunity. Your Direct Path to Global Momentum: Proven Fundraising Impact : Some startups that pitched on our stage saw an average fundraising increase of 300% in the following year. Strategic Deal Flow: 75% of our past founders secured a major partnership or pilot program with an international leader they met at the event. This is more than a presentation; it’s a catalyst for your global journey. in Deals $ 0 M+ Investors Attending 0 + Grab your spot before April 1! Unlock Your Next Chapter! Pitch to Top-Tier VCs & Corporate Leaders with the capital and network to make global scaling a reality. Secure Major Deals & Funding : Follow in the footsteps of last year’s stars, who closed over €20M in new agreements post-event. Forge Exclusive Connections with potential partners, clients, and mentors who matter. Gain Global Media Spotlight with featured exposure in leading international tech and business press. Is This You? We’re looking for visionary founders who fit this profile: Early-stage or scaling startups with proven global ambition. Built on an innovative, tech-driven business model. Founders who are ready to seize the moment and scale to the next level. Mark Your Calendar Application Deadline : March 15, 2026 Selected Startups Notified : April 1, 2026 Event Dates : May 20-21, 2026 Don’t just plan for growth, execute it. get in touch Become a #roadtoglobal26 event partner! Join us as a sponsor at Road to Global 2026 to connect with top innovators, scale your brand globally, and be part of the future of entrepreneurship! Join now! or book a meeting. I had the opportunity to present at Road2Global as part of ViennaUp. What a rewarding experience! From the engaging program and inspiring conversations to the perfect venue, everything was top-notch. I'd be happy to contribute again in the future! Thomas Ossmann Head of Sales Management, Business Development BSH Home Appliances Group Lega"
   }
 }
