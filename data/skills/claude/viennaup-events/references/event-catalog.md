@@ -869,8 +869,6 @@ Full generated event catalogue.
 - Description: Onco:Innovate returns to Vienna for its second flagship edition. The format is a multidisciplinary conference at the crossroads of a high-level oncology symposium and a dynamic startup &amp; innovation summit. Onco:Innovate highlights emerging trends and groundbreaking solutions in oncology, addresses barriers to market entry, and fosters impactful partnerships in the fight against cancer. We unite leading experts from across the international oncology ecosystem, including startups &amp; scaleups, hospitals &amp; clinics, pharma &amp; corporates, patient organizations, policymakers, payers, NGOs, and investors. From medical breakthroughs and precision therapies to AI-driven solutions, funding models, regulatory strategies, and project consortia, Onco:Innovate elevates the different perspectives to improve access, quality of life, and outcomes. This is where collaboration transforms innovation into better cancer care. Join us and help shape the future of oncology.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/onco-innovate-conference/edit
-  - https://onco-innovate.org/
-  - https://onco-innovate.org/
 
 ## 38. WSA Global Congress
 
