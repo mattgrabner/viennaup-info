@@ -495,7 +495,6 @@ Full generated event catalogue.
 - Description: There are plenty of new HealthTech ideas &ndash; and some actually have the potential to change the healthcare system ! At this meetup we will bring startups and professionals from hospitals, care facilities, and medical practices together and focus on real problems in healthcare, concrete solutions, and an honest look at what works in practice. Beyond individual improvements, we explore how technological innovation has the potential to fundamentally transform healthcare systems, making them more efficient, accessible, and patient-centered. Through short keynotes, startup pitches, use cases and interactive discussions, we show how innovations can be designed to ease workflows, benefit patients, and integrate into existing structures. Whether you&#39;re a founder, physician, nurse, manager, or IT professional &ndash; if you want to help ensure that innovation in healthcare doesn&#39;t get stuck in pitch decks but actually reaches patients and teams, driving systemic change in the process, you&#39;re in the right place.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/from-pitch-to-patient-how-digital-health-and-ai-actually-make-it-into-practice/edit
-  - https://healthhubvienna.at/
 
 ## 22. ViennaUP Coffee House Sessions 2026
 
