@@ -17,7 +17,7 @@
   },
   "https://startuplive.ngo/": {
     "url": "https://startuplive.ngo/",
-    "fetchedAt": 1787797226358,
+    "fetchedAt": 1788478622831,
     "ok": true,
     "title": "StartupLive Global - Pre-Acceleration Program & Startup Events",
     "meta": [
@@ -33,7 +33,7 @@
   },
   "https://startuplive.ngo/events/startuplive26-viennaup": {
     "url": "https://startuplive.ngo/events/startuplive26-viennaup",
-    "fetchedAt": 1787797226804,
+    "fetchedAt": 1788478623232,
     "ok": true,
     "title": "StartupLive Global - Pre-Acceleration Program & Startup Events",
     "meta": [
@@ -49,7 +49,7 @@
   },
   "https://impactdays.at/": {
     "url": "https://impactdays.at/",
-    "fetchedAt": 1787797226501,
+    "fetchedAt": 1788478622727,
     "ok": true,
     "title": "Impact Days '26",
     "meta": [
@@ -61,7 +61,7 @@
   },
   "https://vienna.impacthub.net/": {
     "url": "https://vienna.impacthub.net/",
-    "fetchedAt": 1787797226511,
+    "fetchedAt": 1788478623126,
     "ok": true,
     "title": "Impact Hub Vienna",
     "meta": [
@@ -74,7 +74,7 @@
   },
   "https://viennaup.flave.world/user/events/impact-days/edit": {
     "url": "https://viennaup.flave.world/user/events/impact-days/edit",
-    "fetchedAt": 1787797226842,
+    "fetchedAt": 1788478623424,
     "ok": true,
     "title": "ViennaUP | Impact Days",
     "meta": [],
@@ -82,7 +82,7 @@
   },
   "https://viennaup.flave.world/user/events/startuplive-26-viennaup/edit": {
     "url": "https://viennaup.flave.world/user/events/startuplive-26-viennaup/edit",
-    "fetchedAt": 1787797226632,
+    "fetchedAt": 1788478623536,
     "ok": true,
     "title": "ViennaUP | StartupLive'26 ViennaUP",
     "meta": [],
@@ -120,7 +120,7 @@
   },
   "https://viennaup.flave.world/user/events/fundraising-secrets-the-complete-masterplan-for-winning-investors-and-building-lasting-relationships/edit": {
     "url": "https://viennaup.flave.world/user/events/fundraising-secrets-the-complete-masterplan-for-winning-investors-and-building-lasting-relationships/edit",
-    "fetchedAt": 1787797227107,
+    "fetchedAt": 1788478623848,
     "ok": true,
     "title": "ViennaUP | Fundraising Secrets - The Complete Masterplan for Winning Investors and Building Lasting Relationships",
     "meta": [],
@@ -128,7 +128,7 @@
   },
   "https://viennaup.flave.world/user/events/mobility-in-action/edit": {
     "url": "https://viennaup.flave.world/user/events/mobility-in-action/edit",
-    "fetchedAt": 1787797227520,
+    "fetchedAt": 1788478624542,
     "ok": true,
     "title": "ViennaUP | Mobility in Action",
     "meta": [],
@@ -136,7 +136,7 @@
   },
   "https://viennaup.flave.world/user/events/energy-launchpad-shaping-europe-s-energy-future/edit": {
     "url": "https://viennaup.flave.world/user/events/energy-launchpad-shaping-europe-s-energy-future/edit",
-    "fetchedAt": 1787797227408,
+    "fetchedAt": 1788478624105,
     "ok": true,
     "title": "ViennaUP | Energy Launchpad: Shaping Europe's Energy Future",
     "meta": [],
@@ -144,7 +144,7 @@
   },
   "https://viennaup.flave.world/user/events/startup-world-cup-austria-2026/edit": {
     "url": "https://viennaup.flave.world/user/events/startup-world-cup-austria-2026/edit",
-    "fetchedAt": 1787797227986,
+    "fetchedAt": 1788478624710,
     "ok": true,
     "title": "ViennaUP | Startup World Cup Austria 2026",
     "meta": [],
@@ -152,7 +152,7 @@
   },
   "https://launchpad.energy/": {
     "url": "https://launchpad.energy/",
-    "fetchedAt": 1787797227698,
+    "fetchedAt": 1788478624046,
     "ok": true,
     "title": "Energy Launchpad | Europe’s Energy Innovation Program",
     "meta": [
@@ -166,7 +166,7 @@
   },
   "https://www.startupworldcup-austria.com/": {
     "url": "https://www.startupworldcup-austria.com/",
-    "fetchedAt": 1787797227934,
+    "fetchedAt": 1788478624287,
     "ok": true,
     "title": "Startup World Cup Austria | Finale 18.05.2026",
     "meta": [
@@ -181,7 +181,7 @@
   },
   "https://ivlv.me/3n98w": {
     "url": "https://ivlv.me/3n98w",
-    "fetchedAt": 1787797228372,
+    "fetchedAt": 1788478624682,
     "ok": true,
     "title": "Pitch at Mobility in Action - ViennaUP'26",
     "meta": [
@@ -192,7 +192,7 @@
   },
   "https://viennaup.flave.world/user/events/the-perfect-pitch-how-to-create-interest-in-you-and-your-big-idea/edit": {
     "url": "https://viennaup.flave.world/user/events/the-perfect-pitch-how-to-create-interest-in-you-and-your-big-idea/edit",
-    "fetchedAt": 1787797228313,
+    "fetchedAt": 1788478625020,
     "ok": true,
     "title": "ViennaUP | The Perfect Pitch: How to Create Interest in You and Your Big Idea",
     "meta": [],
@@ -200,7 +200,7 @@
   },
   "https://derperfektepitch.com": {
     "url": "https://derperfektepitch.com",
-    "fetchedAt": 1787797227626,
+    "fetchedAt": 1788478623757,
     "ok": true,
     "title": "Der perfekte Pitch - vom Pitch Doktor, Dr. Florian Kandler -",
     "meta": [
@@ -276,7 +276,7 @@
   },
   "https://viennaup.flave.world/user/events/salon-future-connecting-startup-ecosystems/edit": {
     "url": "https://viennaup.flave.world/user/events/salon-future-connecting-startup-ecosystems/edit",
-    "fetchedAt": 1787797228550,
+    "fetchedAt": 1788478625212,
     "ok": true,
     "title": "ViennaUP | Salon Future: Connecting Startup Ecosystems",
     "meta": [],
@@ -879,7 +879,7 @@
   },
   "https://www.invest-austria.com": {
     "url": "https://www.invest-austria.com",
-    "fetchedAt": 1787797228456,
+    "fetchedAt": 1788478624351,
     "ok": true,
     "title": "Home | invest.austria",
     "meta": [
@@ -929,7 +929,7 @@
   },
   "https://www.mobility.community": {
     "url": "https://www.mobility.community",
-    "fetchedAt": 1787797229087,
+    "fetchedAt": 1788478625747,
     "ok": true,
     "title": "Community Creates Mobility | Mobilität von allen und für alle gestalten.",
     "meta": [],
@@ -960,7 +960,7 @@
   },
   "https://viennaup.flave.world/user/events/creative-catalyst-aperture/edit": {
     "url": "https://viennaup.flave.world/user/events/creative-catalyst-aperture/edit",
-    "fetchedAt": 1787797228980,
+    "fetchedAt": 1788478625441,
     "ok": true,
     "title": "ViennaUP | Creative Catalyst Aperture",
     "meta": [],
@@ -968,7 +968,7 @@
   },
   "https://roadtoglobal.org/": {
     "url": "https://roadtoglobal.org/",
-    "fetchedAt": 1787797229585,
+    "fetchedAt": 1788478626184,
     "ok": true,
     "title": "Road to Global",
     "meta": [
