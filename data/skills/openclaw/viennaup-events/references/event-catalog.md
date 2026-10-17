@@ -22,6 +22,7 @@ Full generated event catalogue.
 - Coordinates: 48.1761151, 16.3953038 (Arsenalstraße 11, 1030 Wien, Austria)
 - Description: Two Days. Limitless Potential. One Transformational Experience. Join StartupLive&rsquo;26 ViennaUP and immerse yourself in two days of innovation, collaboration, and competition within Vienna&rsquo;s dynamic startup ecosystem. Whether you&rsquo;re a founder with a bold idea or a professional in tech, design, marketing, or business, this is your opportunity to build something meaningful alongside ambitious creators and experienced mentors. Day 1 focuses on connection and creation. Founders deliver fast-paced 90-second pitches, followed by focused workshops and mentoring to refine business models, sharpen strategy, and strengthen startups. Day 2 focuses on refinement and performance, with pitch training and financing workshops, followed by live competition in front of investors and corporate leaders. Professionals (attendees) are invited to contribute their skills and co-create with early-stage founders. Startups gain direct access to mentors, investors, and Vienna&rsquo;s startup ecosystem. Visitors are welcome to join the final pitch event and experience the future of entrepreneurship live.
 - Enrichment sources:
+  - https://viennaup.flave.world/user/events/startuplive-26-viennaup/edit
   - https://startuplive.ngo/events/startuplive26-viennaup
   - https://startuplive.ngo/
 
@@ -93,6 +94,7 @@ Full generated event catalogue.
 - Coordinates: 48.1761151, 16.3953038 (Arsenalstraße 11, 1030 Wien, Austria)
 - Description: Two Days. Limitless Potential. One Transformational Experience. Join StartupLive&rsquo;26 ViennaUP and immerse yourself in two days of innovation, collaboration, and competition within Vienna&rsquo;s dynamic startup ecosystem. Whether you&rsquo;re a founder with a bold idea or a professional in tech, design, marketing, or business, this is your opportunity to build something meaningful alongside ambitious creators and experienced mentors. Day 1 focuses on connection and creation. Founders deliver fast-paced 90-second pitches, followed by focused workshops and mentoring to refine business models, sharpen strategy, and strengthen startups. Day 2 focuses on refinement and performance, with pitch training and financing workshops, followed by live competition in front of investors and corporate leaders. Professionals (attendees) are invited to contribute their skills and co-create with early-stage founders. Startups gain direct access to mentors, investors, and Vienna&rsquo;s startup ecosystem. Visitors are welcome to join the final pitch event and experience the future of entrepreneurship live.
 - Enrichment sources:
+  - https://viennaup.flave.world/user/events/startuplive-26-viennaup/edit
   - https://startuplive.ngo/events/startuplive26-viennaup
   - https://startuplive.ngo/
 
@@ -140,6 +142,7 @@ Full generated event catalogue.
 - Coordinates: 48.210821, 16.3580827 (Friedrich-Schmidt-Platz 1, 1010 Wien, Austria)
 - Description: This year, Impact Days invites a different way of engaging with the future. Not by predicting it, simplifying it, or choosing sides, but by shaping it consciously, within the real limits that define our time. &rsquo;Holding Tensions, Creating Impact&rsquo; is the guiding idea for Impact Days &rsquo;26. As economic, ecological, technological, and social systems become increasingly intertwined, progress no longer comes from easy answers or single solutions. Impact Days &rsquo;26 is built around three core tensions shaping the impact economy today: Nature and Technology, Stability and Change, and Value Extraction and Regeneration. These are not problems to be solved, but relationships to be held, navigated, and designed with care. Impact Days &rsquo;26 is a space for learning how to work in this complexity. It is about making trade-offs visible, holding opposing forces in relationships, and shaping futures that can endure within social and planetary limits. The conference brings together entrepreneurs, investors, leaders, and system builders who are ready to engage with responsibility rather than certainty.
 - Enrichment sources:
+  - https://viennaup.flave.world/user/events/impact-days/edit
   - https://impactdays.at/
   - https://vienna.impacthub.net/
 
@@ -186,6 +189,7 @@ Full generated event catalogue.
 - Coordinates: 48.18567239999999, 16.3760038 (Wien Hauptbahnhof, 1100 Wien, Austria)
 - Description: Stop chasing buzzwords and start building real investor connections. I&rsquo;ve been in your shoes&mdash;navigating the high-stakes world of VCs and Angels to secure 3 funding rounds across Austria, Germany, and the USA. Fundraising Secrets isn&rsquo;t a theoretical lecture; it&rsquo;s a deep dive into the reality of startup investment, based on my personal, battle-tested roadmap. I&rsquo;m Florian Kandler, and in this interactive workshop, we&rsquo;re going &ldquo;Beyond the Hype&rdquo; to strip away the glossy myths. I&rsquo;ll show you how to determine if an investor is actually the right match and how to engage in eye-level conversations built on credibility, not jargon. Whether you are a local founder or joining us from abroad, you&rsquo;ll gain a universal blueprint to navigate your journey with confidence. Don&rsquo;t just hope for a check &mdash; learn how to foster lasting partnerships. You&rsquo;ll leave with actionable techniques you can apply immediately at ViennaUP to turn your vision into a funded reality. Let&rsquo;s get to work.
 - Enrichment sources:
+  - https://viennaup.flave.world/user/events/fundraising-secrets-the-complete-masterplan-for-winning-investors-and-building-lasting-relationships/edit
   - https://derperfektepitch.com
 
 ## 9. Energy Launchpad: Shaping Europe's Energy Future
@@ -208,6 +212,7 @@ Full generated event catalogue.
 - Coordinates: 48.1986546, 16.3684626 (Karlsplatz 13, 1040 Wien, Austria)
 - Description: From Lab to Market: Scaling Europe&rsquo;s Energy Future Join the Energy Launchpad for an engaging discussion about transforming energy research into scalable European startups. Panelists from leading universities and corporations in the DACH region will explore how Europe can accelerate innovation, support startups, and develop a robust European energy ecosystem. Find out what makes the Energy Launchpad unique, learn about the challenges of bringing research to market, and discover how Europe can become a global leader in energy innovation. This event offers valuable insights for startups, investors, corporations, talent, and ecosystem players.
 - Enrichment sources:
+  - https://viennaup.flave.world/user/events/energy-launchpad-shaping-europe-s-energy-future/edit
   - https://launchpad.energy/
   - https://launchpad.energy/
 
@@ -231,6 +236,7 @@ Full generated event catalogue.
 - Coordinates: 48.2212298, 16.395566 (Lassallestraße, Foyer 1 Ecke, Joseph-Roth-Gasse 5, 1020 Wien, Austria)
 - Description: Mobility in Action is a hands-on pitching format by Community creates Mobility where startups present their solution and a current critical ask - from expert feedback and pilot partners to investment. A diverse audience of operators, public sector, investors, researchers and civil society supports with practical input and the right connections. Hosted at the &Ouml;BB Open Innovation Factory, the 2026 Infrastructure Edition focuses on stations, hubs/interchanges, public space, wayfinding, to safety and accessibility.
 - Enrichment sources:
+  - https://viennaup.flave.world/user/events/mobility-in-action/edit
   - https://ivlv.me/3n98w
   - https://www.mobility.community
 
@@ -371,6 +377,7 @@ Full generated event catalogue.
 - Coordinates: 48.210821, 16.3580827 (Friedrich-Schmidt-Platz 1, 1010 Wien, Austria)
 - Description: Day 2 of Impact Days is all about giving space to deepen conversation. With our different Deep Dive Session, spread all around Vienna, you have the chance to explore topics with experts and peers in a newly engaging and profound way.&nbsp;
 - Enrichment sources:
+  - https://viennaup.flave.world/user/events/impact-days/edit
   - https://impactdays.at/
   - https://vienna.impacthub.net/
 
