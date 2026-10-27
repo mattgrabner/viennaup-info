@@ -45,7 +45,6 @@ Full generated event catalogue.
 - Coordinates: 48.2212298, 16.395566 (Lassallestraße, Foyer 1 Ecke, Joseph-Roth-Gasse 5, 1020 Wien, Austria)
 - Description: The Europe Tech Hackathon is an intensive, hands-on innovation experience for people who want to turn ideas into real impact. In Vienna, interdisciplinary teams work on concrete sustainability challenges using technology, AI and data. Throughout the hackathon, participants benefit from experienced mentors from tech, business and sustainability who actively support teams in sharpening ideas, validating assumptions and building functional prototypes. The results are presented to a professional jury of industry and innovation experts, who provide honest, constructive feedback focused on impact, feasibility and scalability. More than a competition, the Europe Tech Hackathon is a unique experience : intense collaboration, rapid learning, strong community spirit and the energy of creating something meaningful together. Join if you want to build, learn and connect.
 - Enrichment sources:
-  - https://viennaup.flave.world/user/events/europe-tech-hackathon/edit
   - https://www.sustainista.net/hackathon
   - https://www.sustainista.net/hackathon
 
@@ -69,7 +68,6 @@ Full generated event catalogue.
 - Coordinates: 48.2212298, 16.395566 (Lassallestraße, Foyer 1 Ecke, Joseph-Roth-Gasse 5, 1020 Wien, Austria)
 - Description: The Europe Tech Hackathon is an intensive, hands-on innovation experience for people who want to turn ideas into real impact. In Vienna, interdisciplinary teams work on concrete sustainability challenges using technology, AI and data. Throughout the hackathon, participants benefit from experienced mentors from tech, business and sustainability who actively support teams in sharpening ideas, validating assumptions and building functional prototypes. The results are presented to a professional jury of industry and innovation experts, who provide honest, constructive feedback focused on impact, feasibility and scalability. More than a competition, the Europe Tech Hackathon is a unique experience : intense collaboration, rapid learning, strong community spirit and the energy of creating something meaningful together. Join if you want to build, learn and connect.
 - Enrichment sources:
-  - https://viennaup.flave.world/user/events/europe-tech-hackathon/edit
   - https://www.sustainista.net/hackathon
   - https://www.sustainista.net/hackathon
 
@@ -116,7 +114,6 @@ Full generated event catalogue.
 - Coordinates: 48.2212298, 16.395566 (Lassallestraße, Foyer 1 Ecke, Joseph-Roth-Gasse 5, 1020 Wien, Austria)
 - Description: The Europe Tech Hackathon is an intensive, hands-on innovation experience for people who want to turn ideas into real impact. In Vienna, interdisciplinary teams work on concrete sustainability challenges using technology, AI and data. Throughout the hackathon, participants benefit from experienced mentors from tech, business and sustainability who actively support teams in sharpening ideas, validating assumptions and building functional prototypes. The results are presented to a professional jury of industry and innovation experts, who provide honest, constructive feedback focused on impact, feasibility and scalability. More than a competition, the Europe Tech Hackathon is a unique experience : intense collaboration, rapid learning, strong community spirit and the energy of creating something meaningful together. Join if you want to build, learn and connect.
 - Enrichment sources:
-  - https://viennaup.flave.world/user/events/europe-tech-hackathon/edit
   - https://www.sustainista.net/hackathon
   - https://www.sustainista.net/hackathon
 
@@ -163,7 +160,6 @@ Full generated event catalogue.
 - Coordinates: 48.20806959999999, 16.3713095 (Vienna, Austria)
 - Description: Step into the Viennese founder spirit at the ViennaUP Coffee House Sessions 2026 ! In hand-picked, invitation-style round tables, selected startups meet experienced investors and industry experts for honest conversations, sharp questions, and connections that can move your venture forward. Expect curated matchmaking by the Vienna Business Agency team after registration to ensure the right mix of people and topics&mdash;so every seat at the table matters. All of this happens in iconic Viennese coffee houses , where big ideas and bold decisions have always belonged. If you&rsquo;re fundraising, scaling, or simply looking for the right network and strategic sparring partners, this is your moment. Apply now and secure your chance to join the Coffee House Sessions at ViennaUP 2026.
 - Enrichment sources:
-  - https://viennaup.flave.world/user/events/viennaup-coffee-house-sessions-2026/edit
   - https://vienna.business/
 
 ## 8. Fundraising Secrets - The Complete Masterplan for Winning Investors and Building Lasting Relationships
@@ -301,7 +297,6 @@ Full generated event catalogue.
 - Coordinates: 48.210821, 16.3580827 (Friedrich-Schmidt-Platz 1, 1010 Wien, Austria)
 - Description: ViennaUP 2026 returns in style: get ready to kick off a week of bold ideas in one of the city&#39;s most magical locations. For this year&#39;s Opening Night, the Vienna Business Agency brings together founders, investors, and ecosystem representatives from around the world in none other than the Vienna City Hall, a place that best captures what the festival is all about: big ambition rooted in a history of innovation. Beneath the light of the chandeliers, in a place that has shaped European culture, we will start forward-thinking conversations that will carry throughout the entire week as we make connections, build networks, and grow our businesses. The event is hosted by the Vienna Business Agency, which initiates and curates ViennaUP, our decentralised, community-driven festival brought to life year after year in partnership with local and international ecosystem players.&nbsp; The evening combines inspiration, substance, and a touch of surprise, including a special keynote by Fredrik Debong, serial entrepreneur and founder of mySugr, a Viennese buffet, and much more. Expect exciting encounters and fresh perspectives, all against a breathtaking backdrop. See you in Vienna!
 - Enrichment sources:
-  - https://viennaup.flave.world/user/events/viennaup-2026-opening-night/edit
   - https://viennabusinessagency.at/
 
 ## 14. ViennaUP Coffee House Sessions 2026
@@ -324,7 +319,6 @@ Full generated event catalogue.
 - Coordinates: 48.20806959999999, 16.3713095 (Vienna, Austria)
 - Description: Step into the Viennese founder spirit at the ViennaUP Coffee House Sessions 2026 ! In hand-picked, invitation-style round tables, selected startups meet experienced investors and industry experts for formal conversations, sharp questions, and connections that can move your venture forward. Expect curated matchmaking by the Vienna Business Agency team after registration to ensure the right mix of people and topics&mdash;so every seat at the table matters. All of this happens in iconic Viennese coffee houses , where big ideas and bold decisions have always belonged. If you&rsquo;re fundraising, scaling, or simply looking for the right network and strategic sparring partners, this is your moment. Apply now and secure your chance to join the Coffee House Sessions at ViennaUP 2026.
 - Enrichment sources:
-  - https://viennaup.flave.world/user/events/viennaup-coffee-house-sessions-2026/edit
   - https://vienna.business/
 
 ## 15. Connect Day 26
@@ -347,7 +341,6 @@ Full generated event catalogue.
 - Coordinates: 48.1899767, 16.3679734 (Wiedner Hauptstraße 63, 1040 Wien, Austria)
 - Description: Connect Day 26 is the #1 platform for fostering connections among startups, corporates, SMEs, and investors. The event is designed to spark partnerships, promote innovation, and provide opportunities for pitching your ideas. What to expect: B2B Matchmaking 1:1 : 15-minute targeted &quot;speed dating&quot; with startups, corporates, and investors to explore potential collaborations and validate your ideas. Taking place throughout the entire day. 4 Topics each incl. startup pitches &amp; expert panel: Dive into the topics through interactive panels, expert Q&amp;A, and six startup pitches per session. FrontierTech &amp; AI GreenTech &amp; Manufacturing MedTech &amp; LifeScience UrbanTech, Mobility &amp; EnergyTransition Expo Area : Startups and corporates present themselves to an innovation-driven audience. Corporate Reverse Pitches : Corporates and SMEs pitch their collaboration opportunities directly to startups. Join the dynamic innovation ecosystem of Austria and Europe in a focused, engaging, and impactful day of networking and knowledge-sharing. Apply now to secure your spot ! Access to Connect Day is only possible after being accepted/activated on www.connectday.at.
 - Enrichment sources:
-  - https://viennaup.flave.world/user/events/connect-day-26/edit
   - https://www.connectday.at
   - https://www.aws.at/en/
 
@@ -394,7 +387,6 @@ Full generated event catalogue.
 - Coordinates: 48.2228617, 16.3900071 (Nordbahnstraße 47, 1020 Wien, Austria)
 - Description: Fostering change through real connections. ​The world may feel like it&rsquo;s going crazy. Instead of complaining, we created&nbsp; FFX &nbsp;&ndash; a space for trusted, authentic, and lasting connections. ​We bring together Europe&rsquo;s leading&nbsp; founders, investors, and leaders &nbsp;to learn from each other, exchange openly, and build relationships that last a lifetime. And yes, this is a&nbsp; women-only event . ​This time, we bundle strengths as we know it&#39;s the only path forward for&nbsp; radical change : FFX joins forces with &nbsp;ViennaUP &nbsp;to bring the Austrian and European ecosystems together.
 - Enrichment sources:
-  - https://viennaup.flave.world/user/events/the-female-founders-experience-vienna-2026/edit
   - https://female-founders.org/
 
 ## 18. Salon Future: Connecting Startup Ecosystems
@@ -510,7 +502,6 @@ Full generated event catalogue.
 - Coordinates: 48.20806959999999, 16.3713095 (Vienna, Austria)
 - Description: Step into the Viennese founder spirit at the ViennaUP Coffee House Sessions 2026 ! In hand-picked, invitation-style round tables, selected startups meet experienced investors and industry experts for honest conversations, sharp questions, and connections that can move your venture forward. Expect curated matchmaking by the Vienna Business Agency team after registration to ensure the right mix of people and topics&mdash;so every seat at the table matters. All of this happens in iconic Viennese coffee houses , where big ideas and bold decisions have always belonged. If you&rsquo;re fundraising, scaling, or simply looking for the right network and strategic sparring partners, this is your moment. Apply now and secure your chance to join the Coffee House Sessions at ViennaUP 2026.
 - Enrichment sources:
-  - https://viennaup.flave.world/user/events/viennaup-coffee-house-sessions-2026/edit
   - https://vienna.business/
 
 ## 23. HOIV Founder Huddle 2026: Pitch, Build & Scale
@@ -534,6 +525,8 @@ Full generated event catalogue.
 - Description: HOIV Founder Huddle 2026 is a focused, consultation-driven session designed for a curated group of startup teams who are actively building and looking for meaningful strategic input. As part of ViennaUP, the session enables a space where founders can openly discuss real challenges and receive practical, experience-driven feedback. This is not a traditional demo day or pitch competition. Instead, it is a structured working session that blends elements of a workshop, meet-the-expert format, and moderated group discussion. Selected startups will join experienced operators, investors, VCs, banks, and industry experts in a structured working format. - It is an open setting designed for real conversation. - The focus is on real topics that founders face every day &mdash; from market positioning and product direction to fundraising preparation, operational bottlenecks, team dynamics, and scaling decisions.&nbsp;
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/hoiv-founder-huddle-2026-pitch-build-scale/edit
+  - https://homeofinnovationx.com/events/
+  - https://homeofinnovationx.com/
 
 ## 24. Lab to Leader: Building Science Ventures That Last
 
@@ -625,7 +618,6 @@ Full generated event catalogue.
 - Coordinates: 48.2228617, 16.3900071 (Nordbahnstraße 47, 1020 Wien, Austria)
 - Description: What Makes FFX Unique? ​ Curated &amp; Application-Only 120 participants: founders, investors, leaders. Every profile is carefully selected to ensure the right mix and the right energy.&nbsp; No randomness, no crowd. ​ Hub Agendas Forget FOMO. At FFX, you don&rsquo;t need to choose between sessions or stress about missing out. We design your hub agenda so you can focus fully on connecting, learning, and enjoying the experience. ​ Real Engagement No endless pitches. No empty networking. Just&nbsp; in-depth conversations, genuine connections, and lasting collaborations.
 - Enrichment sources:
-  - https://viennaup.flave.world/user/events/the-female-founders-experience-vienna-2026/edit
   - https://female-founders.org/
 
 ## 28. Road to Global x Tech Summit
@@ -696,6 +688,8 @@ Full generated event catalogue.
 - Description: Where Tech, Capital, and Culture Collide. &nbsp;Skip the hype. Get to the deals. Building on our successful Grand Opening at ViennaUP 2025, we will host a dynamic happening at our hub that merges creativity, technology, and investment into a tangible, experience-driven format . We are transforming the HOIV hub into the ultimate arena for founders, VCs, and tech builders to connect and close. Why You Need to Be There: Direct Access: Skip the gatekeepers. Meet face-to-face with investors and industry leaders across our stages, studios, and networking zones. Tangible Action: Dive into curated workshops, rapid-fire pitches , and live music-tech performances . The Full Experience: Navigate interactive tech installations, outdoor relaxation areas , a dynamic food court, and an ViennaUP WarmUP Afterparty and Vernissage . This is where capital meets creation. Stop talking about innovation and come build it.
 - Enrichment sources:
   - https://viennaup.flave.world/user/events/hoiv-fusion-the-beat-of-innovation/edit
+  - https://homeofinnovationx.com/events/
+  - https://homeofinnovationx.com/
 
 ## 31. Creative Days Vienna 2026
 
@@ -788,7 +782,6 @@ Full generated event catalogue.
 - Coordinates: 48.20806959999999, 16.3713095 (Vienna, Austria)
 - Description: Step into the Viennese founder spirit at the ViennaUP Coffee House Sessions 2026 ! In hand-picked, invitation-style round tables, selected startups meet experienced investors and industry experts for honest conversations, sharp questions, and connections that can move your venture forward. Expect curated matchmaking by the Vienna Business Agency team after registration to ensure the right mix of people and topics&mdash;so every seat at the table matters. All of this happens in iconic Viennese coffee houses , where big ideas and bold decisions have always belonged. If you&rsquo;re fundraising, scaling, or simply looking for the right network and strategic sparring partners, this is your moment. Apply now and secure your chance to join the Coffee House Sessions at ViennaUP 2026.
 - Enrichment sources:
-  - https://viennaup.flave.world/user/events/viennaup-coffee-house-sessions-2026/edit
   - https://vienna.business/
 
 ## 35. Road to Global x Tech Summit
@@ -1093,7 +1086,6 @@ Full generated event catalogue.
 - Coordinates: 48.20806959999999, 16.3713095 (Vienna, Austria)
 - Description: Step into the Viennese founder spirit at the ViennaUP Coffee House Sessions 2026 ! In hand-picked, invitation-style round tables, selected startups meet experienced investors and industry experts for honest conversations, sharp questions, and connections that can move your venture forward. Expect curated matchmaking by the Vienna Business Agency team after registration to ensure the right mix of people and topics&mdash;so every seat at the table matters. All of this happens in iconic Viennese coffee houses , where big ideas and bold decisions have always belonged. If you&rsquo;re fundraising, scaling, or simply looking for the right network and strategic sparring partners, this is your moment. Apply now and secure your chance to join the Coffee House Sessions at ViennaUP 2026.
 - Enrichment sources:
-  - https://viennaup.flave.world/user/events/viennaup-coffee-house-sessions-2026/edit
   - https://vienna.business/
 
 ## 48. Founders & Future Founders Breakfast
